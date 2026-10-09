@@ -15,90 +15,108 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-/* Landing: a live hero, a strip of live numbers, then one band per audience, each with a real screenshot. */
+/* Landing. Black field, a live Earth rising from the bottom of the hero like a horizon,
+   pill navigation and buttons, an editorial serif for the headline. */
+:root{
+  --void:#000; --deep:#04070f; --glow:#2f7bff; --glow-soft:rgba(47,123,255,.35); --ice:#cfe6ff;
+  --pill:rgba(255,255,255,.06); --pill-line:rgba(255,255,255,.14);
+  --serif:"Instrument Serif","Iowan Old Style","Palatino Linotype",Georgia,serif;
+}
+body.home{background:var(--void)}
+body.home::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.55;
+  background-image:radial-gradient(1px 1px at 30px 40px,#fff,transparent),radial-gradient(1px 1px at 140px 220px,#cfe6ff,transparent),radial-gradient(1.4px 1.4px at 260px 90px,#fff,transparent),radial-gradient(1px 1px at 330px 300px,#fff,transparent),radial-gradient(1px 1px at 380px 160px,#cfe6ff,transparent);
+  background-size:420px 420px}
+/* Pill navigation (restyles the shared header on this page only) */
+body.home .top{position:absolute;left:0;right:0;top:0;background:transparent;border:0;backdrop-filter:none;height:auto;padding:18px 20px;justify-content:space-between}
+body.home .top nav{flex:0 1 auto;margin:0 auto;background:var(--pill);border:1px solid var(--pill-line);border-radius:999px;padding:5px;backdrop-filter:blur(12px)}
+body.home .top nav a{border-radius:999px;padding:6px 13px;font-size:.88rem}
+body.home .top .acct{margin-left:0;border-radius:999px;background:#fff;color:#04070f;border-color:transparent;font-weight:600}
+@media(max-width:860px){body.home .top nav{display:none}}
+
+.hero{position:relative;overflow:hidden;min-height:min(900px,100svh);display:flex;flex-direction:column;align-items:center;text-align:center;padding:150px 16px 0;isolation:isolate}
+.hero::after{content:"";position:absolute;left:50%;bottom:-10%;width:130vw;height:60%;transform:translateX(-50%);z-index:-1;
+  background:radial-gradient(ellipse 50% 45% at 50% 100%,var(--glow-soft),transparent 70%);pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ice);background:var(--pill);border:1px solid var(--pill-line);border-radius:999px;padding:6px 14px 6px 10px;backdrop-filter:blur(8px)}
+.badge .live{width:8px;height:8px;border-radius:50%;background:var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(107,227,164,.55)}70%{box-shadow:0 0 0 8px rgba(107,227,164,0)}100%{box-shadow:0 0 0 0 rgba(107,227,164,0)}}
+.hero h1{font:400 clamp(3rem,8.4vw,6.6rem)/.98 var(--serif);letter-spacing:-.015em;margin:22px 0 0;max-width:13ch;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--ice)}
+.hero .lede{color:#aab6cc;font-size:1.08rem;max-width:56ch;margin:20px auto 30px}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.pbtn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font:600 .95rem "Inter",sans-serif;text-decoration:none;border:1px solid var(--pill-line);color:var(--text);background:var(--pill);backdrop-filter:blur(8px);transition:background .15s,border-color .15s}
+.pbtn:hover{background:rgba(255,255,255,.12)}
+.pbtn.solid{background:#fff;color:#04070f;border-color:#fff}
+.pbtn.solid:hover{background:var(--ice)}
+.pbtn .arr{transition:transform .15s}.pbtn:hover .arr{transform:translateX(3px)}
+/* The live globe as a horizon */
+.horizon{position:relative;width:min(1500px,170vw);aspect-ratio:1/1;margin-top:clamp(40px,6vw,70px);margin-bottom:calc(min(1500px,170vw) * -0.66);cursor:pointer;display:block;z-index:-1}
+.horizon canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-tag{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-size:.8rem;color:var(--ice);background:rgba(0,0,0,.45);border:1px solid var(--pill-line);border-radius:999px;padding:5px 14px;white-space:nowrap;max-width:92vw;overflow:hidden;text-overflow:ellipsis}
+
 .land{width:min(1180px,100% - 32px);margin:0 auto}
-.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:center;padding:48px 0 28px}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:28px}}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
-.eyebrow .live{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(107,227,164,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(107,227,164,0)}100%{box-shadow:0 0 0 0 rgba(107,227,164,0)}}
-.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--accent)}
-.hero .lede{font-size:1.1rem;margin:18px 0 26px;max-width:58ch}
-.cta{display:flex;flex-wrap:wrap;gap:10px}
-.cta .btn{padding:11px 18px;font-size:.97rem}
-.globe-box{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center;border-radius:50%;cursor:pointer}
-.globe-box canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.globe-box .tag{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;color:var(--mute);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
-.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:8px 0 0}
-.stat{background:var(--card);padding:16px 18px;min-width:0}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--pill-line);border:1px solid var(--pill-line);border-radius:22px;overflow:hidden;margin:34px 0 0}
+.stat{background:var(--deep);padding:18px 20px;min-width:0}
 .stat .k{color:var(--mute);font-size:.8rem}
-.stat .v{font:600 1.45rem/1.2 var(--head);margin-top:4px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
-.stat .s{color:var(--dim);font-size:.78rem;margin-top:2px}
-.band{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:72px 0 0}
+.stat .v{font:400 2rem/1.1 var(--serif);margin-top:6px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;color:#fff}
+.stat .s{color:var(--dim);font-size:.78rem;margin-top:3px}
+.made{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px 26px;margin:42px 0 0;color:var(--dim);font-size:.82rem}
+.made a{color:#9aa6bd;text-decoration:none;font:500 .95rem "Space Grotesk",sans-serif;letter-spacing:.01em}
+.made a:hover{color:#fff}
+.band{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center;padding:110px 0 0}
 .band.flip{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
 .band.flip .copy{order:2}
-.band > *,.hero > *{min-width:0}
-.globe-box .tag{max-width:92%;overflow:hidden;text-overflow:ellipsis}
-@media(max-width:900px){.band,.band.flip{grid-template-columns:1fr;gap:20px;padding-top:56px}.band.flip .copy{order:0}}
-.kicker{color:var(--accent);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
-.band h2,.sec h2{font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.015em;text-wrap:balance}
-.band p{color:#c3cbdb;max-width:56ch}
-.band ul{margin:14px 0 18px;padding-left:18px;color:#c3cbdb}
-.band li{margin:5px 0}
-.shot{border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#0a1020;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.band > *{min-width:0}
+@media(max-width:900px){.band,.band.flip{grid-template-columns:1fr;gap:22px;padding-top:72px}.band.flip .copy{order:0}}
+.kicker{display:inline-block;color:var(--ice);font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--pill-line);border-radius:999px;padding:4px 12px;margin:0 0 14px}
+.band h2,.sec h2{font:400 clamp(2.1rem,4.2vw,3.2rem)/1.04 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.band p,.band ul{color:#aab6cc;max-width:54ch}
+.band ul{margin:14px 0 22px;padding-left:18px}.band li{margin:5px 0}
+.band .btn,.sec .btn,.final .btn{border-radius:999px}
+.shot{position:relative;border:1px solid var(--pill-line);border-radius:18px;overflow:hidden;background:#05080f;box-shadow:0 0 0 1px rgba(47,123,255,.08),0 40px 80px -40px rgba(47,123,255,.55)}
 .shot img{display:block;width:100%;height:auto}
 .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:560px){.pair{grid-template-columns:1fr}}
-.sec{padding:84px 0 0}
-.sec > p.lede{margin-top:10px}
-.claude{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:26px}
-.claude .card h3{font-size:1.08rem;margin:0 0 8px}
-.claude .card p{color:#c3cbdb;margin:0;font-size:.95rem}
-.claude .num{font:600 2rem var(--head);color:var(--accent);margin-bottom:4px;font-variant-numeric:tabular-nums}
-.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
-.who div{border-top:2px solid var(--accent);padding-top:12px}
-.who h3{font-size:1rem;margin:0 0 6px}
-.who p{margin:0;color:var(--mute);font-size:.92rem}
-.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:22px}
-.trust h3{font-size:1rem;margin:0 0 6px}
-.trust p{margin:0;color:#c3cbdb;font-size:.94rem}
-.sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.sources a{color:var(--mute);text-decoration:none;border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:.84rem}
+.code pre{margin:0;font-size:.82rem;border-radius:18px;border-color:var(--pill-line);background:#05080f;box-shadow:0 40px 80px -40px rgba(47,123,255,.45)}
+.sec{padding:120px 0 0;text-align:center}
+.sec > .lede{margin:14px auto 0;color:#aab6cc}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:32px}
+.who div{border-top:1px solid var(--pill-line);padding-top:14px}
+.who h3{font-size:1rem;margin:0 0 6px}.who p{margin:0;color:var(--mute);font-size:.92rem}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;margin-top:30px}
+.trust h3{font-size:1rem;margin:0 0 6px}.trust p{margin:0;color:#aab6cc;font-size:.94rem}
+.sources{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px}
+.sources a{color:var(--mute);text-decoration:none;border:1px solid var(--pill-line);border-radius:999px;padding:5px 13px;font-size:.84rem}
 .sources a:hover{color:var(--text)}
-.status{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:22px}
+.status{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:30px}
 .status ul{list-style:none;margin:10px 0 0;padding:0}
-.status li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.status li{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line);font-size:.94rem}
 .status li:last-child{border-bottom:0}
-.code{margin:16px 0 0}
-.code pre{margin:0;font-size:.82rem}
-.final{margin:90px 0 0;padding:clamp(28px,5vw,54px);border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at 80% 0%,#12274a 0%,#0b1120 60%);display:grid;gap:14px}
-.final h2{font-size:clamp(1.7rem,3.6vw,2.6rem);text-wrap:balance}
-.contact{color:var(--mute);font-size:.92rem}
+.final{position:relative;overflow:hidden;margin:120px 0 0;padding:clamp(40px,7vw,90px) 24px;border:1px solid var(--pill-line);border-radius:28px;text-align:center;
+  background:radial-gradient(ellipse 60% 70% at 50% 120%,rgba(47,123,255,.55),transparent 70%),var(--deep)}
+.final h2{font:400 clamp(2.2rem,5vw,3.6rem)/1.02 var(--serif);text-wrap:balance}
+.final .pills{margin-top:24px}
+.contact{color:var(--mute);font-size:.92rem;margin-top:18px}
 .contact code{user-select:all}
-@media (prefers-reduced-motion:reduce){.eyebrow .live{animation:none}}
+@media (prefers-reduced-motion:reduce){.badge .live{animation:none}.pbtn .arr{transition:none}}
 </style>
 </head>
-<body>
+<body class="home">
+<section class="hero">
+  <span class="badge"><span class="live" aria-hidden="true"></span><span id="heroBadge">Live from open orbital data</span></span>
+  <h1>Everything humans have put in <em>space</em>, live.</h1>
+  <p class="lede">Orbitry puts <strong data-n="objects">every active satellite</strong> on a live 3D globe, marks every lander, rover and impact site on the Moon and Mars, and follows the probes leaving the solar system. Every view says how old its data is and how far to trust it.</p>
+  <div class="pills">
+    <a class="pbtn solid" href="/globe/">Open the live globe <span class="arr" aria-hidden="true">→</span></a>
+    <a class="pbtn" href="/passes/?norad=25544">When can I see the ISS?</a>
+  </div>
+  <a class="horizon" href="/globe/" aria-label="Open the live globe">
+    <canvas id="heroGlobe" role="img" aria-label="The Earth rising like a horizon, surrounded by live satellite positions"></canvas>
+  </a>
+  <span class="hero-tag" id="heroTag">Loading live positions…</span>
+</section>
 <main class="land">
-  <section class="hero">
-    <div>
-      <p class="eyebrow"><span class="live" aria-hidden="true"></span>Live, from open data</p>
-      <h1>See everything humans have put in <em>space</em>.</h1>
-      <p class="lede">Orbitry puts <strong data-n="objects">every active satellite</strong> on a live 3D globe, marks every lander, rover and impact site on the Moon and Mars at its real coordinates, and follows the probes leaving the solar system. Every view says how old its data is and how far to trust it.</p>
-      <div class="cta">
-        <a class="btn primary" href="/globe/">Open the live globe</a>
-        <a class="btn" href="/passes/?norad=25544">When can I see the ISS?</a>
-        <a class="btn ghost" href="/developers/">API &amp; embeds</a>
-      </div>
-    </div>
-    <a class="globe-box" href="/globe/" aria-label="Open the live globe">
-      <canvas id="heroGlobe" role="img" aria-label="Live globe of active satellites, colored by purpose"></canvas>
-      <span class="tag" id="heroTag">Loading live positions…</span>
-    </a>
-  </section>
-
   <div class="strip" aria-label="Live numbers">
     <div class="stat"><div class="k">Tracked in Earth orbit</div><div class="v" id="sObjects">—</div><div class="s">active objects, positioned live</div></div>
     <div class="stat"><div class="k">Orbital data refreshed</div><div class="v" id="sFresh">—</div><div class="s">from CelesTrak, every two hours</div></div>
@@ -107,6 +125,7 @@
     <div class="stat"><div class="k">Next launch</div><div class="v" id="sLaunch">—</div><div class="s" id="sLaunchSub">&nbsp;</div></div>
     <div class="stat"><div class="k">Reviewed summaries</div><div class="v" id="sReviewed">—</div><div class="s">drafted by Claude from sourced records</div></div>
   </div>
+  <p class="made">Built on open data from <a href="https://celestrak.org" rel="noopener">CelesTrak</a><a href="https://ssd.jpl.nasa.gov/horizons/" rel="noopener">NASA/JPL Horizons</a><a href="https://planet4589.org/space/gcat/" rel="noopener">McDowell GCAT</a><a href="https://thespacedevs.com/llapi" rel="noopener">The Space Devs</a><a href="https://commons.wikimedia.org" rel="noopener">Wikimedia Commons</a></p>
 
   <section class="band">
     <div class="copy">
@@ -180,16 +199,6 @@
         width="100%" height="480" title="Live satellite globe"&gt;&lt;/iframe&gt;</code></pre></div>
   </section>
 
-  <section class="sec">
-    <p class="kicker">How Orbitry uses Claude</p>
-    <h2>Built with Claude, checked by people</h2>
-    <p class="lede">Orbitry is a small, independent project. Claude drafts its writing and helped build its code; a person decides what gets published.</p>
-    <div class="claude">
-      <div class="card"><div class="num" id="sSummaries">—</div><h3>Summaries drafted by Claude, approved by a person</h3><p>Claude writes each object's plain-language summary using only the facts in its sourced record, and ties every sentence to the fact it came from. Nothing is published until a person has checked it against the sources.</p></div>
-      <div class="card"><div class="num">47</div><h3>Automated tests, and the code they check, written with Claude Code</h3><p>The globe, the orbital mechanics, the data pipeline that merges eight public sources, and the API were built with Claude Code, from an empty repository to a working product.</p></div>
-      <div class="card"><div class="num">Ask</div><h3>Questions answered from the record</h3><p>Visitors can ask about any object. Claude answers using only that object's sourced facts, shows the facts behind each sentence, and says plainly when the record doesn't cover the question.</p></div>
-    </div>
-  </section>
 
   <section class="sec">
     <p class="kicker">Who it's for</p>
@@ -240,7 +249,7 @@
 
   <section class="final">
     <h2>Start with the sky above you.</h2>
-    <div class="cta"><a class="btn primary" href="/globe/">Open the live globe</a><a class="btn" href="/passes/">See what's passing over</a></div>
+    <div class="pills"><a class="pbtn solid" href="/globe/">Open the live globe <span class="arr" aria-hidden="true">→</span></a><a class="pbtn" href="/passes/">See what's passing over</a></div>
     <p class="contact">Questions, partnerships or press: <code>crice@orbitry.net</code></p>
   </section>
 </main>

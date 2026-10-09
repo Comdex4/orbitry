@@ -9,43 +9,59 @@
   "apollo-lm": {
    "path": "3D Models/Apollo Lunar Module/Apollo Lunar Module.glb",
    "title": "Apollo Lunar Module",
-   "note": "The complete lander as flown; only the descent stage remains on the Moon."
+   "note": "The complete lander as flown; only the descent stage remains on the Moon.",
+   "height_m": 7
   },
   "viking-lander": {
    "path": "3D Models/Viking Lander/Viking Lander.glb",
-   "title": "Viking Lander"
+   "title": "Viking Lander",
+   "height_m": 2.1
   },
   "opportunity": {
    "path": "3D Models/Mars Exploration Rover - Opportunity (MER-B)/Mars Exploration Rover - Opportunity (MER-B).glb",
-   "title": "Mars Exploration Rover"
+   "title": "Mars Exploration Rover",
+   "height_m": 1.5
+  },
+  "spirit": {
+   "path": "3D Models/Mars Exploration Rover - Opportunity (MER-B)/Mars Exploration Rover - Opportunity (MER-B).glb",
+   "title": "Mars Exploration Rover",
+   "height_m": 1.5,
+   "note": "Spirit and Opportunity were identical twins; this is NASA's model of Opportunity."
   },
   "insight": {
    "path": "3D Models/InSight Cruise Lander/InSight Cruise Lander (panels deployed).glb",
-   "title": "InSight lander"
+   "title": "InSight lander",
+   "height_m": 1.1
   },
   "perseverance": {
    "path": "3D Models/Mars 2020 Perseverance Rover/Mars 2020 Perseverance Rover.glb",
-   "title": "Perseverance rover"
+   "title": "Perseverance rover",
+   "height_m": 2.2
   },
   "ladee": {
    "path": "3D Models/Lunar Atmosphere and Dust Environment Explorer (LADEE)/Lunar Atmosphere and Dust Environment Explorer (LADEE).glb",
-   "title": "LADEE"
+   "title": "LADEE",
+   "height_m": 2.4
   },
   "lro": {
    "path": "3D Models/Lunar Reconnaissance Orbiter (A)/Lunar Reconnaissance Orbiter (A).glb",
-   "title": "Lunar Reconnaissance Orbiter"
+   "title": "Lunar Reconnaissance Orbiter",
+   "height_m": 3.9
   },
   "mars-odyssey": {
    "path": "3D Models/Mars Odyssey/Mars Odyssey.glb",
-   "title": "2001 Mars Odyssey"
+   "title": "2001 Mars Odyssey",
+   "height_m": 2.2
   },
   "mro": {
    "path": "3D Models/Mars Reconnaissance Orbiter (MRO) (A)/Mars Reconnaissance Orbiter (MRO) (A).glb",
-   "title": "Mars Reconnaissance Orbiter"
+   "title": "Mars Reconnaissance Orbiter",
+   "height_m": 6.5
   },
   "maven": {
    "path": "3D Models/Mars Atmosphere and Volatile EvolutioN (MAVEN) (A)/Mars Atmosphere and Volatile EvolutioN (MAVEN) (A).glb",
-   "title": "MAVEN"
+   "title": "MAVEN",
+   "height_m": 3.5
   },
   "voyager": {
    "path": "3D Models/Voyager Probe (A)/Voyager Probe (A).glb",

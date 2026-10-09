@@ -15,8 +15,8 @@
    "country": "USSR",
    "launch_date": "1971-05-19",
    "arrival_date": "1971-11-27",
-   "lat": -45.0,
-   "lon": 47.0,
+   "lat": -45,
+   "lon": 47,
    "outcome": "failure",
    "facts": [
     "First human-made object to reach the surface of Mars; crashed. Coordinates are approximate."
@@ -41,8 +41,8 @@
    "country": "USSR",
    "launch_date": "1971-05-28",
    "arrival_date": "1971-12-02",
-   "lat": -45.0,
-   "lon": -158.0,
+   "lat": -45,
+   "lon": -158,
    "outcome": "partial",
    "facts": [
     "First soft landing on Mars; contact was lost about 20 seconds after landing. Coordinates are approximate."
@@ -74,6 +74,7 @@
     "First fully successful Mars landing; operated until 1982."
    ],
    "wikipedia": "Viking_1",
+   "model": "viking-lander",
    "sources": [
     {
      "title": "Wikipedia: Viking 1",
@@ -100,6 +101,7 @@
     "Operated in Utopia Planitia until 1980."
    ],
    "wikipedia": "Viking_2",
+   "model": "viking-lander",
    "sources": [
     {
      "title": "Wikipedia: Viking 2",
@@ -178,6 +180,7 @@
     "Coordinates are the landing site in Gusev crater."
    ],
    "wikipedia": "Spirit_(rover)",
+   "model": "spirit",
    "sources": [
     {
      "title": "Wikipedia: Spirit (rover)",
@@ -204,6 +207,7 @@
     "Drove more than 45 km over almost 15 years. Coordinates are the landing site in Meridiani Planum."
    ],
    "wikipedia": "Opportunity_(rover)",
+   "model": "opportunity",
    "sources": [
     {
      "title": "Wikipedia: Opportunity (rover)",
@@ -308,6 +312,7 @@
     "Recorded more than 1,300 marsquakes before its mission ended in 2022."
    ],
    "wikipedia": "InSight",
+   "model": "insight",
    "sources": [
     {
      "title": "Wikipedia: InSight",
@@ -335,6 +340,7 @@
     "Carried the Ingenuity helicopter, the first powered aircraft to fly on another planet."
    ],
    "wikipedia": "Perseverance_(rover)",
+   "model": "perseverance",
    "sources": [
     {
      "title": "Wikipedia: Perseverance (rover)",

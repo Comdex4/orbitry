@@ -30,7 +30,7 @@ export function modelUrl(models, key) {
   const m = models.models[key];
   if (!m) return null;
   const p = m.path.split('/').map(encodeURIComponent).join('/');
-  return { url: `https://raw.githubusercontent.com/${models.repo}/${models.commit}/${p}`, title: m.title, note: m.note || null, license: models.license, source: `https://github.com/${models.repo}` };
+  return { url: `https://raw.githubusercontent.com/${models.repo}/${models.commit}/${p}`, title: m.title, note: m.note || null, height_m: m.height_m || null, license: models.license, source: `https://github.com/${models.repo}` };
 }
 
 // NORAD → model, keeping only matches whose catalog name confirms the number.
