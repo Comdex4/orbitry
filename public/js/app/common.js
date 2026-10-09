@@ -7,7 +7,7 @@ export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&a
 
 const LOGO = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6" fill="#5cc8ff"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(-25 16 16)" fill="none" stroke="#e9edf6" stroke-width="1.6"/><circle cx="26.8" cy="8.7" r="2" fill="#ffb454"/></svg>';
 const NAV = [
-  ['/', 'Earth'], ['/moon/', 'Moon'], ['/mars/', 'Mars'], ['/solar-system/', 'Deep space'],
+  ['/globe/', 'Globe'], ['/moon/', 'Moon'], ['/mars/', 'Mars'], ['/solar-system/', 'Deep space'],
   ['/launches/', 'Launches'], ['/passes/', 'Passes'], ['/planner/', 'Astro planner'], ['/developers/', 'API']
 ];
 

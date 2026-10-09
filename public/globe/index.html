@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orbitry — every tracked object in Earth orbit, live</title>
+<meta name="description" content="A live 3D globe of every publicly tracked active satellite, colored by orbit, operator, country or purpose. Search, rewind or fast-forward time, and see how old the data is.">
+<meta property="og:title" content="Orbitry — everything humans have put in space">
+<meta property="og:description" content="Live 3D globe of active satellites, with the Moon, Mars, deep-space probes, launches and pass predictions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orbitry.net/">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body class="app">
+<main class="app-main" id="stage">
+  <h1 class="sr">Live globe of objects in Earth orbit</h1>
+  <canvas class="view" id="canvas" role="img" aria-label="Interactive 3D globe of active satellites. Drag to rotate, scroll or pinch to zoom, click a point for details."></canvas>
+
+  <aside class="float side panel" id="side">
+    <div class="scroll">
+      <div class="always">
+        <label class="sr" for="q">Search</label>
+        <input id="q" type="search" placeholder="Search name or NORAD ID (try ISS)" autocomplete="off" style="width:100%">
+        <ul class="sugg" id="sugg" hidden></ul>
+      </div>
+      <h2>Color by</h2>
+      <div class="seg" role="group" aria-label="Color by" id="colorBy">
+        <button type="button" data-mode="orbit" aria-pressed="true">Orbit</button>
+        <button type="button" data-mode="purpose" aria-pressed="false">Purpose</button>
+        <button type="button" data-mode="country" aria-pressed="false">Country</button>
+        <button type="button" data-mode="operator" aria-pressed="false">Operator</button>
+      </div>
+      <h2>Show <span class="dim" style="text-transform:none;letter-spacing:0">(click to toggle)</span></h2>
+      <div class="legend" id="legend"></div>
+      <h2>Object type</h2>
+      <div class="seg" role="group" aria-label="Object type" id="typeFilter">
+        <button type="button" data-t="all" aria-pressed="true">All</button>
+        <button type="button" data-t="PAY" aria-pressed="false">Payloads</button>
+        <button type="button" data-t="other" aria-pressed="false">Rocket bodies &amp; debris</button>
+      </div>
+      <p class="dim" style="font-size:.78rem;margin-top:12px">This view uses CelesTrak's <em>active</em> set, so most debris is not shown.</p>
+      <h2>Data</h2>
+      <p class="mute" id="fresh" style="font-size:.8rem;margin:0">Loading orbital data…</p>
+      <p class="always" style="margin-top:10px"><button class="btn small ghost" type="button" id="collapse">Hide filters</button></p>
+    </div>
+  </aside>
+
+  <aside class="float details panel" id="info" hidden aria-live="polite">
+    <button class="close" id="infoX" type="button" aria-label="Close details">×</button>
+    <h3 id="iName"></h3>
+    <p class="sub" id="iSub"></p>
+    <p id="iOver" style="font-size:.86rem;color:#c9d1e0;margin:0 0 12px"></p>
+    <dl class="facts" id="iDl"></dl>
+    <p class="notice" id="iAcc" style="margin-top:12px"></p>
+    <div class="row" style="margin-top:12px">
+      <a class="btn small primary" id="iPage" href="#">Object page</a>
+      <a class="btn small" id="iPass" href="#">Passes over me</a>
+      <button class="btn small" id="iFav" type="button" hidden>☆ Favorite</button>
+    </div>
+  </aside>
+
+  <div class="float timebar panel" id="timebar">
+    <div class="seg" role="group" aria-label="Playback speed" id="speeds">
+      <button type="button" data-s="-600" aria-pressed="false" title="Rewind at 600×">◀◀</button>
+      <button type="button" data-s="-60" aria-pressed="false" title="Rewind at 60×">◀</button>
+      <button type="button" data-s="0" aria-pressed="false" title="Pause">❚❚</button>
+      <button type="button" data-s="1" aria-pressed="true" title="Real time">1×</button>
+      <button type="button" data-s="60" aria-pressed="false" title="60× faster">60×</button>
+      <button type="button" data-s="600" aria-pressed="false" title="600× faster">600×</button>
+      <button type="button" data-s="3600" aria-pressed="false" title="3600× faster">1 h/s</button>
+    </div>
+    <span class="clock" id="clock" aria-live="off">--</span>
+    <label class="sr" for="jump">Jump to time</label>
+    <input type="range" id="jump" min="-72" max="72" step="1" value="0" title="Jump up to 3 days back or ahead">
+    <button class="btn small" type="button" id="now">Now</button>
+    <span class="row" style="gap:4px"><button class="btn small" type="button" id="zin" aria-label="Zoom in">+</button><button class="btn small" type="button" id="zout" aria-label="Zoom out">−</button></span>
+  </div>
+
+  <div class="loading" id="loading"><div><div class="spin"></div>Loading live orbital data…</div></div>
+</main>
+<noscript><p style="text-align:center;color:#93a0b8">The interactive globe needs JavaScript. The data is also available from the <a href="/developers/">Orbitry API</a>.</p></noscript>
+<script type="module" src="/js/app/earth.js"></script>
+</body>
+</html>

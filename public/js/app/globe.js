@@ -38,11 +38,11 @@ export function grouping(mode, objects) {
 }
 
 export class Globe {
-  constructor(canvas, { onSelect, onTick, interactive = true } = {}) {
+  constructor(canvas, { onSelect, onTick, interactive = true, autoRotate = interactive } = {}) {
     this.canvas = canvas; this.onSelect = onSelect; this.onTick = onTick;
     this.objects = []; this.N = 0; this.sel = -1; this.hidden = new Set();
     this.simMs = Date.now(); this.speed = 1; this.playing = true;
-    this.rotX = 0.45; this.rotY = 0.2; this.camDist = 3.6; this.camCur = 3.6; this.focus = null; this.autoRotate = !reduceMotion && interactive;
+    this.rotX = 0.45; this.rotY = 0.2; this.camDist = 3.6; this.camCur = 3.6; this.focus = null; this.autoRotate = !reduceMotion && autoRotate;
     this.renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     this.PR = Math.min(devicePixelRatio || 1, 2);
     this.renderer.setPixelRatio(this.PR);

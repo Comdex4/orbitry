@@ -2,7 +2,8 @@
 
 Orbitry shows every publicly tracked human-made object in space, from the satellite crossing your sky to the rovers on Mars.
 
-- **Earth globe** (`/`): every active object, colored by orbit, purpose, country or operator. You can search, rewind or fast-forward time, and click an object to trace its orbit. Every view shows how old the data is and how accurate it is.
+- **Landing page** (`/`): live hero globe and live numbers, with a tour of every feature.
+- **Earth globe** (`/globe/`): every active object, colored by orbit, purpose, country or operator. You can search, rewind or fast-forward time, and click an object to trace its orbit. Every view shows how old the data is and how accurate it is.
 - **Moon and Mars** (`/moon/`, `/mars/`): landers, rovers, impact sites and orbiters at their real coordinates, with dates and outcomes.
 - **Deep space** (`/solar-system/`): planets and probes from JPL Horizons, with each probe's distance, speed and signal travel time.
 - **Launches and re-entries** (`/launches/`).

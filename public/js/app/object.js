@@ -51,7 +51,7 @@ async function earthObject(norad) {
         <h1>${esc(o.name)}</h1>
         <p class="mute">NORAD ${o.norad}${o.intl ? ' · COSPAR ' + esc(o.intl) : ''}${o.type ? ' · ' + esc(TYPES[o.type] || o.type) : ''}</p>
         <div class="row" style="margin:14px 0 20px">
-          <a class="btn primary" href="/?norad=${norad}">Show on globe</a>
+          <a class="btn primary" href="/globe/?norad=${norad}">Show on globe</a>
           <a class="btn" href="/passes/?norad=${norad}">When can I see it?</a>
           <a class="btn" href="/api/v1/objects/${norad}">JSON</a>
           <button class="btn" id="fav" hidden type="button">☆ Favorite</button>
@@ -167,5 +167,5 @@ try {
   const n = +params.get('norad'), id = params.get('id');
   if (n) await earthObject(n);
   else if (id && /^(moon|mars|probe):[\w-]+$/.test(id)) await curated(...id.split(':'));
-  else main.innerHTML = '<h1>Find an object</h1><p class="lede">Search on the <a href="/">globe</a>, or browse the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>';
+  else main.innerHTML = '<h1>Find an object</h1><p class="lede">Search on the <a href="/globe/">globe</a>, or browse the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>';
 } catch (e) { main.innerHTML = `<p class="notice">This page could not be loaded (${esc(e.message)}).</p>`; }
