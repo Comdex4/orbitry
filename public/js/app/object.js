@@ -22,7 +22,7 @@ function modelBlock(m) {
     const s = document.createElement('script'); s.type = 'module';
     s.src = 'https://cdn.jsdelivr.net/npm/@google/model-viewer@4.3.1/dist/model-viewer.min.js'; document.head.append(s);
   }
-  return `<figure><model-viewer src="${esc(m.url)}" alt="3D model of ${esc(m.title)}" camera-controls auto-rotate shadow-intensity="0.6" exposure="1.1" loading="lazy"></model-viewer>
+  return `<figure><model-viewer src="${esc(m.url)}" alt="3D model of ${esc(m.title)}" camera-controls auto-rotate environment-image="neutral" shadow-intensity="0" exposure="1.15" loading="lazy"></model-viewer>
     <figcaption>3D model: ${esc(m.title)}${m.note ? ' · ' + esc(m.note) : ''} · <a href="${esc(m.source)}" rel="noopener">NASA 3D Resources</a> · <a href="${esc(m.license.url)}" rel="noopener">${esc(m.license.name)}</a></figcaption></figure>`;
 }
 
@@ -163,7 +163,7 @@ async function curated(kind, slug) {
   } else {
     const d = await getJSON(`/data/${kind}.json`);
     r = d.sites.find((s) => s.slug === slug);
-    if (r) ctx = `<p><a class="btn" href="/${kind}/?site=${esc(slug)}">Show on the ${kind === 'moon' ? 'Moon' : 'Mars'} globe</a></p>`;
+    if (r) ctx = `<p class="row">${r.model ? `<a class="btn primary" href="/visit/?id=${kind}:${esc(slug)}">Visit the site in 3D</a>` : ''}<a class="btn" href="/${kind}/?site=${esc(slug)}">Show on the ${kind === 'moon' ? 'Moon' : 'Mars'} globe</a></p>`;
     else { r = d.orbiters.find((s) => s.slug === slug); if (r) r.isOrbiter = true; }
   }
   if (!r) { main.innerHTML = '<h1>Not found</h1><p class="lede">No record matches this link.</p>'; return; }

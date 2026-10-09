@@ -26,6 +26,16 @@ await fs.copyFile(nm('satellite.js', 'LICENSE.md'), out('satellite.js', 'LICENSE
 await fs.mkdir(out('three'), { recursive: true });
 for (const f of ['three.module.min.js', 'three.core.min.js']) await fs.copyFile(nm('three', 'build', f), out('three', f));
 await fs.copyFile(nm('three', 'LICENSE'), out('three', 'LICENSE'));
+// Add-ons used by the landing-site viewer. Their bare "three" imports are rewritten to the
+// vendored build so they load without an import map.
+for (const f of ['loaders/GLTFLoader.js', 'loaders/DRACOLoader.js', 'controls/OrbitControls.js', 'utils/BufferGeometryUtils.js', 'utils/SkeletonUtils.js']) {
+  const src = await fs.readFile(nm('three', 'examples', 'jsm', f), 'utf8');
+  await fs.mkdir(path.dirname(out('three', 'addons', f)), { recursive: true });
+  await fs.writeFile(out('three', 'addons', f), src.replace(/from 'three';/g, "from '../../three.module.min.js';"));
+}
+// NASA's models are Draco-compressed; the decoder (wasm + JS fallback) is loaded on demand.
+await fs.mkdir(out('three', 'draco'), { recursive: true });
+for (const f of ['draco_decoder.js', 'draco_decoder.wasm', 'draco_wasm_wrapper.js']) await fs.copyFile(nm('three', 'examples', 'jsm', 'libs', 'draco', 'gltf', f), out('three', 'draco', f));
 const pkg = async (n) => JSON.parse(await fs.readFile(nm(n, 'package.json'), 'utf8')).version;
 await fs.writeFile(out('VERSIONS.json'), JSON.stringify({ 'satellite.js': await pkg('satellite.js'), three: await pkg('three') }, null, 2) + '\n');
 console.log('vendored into public/vendor');

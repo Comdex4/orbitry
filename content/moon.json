@@ -16,7 +16,7 @@
    "launch_date": "1959-09-12",
    "arrival_date": "1959-09-14",
    "lat": 29.1,
-   "lon": 0.0,
+   "lon": 0,
    "outcome": "success",
    "facts": [
     "First human-made object to reach the surface of another world."
@@ -269,7 +269,7 @@
    "country": "USA",
    "launch_date": "1968-01-07",
    "arrival_date": "1968-01-10",
-   "lat": -41.0,
+   "lat": -41,
    "lon": -11.4,
    "outcome": "success",
    "facts": [
@@ -303,6 +303,7 @@
     "Landing site in Mare Tranquillitatis."
    ],
    "wikipedia": "Apollo_11",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 11",
@@ -329,6 +330,7 @@
     "Pete Conrad and Alan Bean landed within walking distance of Surveyor 3."
    ],
    "wikipedia": "Apollo_12",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 12",
@@ -375,7 +377,7 @@
    "launch_date": "1970-11-10",
    "arrival_date": "1970-11-17",
    "lat": 38.24,
-   "lon": -35.0,
+   "lon": -35,
    "outcome": "success",
    "facts": [
     "First rover to operate on another world. Coordinates are the landing site."
@@ -407,6 +409,7 @@
     "Alan Shepard and Edgar Mitchell landed in the Fra Mauro highlands."
    ],
    "wikipedia": "Apollo_14",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 14",
@@ -434,6 +437,7 @@
     "Landing site at Hadley–Apennine."
    ],
    "wikipedia": "Apollo_15",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 15",
@@ -484,6 +488,7 @@
     "John Young and Charles Duke explored the Descartes Highlands."
    ],
    "wikipedia": "Apollo_16",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 16",
@@ -510,6 +515,7 @@
     "Most recent crewed landing: Eugene Cernan and Harrison Schmitt, in the Taurus–Littrow valley."
    ],
    "wikipedia": "Apollo_17",
+   "model": "apollo-lm",
    "sources": [
     {
      "title": "Wikipedia: Apollo 17",

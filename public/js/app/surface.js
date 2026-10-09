@@ -18,12 +18,31 @@ const canvas = $('#canvas'), stage = $('#stage');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
 const PR = Math.min(devicePixelRatio || 1, 2);
 renderer.setPixelRatio(PR); renderer.outputColorSpace = THREE.SRGBColorSpace;
-const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(40, 1, 0.05, 50), world = new THREE.Group();
+const scene = new THREE.Scene(), camera = new THREE.PerspectiveCamera(40, 1, 0.05, 80), world = new THREE.Group();
 scene.add(world);
-scene.add(new THREE.AmbientLight(0xffffff, 0.35));
-const sunLight = new THREE.DirectionalLight(0xffffff, 2.2); sunLight.position.set(-3, 1.2, 4); scene.add(sunLight);
-const tex = new THREE.TextureLoader().load(`/textures/${body}.jpg`); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
-world.add(new THREE.Mesh(new THREE.SphereGeometry(1, 128, 64), new THREE.MeshStandardMaterial({ map: tex, roughness: 1, metalness: 0 })));
+scene.add(new THREE.AmbientLight(0xffffff, 0.12));
+const sunLight = new THREE.DirectionalLight(0xffffff, 2.8); sunLight.position.set(-3, 1.4, 3.2); scene.add(sunLight);
+// 4K colour map plus a normal map made from laser-altimeter elevation (LRO LOLA / MGS MOLA),
+// so craters, volcanoes and canyons catch the light.
+const loader = new THREE.TextureLoader(), maxAniso = renderer.capabilities.getMaxAnisotropy();
+const tex = loader.load(`/textures/${body}.jpg`); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = maxAniso;
+const nrm = loader.load(`/textures/${body}-normal.jpg`); nrm.anisotropy = maxAniso;
+world.add(new THREE.Mesh(new THREE.SphereGeometry(1, 256, 128), new THREE.MeshStandardMaterial({ map: tex, normalMap: nrm, normalScale: new THREE.Vector2(1.2, 1.2), roughness: 0.97, metalness: 0 })));
+if (body === 'mars') {
+  // A thin dusty atmosphere, visible as a glow at the limb.
+  world.add(new THREE.Mesh(new THREE.SphereGeometry(1.018, 128, 64), new THREE.ShaderMaterial({
+    vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix * vec4(position, 1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }',
+    fragmentShader: 'varying vec3 vN; varying vec3 vV; void main(){ float e = pow(clamp(1.0 + dot(vN, vV), 0.0, 1.0), 9.0); gl_FragColor = vec4(vec3(1.0, 0.62, 0.42) * e * 0.7, 1.0); }',
+    side: THREE.BackSide, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false
+  })));
+}
+{ // Starfield
+  let seed = 11; const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const n = 2200, pos = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) { const u = rnd() * 2 - 1, th = rnd() * Math.PI * 2, r = 30, q = Math.sqrt(1 - u * u); pos.set([r * q * Math.cos(th), r * u, r * q * Math.sin(th)], 3 * i); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  scene.add(new THREE.Points(g, new THREE.PointsMaterial({ size: 1.2 * PR, sizeAttenuation: false, color: 0xb8c4dc })));
+}
 
 const ll = (lat, lon, R = 1) => { const p = lat * Math.PI / 180, l = lon * Math.PI / 180; return new THREE.Vector3(R * Math.cos(p) * Math.cos(l), R * Math.sin(p), -R * Math.cos(p) * Math.sin(l)); };
 
@@ -80,6 +99,8 @@ function select(i, doFocus) {
   $('#iDl').innerHTML = rows.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v || '—')}</dd>`).join('');
   $('#iFacts').innerHTML = s.facts.map((f) => `<li>${esc(f)}</li>`).join('');
   $('#iPage').href = `/object/?id=${body}:${s.slug}`;
+  $('#iVisit').hidden = !s.model;
+  $('#iVisit').href = `/visit/?id=${body}:${s.slug}`;
   info.hidden = false;
   $$('#list button').forEach((b) => b.setAttribute('aria-current', String(+b.dataset.i === i)));
 }
