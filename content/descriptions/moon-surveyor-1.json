@@ -1,0 +1,58 @@
+{
+  "id": "moon-surveyor-1",
+  "text": "Surveyor 1 was a NASA/JPL lander launched on 30 May 1966 that reached the Moon on 2 June 1966. It was the first US spacecraft to make a soft landing on the Moon.",
+  "sentences": [
+    {
+      "text": "Surveyor 1 was a NASA/JPL lander launched on 30 May 1966 that reached the Moon on 2 June 1966.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first US spacecraft to make a soft landing on the Moon.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "surveyor-1",
+    "name": "Surveyor 1",
+    "kind": "lander",
+    "mission": "Surveyor 1",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1966-05-30",
+    "arrival_date": "1966-06-02",
+    "lat": -2.47,
+    "lon": -43.34,
+    "outcome": "success",
+    "facts": [
+      "First US soft landing on the Moon."
+    ],
+    "wikipedia": "Surveyor_1",
+    "sources": [
+      {
+        "title": "Wikipedia: Surveyor 1",
+        "url": "https://en.wikipedia.org/wiki/Surveyor_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Surveyor 1",
+      "url": "https://en.wikipedia.org/wiki/Surveyor_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

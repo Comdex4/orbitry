@@ -1,0 +1,61 @@
+{
+  "id": "probe-voyager-2",
+  "text": "Voyager 2 is a NASA/JPL probe launched on 20 August 1977. It is the only spacecraft to have visited Uranus, in 1986, and Neptune, in 1989, and it entered interstellar space on 5 November 2018.",
+  "sentences": [
+    {
+      "text": "Voyager 2 is a NASA/JPL probe launched on 20 August 1977.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is the only spacecraft to have visited Uranus, in 1986, and Neptune, in 1989, and it entered interstellar space on 5 November 2018.",
+      "supported_by": [
+        "facts[0]",
+        "facts[1]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "voyager-2",
+    "name": "Voyager 2",
+    "horizons": "-32",
+    "operator": "NASA / JPL",
+    "launch_date": "1977-08-20",
+    "facts": [
+      "The only spacecraft to have visited Uranus (1986) and Neptune (1989).",
+      "Entered interstellar space on 5 November 2018."
+    ],
+    "wikipedia": "Voyager_2",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Voyager 2",
+        "url": "https://en.wikipedia.org/wiki/Voyager_2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Voyager 2",
+      "url": "https://en.wikipedia.org/wiki/Voyager_2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

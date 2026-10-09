@@ -1,0 +1,59 @@
+{
+  "id": "moon-hakuto-r-m1",
+  "text": "Hakuto-R Mission 1 was a lander from the Japanese company ispace, launched on 11 December 2022. It crashed on 25 April 2023 after running out of propellant during its landing attempt.",
+  "sentences": [
+    {
+      "text": "Hakuto-R Mission 1 was a lander from the Japanese company ispace, launched on 11 December 2022.",
+      "supported_by": [
+        "operator",
+        "country",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It crashed on 25 April 2023 after running out of propellant during its landing attempt.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "hakuto-r-m1",
+    "name": "Hakuto-R Mission 1",
+    "kind": "lander",
+    "mission": "Hakuto-R Mission 1",
+    "operator": "ispace",
+    "country": "Japan",
+    "launch_date": "2022-12-11",
+    "arrival_date": "2023-04-25",
+    "lat": 47.58,
+    "lon": 44.09,
+    "outcome": "failure",
+    "facts": [
+      "Crashed after running out of propellant during its landing attempt."
+    ],
+    "wikipedia": "Hakuto-R_Mission_1",
+    "sources": [
+      {
+        "title": "Wikipedia: Hakuto-R Mission 1",
+        "url": "https://en.wikipedia.org/wiki/Hakuto-R_Mission_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Hakuto-R Mission 1",
+      "url": "https://en.wikipedia.org/wiki/Hakuto-R_Mission_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

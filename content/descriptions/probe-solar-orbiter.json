@@ -1,0 +1,59 @@
+{
+  "id": "probe-solar-orbiter",
+  "text": "Solar Orbiter is a joint ESA–NASA mission launched on 10 February 2020. It studies the Sun from orbits that tilt out of the ecliptic, so it can see the Sun's poles.",
+  "sentences": [
+    {
+      "text": "Solar Orbiter is a joint ESA–NASA mission launched on 10 February 2020.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It studies the Sun from orbits that tilt out of the ecliptic, so it can see the Sun's poles.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "solar-orbiter",
+    "name": "Solar Orbiter",
+    "horizons": "-144",
+    "operator": "ESA / NASA",
+    "launch_date": "2020-02-10",
+    "facts": [
+      "Studies the Sun from orbits that tilt out of the ecliptic to view its poles."
+    ],
+    "wikipedia": "Solar_Orbiter",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Solar Orbiter",
+        "url": "https://en.wikipedia.org/wiki/Solar_Orbiter"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Solar Orbiter",
+      "url": "https://en.wikipedia.org/wiki/Solar_Orbiter"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "mars-mro",
+  "text": "The Mars Reconnaissance Orbiter is a NASA spacecraft launched on 12 August 2005. It entered orbit around Mars on 10 March 2006.",
+  "sentences": [
+    {
+      "text": "The Mars Reconnaissance Orbiter is a NASA spacecraft launched on 12 August 2005. It entered orbit around Mars on 10 March 2006.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "mro",
+    "name": "Mars Reconnaissance Orbiter",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2005-08-12",
+    "arrival_date": "2006-03-10",
+    "wikipedia": "Mars_Reconnaissance_Orbiter",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Mars Reconnaissance Orbiter",
+        "url": "https://en.wikipedia.org/wiki/Mars_Reconnaissance_Orbiter"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Mars Reconnaissance Orbiter",
+      "url": "https://en.wikipedia.org/wiki/Mars_Reconnaissance_Orbiter"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

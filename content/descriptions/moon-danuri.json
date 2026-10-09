@@ -1,0 +1,48 @@
+{
+  "id": "moon-danuri",
+  "text": "Danuri, also called KPLO, is South Korea's lunar orbiter, operated by KARI. It launched on 4 August 2022 and arrived in lunar orbit on 16 December 2022.",
+  "sentences": [
+    {
+      "text": "Danuri, also called KPLO, is South Korea's lunar orbiter, operated by KARI. It launched on 4 August 2022 and arrived in lunar orbit on 16 December 2022.",
+      "supported_by": [
+        "name",
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "danuri",
+    "name": "Danuri (KPLO)",
+    "operator": "KARI",
+    "country": "South Korea",
+    "launch_date": "2022-08-04",
+    "arrival_date": "2022-12-16",
+    "wikipedia": "Danuri",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Danuri",
+        "url": "https://en.wikipedia.org/wiki/Danuri"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Danuri",
+      "url": "https://en.wikipedia.org/wiki/Danuri"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

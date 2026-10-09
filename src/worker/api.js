@@ -8,6 +8,7 @@ import { satrecFor, stateAt, accuracyNote, ageDays } from '../../public/js/lib/o
 import { predictPasses } from '../../public/js/lib/passes.js';
 import { stateAt as ephState, describe as ephDescribe } from '../../public/js/lib/ephemeris.js';
 import { listAlerts, createAlert, deleteAlert } from './account.js';
+import { earthOverview } from '../../public/js/lib/overview.js';
 
 export async function apiCaller(req, env) {
   const url = new URL(req.url);
@@ -83,7 +84,7 @@ export async function handleApi(req, env, path) {
     const o = await objectOr404(env, seg[1]);
     if (seg.length === 2) {
       const [media, models, desc] = await Promise.all([asset(env, 'media.json').catch(() => ({ norad: {} })), asset(env, 'models.json').catch(() => ({})), asset(env, 'descriptions.json').catch(() => ({}))]);
-      return ok({ ...publicObject(o), photo: media.norad?.[o.norad] || null, model: models[o.norad] || null, summary: desc[`norad-${o.norad}`] || null },
+      return ok({ ...publicObject(o), photo: media.norad?.[o.norad] || null, model: models[o.norad] || null, summary: desc[`norad-${o.norad}`] || null, overview: earthOverview(o) },
         { data_age_days: Math.round(ageDays(o) * 100) / 100, accuracy: accuracyNote(o).text }, headers);
     }
     const rec = satrecFor(o);

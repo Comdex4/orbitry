@@ -1,0 +1,52 @@
+{
+  "id": "moon-luna-13",
+  "text": "Luna 13 was a Soviet lander operated by Lavochkin. It launched on 21 December 1966 and landed successfully on the Moon on 24 December 1966.",
+  "sentences": [
+    {
+      "text": "Luna 13 was a Soviet lander operated by Lavochkin. It launched on 21 December 1966 and landed successfully on the Moon on 24 December 1966.",
+      "supported_by": [
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-13",
+    "name": "Luna 13",
+    "kind": "lander",
+    "mission": "Luna 13",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1966-12-21",
+    "arrival_date": "1966-12-24",
+    "lat": 18.87,
+    "lon": -62.05,
+    "outcome": "success",
+    "facts": [],
+    "wikipedia": "Luna_13",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 13",
+        "url": "https://en.wikipedia.org/wiki/Luna_13"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 13",
+      "url": "https://en.wikipedia.org/wiki/Luna_13"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

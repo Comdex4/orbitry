@@ -1,0 +1,57 @@
+{
+  "id": "mars-viking-1",
+  "text": "The Viking 1 lander was a NASA spacecraft that landed on Mars on 20 July 1976. It was the first fully successful Mars landing and worked until 1982.",
+  "sentences": [
+    {
+      "text": "The Viking 1 lander was a NASA spacecraft that landed on Mars on 20 July 1976.",
+      "supported_by": [
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first fully successful Mars landing and worked until 1982.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "viking-1",
+    "name": "Viking 1 lander",
+    "kind": "lander",
+    "mission": "Viking 1",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1975-08-20",
+    "arrival_date": "1976-07-20",
+    "lat": 22.27,
+    "lon": -47.95,
+    "outcome": "success",
+    "facts": [
+      "First fully successful Mars landing; operated until 1982."
+    ],
+    "wikipedia": "Viking_1",
+    "sources": [
+      {
+        "title": "Wikipedia: Viking 1",
+        "url": "https://en.wikipedia.org/wiki/Viking_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Viking 1",
+      "url": "https://en.wikipedia.org/wiki/Viking_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

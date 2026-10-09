@@ -1,0 +1,58 @@
+{
+  "id": "moon-luna-16",
+  "text": "Luna 16 was a Soviet spacecraft operated by Lavochkin that landed on the Moon on 20 September 1970. It made the first robotic return of lunar samples to Earth.",
+  "sentences": [
+    {
+      "text": "Luna 16 was a Soviet spacecraft operated by Lavochkin that landed on the Moon on 20 September 1970.",
+      "supported_by": [
+        "country",
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first robotic return of lunar samples to Earth.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-16",
+    "name": "Luna 16",
+    "kind": "sample-return",
+    "mission": "Luna 16",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1970-09-12",
+    "arrival_date": "1970-09-20",
+    "lat": -0.513,
+    "lon": 56.364,
+    "outcome": "success",
+    "facts": [
+      "First robotic lunar sample return."
+    ],
+    "wikipedia": "Luna_16",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 16",
+        "url": "https://en.wikipedia.org/wiki/Luna_16"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 16",
+      "url": "https://en.wikipedia.org/wiki/Luna_16"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

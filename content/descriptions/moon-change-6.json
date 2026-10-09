@@ -1,0 +1,59 @@
+{
+  "id": "moon-change-6",
+  "text": "Chang'e 6 was a Chinese (CNSA) sample-return mission that landed on the Moon on 1 June 2024. It made the first sample return from the Moon's far side.",
+  "sentences": [
+    {
+      "text": "Chang'e 6 was a Chinese (CNSA) sample-return mission that landed on the Moon on 1 June 2024.",
+      "supported_by": [
+        "country",
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first sample return from the Moon's far side.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "change-6",
+    "name": "Chang'e 6",
+    "kind": "sample-return",
+    "mission": "Chang'e 6",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2024-05-03",
+    "arrival_date": "2024-06-01",
+    "lat": -41.64,
+    "lon": -153.99,
+    "outcome": "success",
+    "facts": [
+      "First sample return from the far side of the Moon."
+    ],
+    "wikipedia": "Chang%27e_6",
+    "sources": [
+      {
+        "title": "Wikipedia: Chang%27e 6",
+        "url": "https://en.wikipedia.org/wiki/Chang%27e_6"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chang%27e 6",
+      "url": "https://en.wikipedia.org/wiki/Chang%27e_6"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

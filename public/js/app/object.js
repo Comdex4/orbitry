@@ -4,14 +4,15 @@ import { chrome, $, esc, getJSON, loadCatalog, fmtDate, ago, km, reviewChip, sou
 import { ORBITS, PURPOSES, TYPES, orbitShape, epochMs } from '../lib/catalog.js';
 import { satrecFor, stateAt, groundTrack, accuracyNote, ageDays } from '../lib/orbit.js';
 import { stateAt as ephState, describe as ephDescribe, lightTime } from '../lib/ephemeris.js';
+import { earthOverview, siteOverview, probeOverview } from '../lib/overview.js';
 
 chrome();
 const params = new URLSearchParams(location.search), main = $('#main');
 const descriptions = getJSON('/data/descriptions.json').catch(() => ({}));
 
-function summaryBlock(id, desc) {
+function summaryBlock(id, desc, overview) {
   const d = desc[id];
-  if (!d) return `<p class="mute">A plain-language summary hasn't been published for this object yet. Orbitry's summaries are drafted from the records below and published only after a person has checked them against the sources.</p>`;
+  if (!d) return `<p class="summary">${esc(overview)}</p><p class="dim" style="font-size:.8rem">Written automatically from the facts on this page. A fuller summary, drafted by Claude from the sourced records and checked by a person, replaces it once it has been reviewed.</p>`;
   return `<p class="summary">${esc(d.text)}</p><p class="dim" style="font-size:.8rem">Drafted by ${esc(d.drafted_by || 'Claude')} from the sourced records on this page; reviewed by ${esc(d.reviewed_by)} on ${esc(d.reviewed_on)}.</p>`;
 }
 
@@ -56,7 +57,7 @@ async function earthObject(norad) {
           <button class="btn" id="fav" hidden type="button">☆ Favorite</button>
         </div>
         <h2>Summary</h2>
-        ${summaryBlock('norad-' + norad, desc)}
+        ${summaryBlock('norad-' + norad, desc, earthOverview(o))}
         <h2>Key facts</h2>
         <dl class="facts left" style="max-width:560px">
           ${row('Operator', o.operatorName)}${row('Country', o.countryName)}${row('Purpose', PURPOSES[o.purpose].label)}
@@ -146,7 +147,7 @@ async function curated(kind, slug) {
     <div class="obj-head"><div>
       <h1>${esc(r.name)}</h1>
       <p style="margin:10px 0 18px">${reviewChip(r)}</p>
-      <h2>Summary</h2>${summaryBlock(`${kind}-${slug}`, desc)}
+      <h2>Summary</h2>${summaryBlock(`${kind}-${slug}`, desc, kind === 'probe' ? probeOverview(r) : siteOverview(r.isOrbiter ? { ...r, kind: undefined } : r, kind))}
       <h2>Key facts</h2>
       <dl class="facts left" style="max-width:560px">
         ${row('Mission', r.mission)}${row('Operator', r.operator)}${row('Country', r.country)}${row('Launched', r.launch_date && fmtDate(r.launch_date))}

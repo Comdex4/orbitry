@@ -1,0 +1,47 @@
+{
+  "id": "moon-chandrayaan-2-orbiter",
+  "text": "The Chandrayaan-2 orbiter is an Indian (ISRO) spacecraft launched on 22 July 2019. It reached lunar orbit on 20 August 2019.",
+  "sentences": [
+    {
+      "text": "The Chandrayaan-2 orbiter is an Indian (ISRO) spacecraft launched on 22 July 2019. It reached lunar orbit on 20 August 2019.",
+      "supported_by": [
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "chandrayaan-2-orbiter",
+    "name": "Chandrayaan-2 orbiter",
+    "operator": "ISRO",
+    "country": "India",
+    "launch_date": "2019-07-22",
+    "arrival_date": "2019-08-20",
+    "wikipedia": "Chandrayaan-2",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Chandrayaan-2",
+        "url": "https://en.wikipedia.org/wiki/Chandrayaan-2"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chandrayaan-2",
+      "url": "https://en.wikipedia.org/wiki/Chandrayaan-2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

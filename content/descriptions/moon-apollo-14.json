@@ -1,0 +1,58 @@
+{
+  "id": "moon-apollo-14",
+  "text": "Apollo 14 was a NASA crewed landing that touched down on the Moon on 5 February 1971. Alan Shepard and Edgar Mitchell landed in the Fra Mauro highlands.",
+  "sentences": [
+    {
+      "text": "Apollo 14 was a NASA crewed landing that touched down on the Moon on 5 February 1971.",
+      "supported_by": [
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "Alan Shepard and Edgar Mitchell landed in the Fra Mauro highlands.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-14",
+    "name": "Apollo 14 (Antares)",
+    "kind": "crewed",
+    "mission": "Apollo 14",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1971-01-31",
+    "arrival_date": "1971-02-05",
+    "lat": -3.6453,
+    "lon": -17.47136,
+    "outcome": "success",
+    "facts": [
+      "Alan Shepard and Edgar Mitchell landed in the Fra Mauro highlands."
+    ],
+    "wikipedia": "Apollo_14",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 14",
+        "url": "https://en.wikipedia.org/wiki/Apollo_14"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 14",
+      "url": "https://en.wikipedia.org/wiki/Apollo_14"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

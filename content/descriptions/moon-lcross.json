@@ -1,0 +1,58 @@
+{
+  "id": "moon-lcross",
+  "text": "LCROSS was a NASA mission launched on 18 June 2009. On 9 October 2009 it impacted Cabeus crater so that scientists could search the debris for water ice.",
+  "sentences": [
+    {
+      "text": "LCROSS was a NASA mission launched on 18 June 2009.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "On 9 October 2009 it impacted Cabeus crater so that scientists could search the debris for water ice.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "lcross",
+    "name": "LCROSS",
+    "kind": "impact",
+    "mission": "LCROSS",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2009-06-18",
+    "arrival_date": "2009-10-09",
+    "lat": -84.68,
+    "lon": -48.7,
+    "outcome": "success",
+    "facts": [
+      "Impacted Cabeus crater to search for water ice in the ejecta."
+    ],
+    "wikipedia": "LCROSS",
+    "sources": [
+      {
+        "title": "Wikipedia: LCROSS",
+        "url": "https://en.wikipedia.org/wiki/LCROSS"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: LCROSS",
+      "url": "https://en.wikipedia.org/wiki/LCROSS"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

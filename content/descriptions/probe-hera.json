@@ -1,0 +1,60 @@
+{
+  "id": "probe-hera",
+  "text": "Hera is a European Space Agency probe launched on 7 October 2024. It is travelling to the Didymos–Dimorphos asteroid pair, the target of NASA's DART impact.",
+  "sentences": [
+    {
+      "text": "Hera is a European Space Agency probe launched on 7 October 2024.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is travelling to the Didymos–Dimorphos asteroid pair, the target of NASA's DART impact.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "hera",
+    "name": "Hera",
+    "horizons": "-91",
+    "operator": "ESA",
+    "launch_date": "2024-10-07",
+    "facts": [
+      "Travelling to the Didymos–Dimorphos asteroid pair, the target of NASA's DART impact."
+    ],
+    "wikipedia": "Hera_(space_mission)",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Hera (space mission)",
+        "url": "https://en.wikipedia.org/wiki/Hera_(space_mission)"
+      }
+    ],
+    "position_note": "JPL's ephemeris for Hera currently ends in early November 2026."
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Hera (space mission)",
+      "url": "https://en.wikipedia.org/wiki/Hera_(space_mission)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "moon-apollo-16",
+  "text": "Apollo 16 was a NASA crewed landing that reached the Moon on 21 April 1972. John Young and Charles Duke explored the Descartes Highlands.",
+  "sentences": [
+    {
+      "text": "Apollo 16 was a NASA crewed landing that reached the Moon on 21 April 1972.",
+      "supported_by": [
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "John Young and Charles Duke explored the Descartes Highlands.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-16",
+    "name": "Apollo 16 (Orion)",
+    "kind": "crewed",
+    "mission": "Apollo 16",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1972-04-16",
+    "arrival_date": "1972-04-21",
+    "lat": -8.97301,
+    "lon": 15.50019,
+    "outcome": "success",
+    "facts": [
+      "John Young and Charles Duke explored the Descartes Highlands."
+    ],
+    "wikipedia": "Apollo_16",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 16",
+        "url": "https://en.wikipedia.org/wiki/Apollo_16"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 16",
+      "url": "https://en.wikipedia.org/wiki/Apollo_16"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

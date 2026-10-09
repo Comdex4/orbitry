@@ -1,0 +1,59 @@
+{
+  "id": "probe-parker-solar-probe",
+  "text": "Parker Solar Probe is a NASA and JHU APL mission, launched on 12 August 2018. It flies closer to the Sun than any spacecraft before it.",
+  "sentences": [
+    {
+      "text": "Parker Solar Probe is a NASA and JHU APL mission, launched on 12 August 2018.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It flies closer to the Sun than any spacecraft before it.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "parker-solar-probe",
+    "name": "Parker Solar Probe",
+    "horizons": "-96",
+    "operator": "NASA / JHU APL",
+    "launch_date": "2018-08-12",
+    "facts": [
+      "Flies closer to the Sun than any previous spacecraft."
+    ],
+    "wikipedia": "Parker_Solar_Probe",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Parker Solar Probe",
+        "url": "https://en.wikipedia.org/wiki/Parker_Solar_Probe"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Parker Solar Probe",
+      "url": "https://en.wikipedia.org/wiki/Parker_Solar_Probe"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

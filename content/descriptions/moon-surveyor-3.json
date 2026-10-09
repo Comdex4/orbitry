@@ -1,0 +1,58 @@
+{
+  "id": "moon-surveyor-3",
+  "text": "Surveyor 3 was a NASA/JPL lander that reached the Moon on 20 April 1967, three days after launch. The Apollo 12 crew later visited it and brought parts of it back to Earth.",
+  "sentences": [
+    {
+      "text": "Surveyor 3 was a NASA/JPL lander that reached the Moon on 20 April 1967, three days after launch.",
+      "supported_by": [
+        "operator",
+        "arrival_date",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "The Apollo 12 crew later visited it and brought parts of it back to Earth.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "surveyor-3",
+    "name": "Surveyor 3",
+    "kind": "lander",
+    "mission": "Surveyor 3",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1967-04-17",
+    "arrival_date": "1967-04-20",
+    "lat": -3.02,
+    "lon": -23.42,
+    "outcome": "success",
+    "facts": [
+      "Visited by the Apollo 12 crew, who returned parts of it to Earth."
+    ],
+    "wikipedia": "Surveyor_3",
+    "sources": [
+      {
+        "title": "Wikipedia: Surveyor 3",
+        "url": "https://en.wikipedia.org/wiki/Surveyor_3"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Surveyor 3",
+      "url": "https://en.wikipedia.org/wiki/Surveyor_3"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

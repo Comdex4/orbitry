@@ -1,0 +1,59 @@
+{
+  "id": "moon-change-3",
+  "text": "Chang'e 3 was a Chinese (CNSA) mission that landed a lander and the Yutu rover on the Moon on 14 December 2013. It was the first soft landing on the Moon since Luna 24 in 1976.",
+  "sentences": [
+    {
+      "text": "Chang'e 3 was a Chinese (CNSA) mission that landed a lander and the Yutu rover on the Moon on 14 December 2013.",
+      "supported_by": [
+        "country",
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first soft landing on the Moon since Luna 24 in 1976.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "change-3",
+    "name": "Chang'e 3 / Yutu",
+    "kind": "rover",
+    "mission": "Chang'e 3",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2013-12-01",
+    "arrival_date": "2013-12-14",
+    "lat": 44.12,
+    "lon": -19.51,
+    "outcome": "success",
+    "facts": [
+      "First soft landing on the Moon since Luna 24 in 1976."
+    ],
+    "wikipedia": "Chang%27e_3",
+    "sources": [
+      {
+        "title": "Wikipedia: Chang%27e 3",
+        "url": "https://en.wikipedia.org/wiki/Chang%27e_3"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chang%27e 3",
+      "url": "https://en.wikipedia.org/wiki/Chang%27e_3"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

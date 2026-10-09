@@ -1,0 +1,57 @@
+{
+  "id": "moon-surveyor-6",
+  "text": "Surveyor 6 was a NASA/JPL lander that reached the Moon on 10 November 1967. It became the first spacecraft to lift off from the Moon, making a short hop to a new spot.",
+  "sentences": [
+    {
+      "text": "Surveyor 6 was a NASA/JPL lander that reached the Moon on 10 November 1967.",
+      "supported_by": [
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It became the first spacecraft to lift off from the Moon, making a short hop to a new spot.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "surveyor-6",
+    "name": "Surveyor 6",
+    "kind": "lander",
+    "mission": "Surveyor 6",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1967-11-07",
+    "arrival_date": "1967-11-10",
+    "lat": 0.47,
+    "lon": -1.43,
+    "outcome": "success",
+    "facts": [
+      "First spacecraft to lift off from the Moon, in a short hop."
+    ],
+    "wikipedia": "Surveyor_6",
+    "sources": [
+      {
+        "title": "Wikipedia: Surveyor 6",
+        "url": "https://en.wikipedia.org/wiki/Surveyor_6"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Surveyor 6",
+      "url": "https://en.wikipedia.org/wiki/Surveyor_6"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

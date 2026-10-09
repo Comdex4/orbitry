@@ -1,0 +1,61 @@
+{
+  "id": "probe-voyager-1",
+  "text": "Voyager 1 is a NASA/JPL probe launched on 5 September 1977 and is the most distant human-made object. It crossed the heliopause into interstellar space on 25 August 2012.",
+  "sentences": [
+    {
+      "text": "Voyager 1 is a NASA/JPL probe launched on 5 September 1977 and is the most distant human-made object.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "facts[1]"
+      ]
+    },
+    {
+      "text": "It crossed the heliopause into interstellar space on 25 August 2012.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "voyager-1",
+    "name": "Voyager 1",
+    "horizons": "-31",
+    "operator": "NASA / JPL",
+    "launch_date": "1977-09-05",
+    "facts": [
+      "Crossed the heliopause into interstellar space on 25 August 2012.",
+      "The most distant human-made object."
+    ],
+    "wikipedia": "Voyager_1",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Voyager 1",
+        "url": "https://en.wikipedia.org/wiki/Voyager_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Voyager 1",
+      "url": "https://en.wikipedia.org/wiki/Voyager_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "moon-smart-1",
+  "text": "SMART-1 was a European Space Agency mission launched on 27 September 2003. It ended on 3 September 2006, when it was deliberately crashed into the Moon.",
+  "sentences": [
+    {
+      "text": "SMART-1 was a European Space Agency mission launched on 27 September 2003.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It ended on 3 September 2006, when it was deliberately crashed into the Moon.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "smart-1",
+    "name": "SMART-1",
+    "kind": "impact",
+    "mission": "SMART-1",
+    "operator": "ESA",
+    "country": "Europe",
+    "launch_date": "2003-09-27",
+    "arrival_date": "2006-09-03",
+    "lat": -34.26,
+    "lon": -46.19,
+    "outcome": "success",
+    "facts": [
+      "Deliberately crashed at the end of its mission."
+    ],
+    "wikipedia": "SMART-1",
+    "sources": [
+      {
+        "title": "Wikipedia: SMART-1",
+        "url": "https://en.wikipedia.org/wiki/SMART-1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: SMART-1",
+      "url": "https://en.wikipedia.org/wiki/SMART-1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

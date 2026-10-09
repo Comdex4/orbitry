@@ -1,0 +1,57 @@
+{
+  "id": "moon-im-2",
+  "text": "IM-2 Athena was a lander from Intuitive Machines that reached the Moon on 6 March 2025. It came to rest on its side near Mons Mouton and its operations ended early.",
+  "sentences": [
+    {
+      "text": "IM-2 Athena was a lander from Intuitive Machines that reached the Moon on 6 March 2025.",
+      "supported_by": [
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It came to rest on its side near Mons Mouton and its operations ended early.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "im-2",
+    "name": "IM-2 Athena",
+    "kind": "lander",
+    "mission": "IM-2",
+    "operator": "Intuitive Machines",
+    "country": "USA",
+    "launch_date": "2025-02-27",
+    "arrival_date": "2025-03-06",
+    "lat": -84.8,
+    "lon": 29.2,
+    "outcome": "partial",
+    "facts": [
+      "Landed on its side near Mons Mouton; operations ended early."
+    ],
+    "wikipedia": "IM-2",
+    "sources": [
+      {
+        "title": "Wikipedia: IM-2",
+        "url": "https://en.wikipedia.org/wiki/IM-2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: IM-2",
+      "url": "https://en.wikipedia.org/wiki/IM-2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

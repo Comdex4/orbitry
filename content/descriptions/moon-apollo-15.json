@@ -1,0 +1,60 @@
+{
+  "id": "moon-apollo-15",
+  "text": "Apollo 15 was a NASA crewed mission that landed at Hadley–Apennine on 30 July 1971. It was the first mission to use the Lunar Roving Vehicle.",
+  "sentences": [
+    {
+      "text": "Apollo 15 was a NASA crewed mission that landed at Hadley–Apennine on 30 July 1971.",
+      "supported_by": [
+        "operator",
+        "kind",
+        "facts[1]",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first mission to use the Lunar Roving Vehicle.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-15",
+    "name": "Apollo 15 (Falcon)",
+    "kind": "crewed",
+    "mission": "Apollo 15",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1971-07-26",
+    "arrival_date": "1971-07-30",
+    "lat": 26.13222,
+    "lon": 3.63386,
+    "outcome": "success",
+    "facts": [
+      "First mission to use the Lunar Roving Vehicle.",
+      "Landing site at Hadley–Apennine."
+    ],
+    "wikipedia": "Apollo_15",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 15",
+        "url": "https://en.wikipedia.org/wiki/Apollo_15"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 15",
+      "url": "https://en.wikipedia.org/wiki/Apollo_15"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

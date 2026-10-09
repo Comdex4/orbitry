@@ -1,0 +1,53 @@
+{
+  "id": "mars-zhurong",
+  "text": "Zhurong was China's first Mars rover, delivered by CNSA's Tianwen-1 mission. It landed in Utopia Planitia on 14 May 2021.",
+  "sentences": [
+    {
+      "text": "Zhurong was China's first Mars rover, delivered by CNSA's Tianwen-1 mission. It landed in Utopia Planitia on 14 May 2021.",
+      "supported_by": [
+        "facts[0]",
+        "operator",
+        "mission",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "zhurong",
+    "name": "Tianwen-1 / Zhurong",
+    "kind": "rover",
+    "mission": "Tianwen-1",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2020-07-23",
+    "arrival_date": "2021-05-14",
+    "lat": 25.066,
+    "lon": 109.925,
+    "outcome": "success",
+    "facts": [
+      "China's first Mars rover, in Utopia Planitia."
+    ],
+    "wikipedia": "Zhurong_(rover)",
+    "sources": [
+      {
+        "title": "Wikipedia: Zhurong (rover)",
+        "url": "https://en.wikipedia.org/wiki/Zhurong_(rover)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Zhurong (rover)",
+      "url": "https://en.wikipedia.org/wiki/Zhurong_(rover)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "id": "moon-grail",
+  "text": "GRAIL was a pair of NASA/JPL spacecraft, launched on 10 September 2011, that mapped the Moon's gravity. On 17 December 2012 both were deliberately crashed into a mountain near Goldschmidt crater.",
+  "sentences": [
+    {
+      "text": "GRAIL was a pair of NASA/JPL spacecraft, launched on 10 September 2011, that mapped the Moon's gravity.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "On 17 December 2012 both were deliberately crashed into a mountain near Goldschmidt crater.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "grail",
+    "name": "GRAIL (Ebb and Flow)",
+    "kind": "impact",
+    "mission": "GRAIL",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2011-09-10",
+    "arrival_date": "2012-12-17",
+    "lat": 75.62,
+    "lon": -26.63,
+    "outcome": "success",
+    "facts": [
+      "Twin gravity-mapping spacecraft, deliberately crashed into a mountain near Goldschmidt crater."
+    ],
+    "wikipedia": "GRAIL",
+    "sources": [
+      {
+        "title": "Wikipedia: GRAIL",
+        "url": "https://en.wikipedia.org/wiki/GRAIL"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: GRAIL",
+      "url": "https://en.wikipedia.org/wiki/GRAIL"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

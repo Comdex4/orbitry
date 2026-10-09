@@ -1,0 +1,46 @@
+{
+  "id": "mars-mars-express",
+  "text": "Mars Express is a European Space Agency orbiter launched on 2 June 2003. It reached orbit around Mars on 25 December 2003.",
+  "sentences": [
+    {
+      "text": "Mars Express is a European Space Agency orbiter launched on 2 June 2003. It reached orbit around Mars on 25 December 2003.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "mars-express",
+    "name": "Mars Express",
+    "operator": "ESA",
+    "country": "Europe",
+    "launch_date": "2003-06-02",
+    "arrival_date": "2003-12-25",
+    "wikipedia": "Mars_Express",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Mars Express",
+        "url": "https://en.wikipedia.org/wiki/Mars_Express"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Mars Express",
+      "url": "https://en.wikipedia.org/wiki/Mars_Express"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

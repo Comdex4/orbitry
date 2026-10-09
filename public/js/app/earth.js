@@ -2,6 +2,7 @@ import { chrome, $, $$, esc, loadCatalog, getJSON, ago, km, fail, me, api } from
 import { Globe } from './globe.js';
 import { ORBITS, PURPOSES, TYPES } from '../lib/catalog.js';
 import { accuracyNote, ageDays } from '../lib/orbit.js';
+import { earthOverview } from '../lib/overview.js';
 
 chrome({ footer: false });
 
@@ -20,6 +21,7 @@ function showInfo(o) {
   if (!o) { info.hidden = true; history.replaceState(null, '', location.pathname); return; }
   $('#iName').textContent = o.name;
   $('#iSub').textContent = `NORAD ${o.norad}${o.intl ? ' · ' + o.intl : ''}${o.type ? ' · ' + (TYPES[o.type] || o.type) : ''}`;
+  $('#iOver').textContent = earthOverview(o);
   $('#iPage').href = `/object/?norad=${o.norad}`;
   $('#iPass').href = `/passes/?norad=${o.norad}`;
   const fb = $('#iFav');

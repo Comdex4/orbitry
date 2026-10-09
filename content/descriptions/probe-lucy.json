@@ -1,0 +1,59 @@
+{
+  "id": "probe-lucy",
+  "text": "Lucy is a NASA and SwRI mission, launched on 16 October 2021. It is touring asteroids, including the Trojans that share Jupiter's orbit.",
+  "sentences": [
+    {
+      "text": "Lucy is a NASA and SwRI mission, launched on 16 October 2021.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is touring asteroids, including the Trojans that share Jupiter's orbit.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "lucy",
+    "name": "Lucy",
+    "horizons": "-49",
+    "operator": "NASA / SwRI",
+    "launch_date": "2021-10-16",
+    "facts": [
+      "Touring asteroids, including the Trojans that share Jupiter's orbit."
+    ],
+    "wikipedia": "Lucy_(spacecraft)",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Lucy (spacecraft)",
+        "url": "https://en.wikipedia.org/wiki/Lucy_(spacecraft)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Lucy (spacecraft)",
+      "url": "https://en.wikipedia.org/wiki/Lucy_(spacecraft)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

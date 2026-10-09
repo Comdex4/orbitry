@@ -1,0 +1,59 @@
+{
+  "id": "moon-change-5",
+  "text": "Chang'e 5 was a Chinese (CNSA) sample-return mission that landed on the Moon on 1 December 2020. It brought about 1.7 kg of lunar samples back to Earth.",
+  "sentences": [
+    {
+      "text": "Chang'e 5 was a Chinese (CNSA) sample-return mission that landed on the Moon on 1 December 2020.",
+      "supported_by": [
+        "country",
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It brought about 1.7 kg of lunar samples back to Earth.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "change-5",
+    "name": "Chang'e 5",
+    "kind": "sample-return",
+    "mission": "Chang'e 5",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2020-11-23",
+    "arrival_date": "2020-12-01",
+    "lat": 43.06,
+    "lon": -51.92,
+    "outcome": "success",
+    "facts": [
+      "Returned about 1.7 kg of lunar samples to Earth."
+    ],
+    "wikipedia": "Chang%27e_5",
+    "sources": [
+      {
+        "title": "Wikipedia: Chang%27e 5",
+        "url": "https://en.wikipedia.org/wiki/Chang%27e_5"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chang%27e 5",
+      "url": "https://en.wikipedia.org/wiki/Chang%27e_5"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

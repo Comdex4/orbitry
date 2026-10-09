@@ -1,0 +1,46 @@
+{
+  "id": "mars-maven",
+  "text": "MAVEN is a NASA orbiter launched on 18 November 2013. It arrived in orbit around Mars on 22 September 2014.",
+  "sentences": [
+    {
+      "text": "MAVEN is a NASA orbiter launched on 18 November 2013. It arrived in orbit around Mars on 22 September 2014.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "maven",
+    "name": "MAVEN",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2013-11-18",
+    "arrival_date": "2014-09-22",
+    "wikipedia": "MAVEN",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: MAVEN",
+        "url": "https://en.wikipedia.org/wiki/MAVEN"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: MAVEN",
+      "url": "https://en.wikipedia.org/wiki/MAVEN"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

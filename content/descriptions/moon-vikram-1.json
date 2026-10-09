@@ -1,0 +1,60 @@
+{
+  "id": "moon-vikram-1",
+  "text": "Vikram was the lander of India's Chandrayaan-2 mission, run by ISRO and launched on 22 July 2019. It crashed during descent on 6 September 2019, while the mission's orbiter continues to operate.",
+  "sentences": [
+    {
+      "text": "Vikram was the lander of India's Chandrayaan-2 mission, run by ISRO and launched on 22 July 2019.",
+      "supported_by": [
+        "mission",
+        "country",
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It crashed during descent on 6 September 2019, while the mission's orbiter continues to operate.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "vikram-1",
+    "name": "Chandrayaan-2 Vikram",
+    "kind": "lander",
+    "mission": "Chandrayaan-2",
+    "operator": "ISRO",
+    "country": "India",
+    "launch_date": "2019-07-22",
+    "arrival_date": "2019-09-06",
+    "lat": -70.88,
+    "lon": 22.78,
+    "outcome": "failure",
+    "facts": [
+      "Lander crashed during descent; the orbiter continues to operate."
+    ],
+    "wikipedia": "Chandrayaan-2",
+    "sources": [
+      {
+        "title": "Wikipedia: Chandrayaan-2",
+        "url": "https://en.wikipedia.org/wiki/Chandrayaan-2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chandrayaan-2",
+      "url": "https://en.wikipedia.org/wiki/Chandrayaan-2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

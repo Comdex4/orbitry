@@ -1,0 +1,48 @@
+{
+  "id": "mars-hope",
+  "text": "The Emirates Mars Mission, called Hope, is a United Arab Emirates orbiter operated by MBRSC. It launched on 19 July 2020 and arrived at Mars on 9 February 2021.",
+  "sentences": [
+    {
+      "text": "The Emirates Mars Mission, called Hope, is a United Arab Emirates orbiter operated by MBRSC. It launched on 19 July 2020 and arrived at Mars on 9 February 2021.",
+      "supported_by": [
+        "name",
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "hope",
+    "name": "Emirates Mars Mission (Hope)",
+    "operator": "MBRSC",
+    "country": "United Arab Emirates",
+    "launch_date": "2020-07-19",
+    "arrival_date": "2021-02-09",
+    "wikipedia": "Emirates_Mars_Mission",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Emirates Mars Mission",
+        "url": "https://en.wikipedia.org/wiki/Emirates_Mars_Mission"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Emirates Mars Mission",
+      "url": "https://en.wikipedia.org/wiki/Emirates_Mars_Mission"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "id": "moon-ranger-8",
+  "text": "Ranger 8 was a NASA/JPL probe launched on 17 February 1965 that impacted the Moon on 20 February 1965. The mission is recorded as a success.",
+  "sentences": [
+    {
+      "text": "Ranger 8 was a NASA/JPL probe launched on 17 February 1965 that impacted the Moon on 20 February 1965. The mission is recorded as a success.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "kind",
+        "arrival_date",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "ranger-8",
+    "name": "Ranger 8",
+    "kind": "impact",
+    "mission": "Ranger 8",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1965-02-17",
+    "arrival_date": "1965-02-20",
+    "lat": 2.67,
+    "lon": 24.65,
+    "outcome": "success",
+    "facts": [],
+    "wikipedia": "Ranger_8",
+    "sources": [
+      {
+        "title": "Wikipedia: Ranger 8",
+        "url": "https://en.wikipedia.org/wiki/Ranger_8"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Ranger 8",
+      "url": "https://en.wikipedia.org/wiki/Ranger_8"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

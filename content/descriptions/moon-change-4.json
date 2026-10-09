@@ -1,0 +1,59 @@
+{
+  "id": "moon-change-4",
+  "text": "Chang'e 4 was a Chinese (CNSA) mission carrying the Yutu-2 rover that landed on 3 January 2019. It made the first soft landing on the far side of the Moon, in Von Kármán crater.",
+  "sentences": [
+    {
+      "text": "Chang'e 4 was a Chinese (CNSA) mission carrying the Yutu-2 rover that landed on 3 January 2019.",
+      "supported_by": [
+        "country",
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first soft landing on the far side of the Moon, in Von Kármán crater.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "change-4",
+    "name": "Chang'e 4 / Yutu-2",
+    "kind": "rover",
+    "mission": "Chang'e 4",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2018-12-07",
+    "arrival_date": "2019-01-03",
+    "lat": -45.444,
+    "lon": 177.588,
+    "outcome": "success",
+    "facts": [
+      "First soft landing on the far side of the Moon, in Von Kármán crater."
+    ],
+    "wikipedia": "Chang%27e_4",
+    "sources": [
+      {
+        "title": "Wikipedia: Chang%27e 4",
+        "url": "https://en.wikipedia.org/wiki/Chang%27e_4"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Chang%27e 4",
+      "url": "https://en.wikipedia.org/wiki/Chang%27e_4"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

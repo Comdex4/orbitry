@@ -1,0 +1,63 @@
+{
+  "id": "probe-pioneer-10",
+  "text": "Pioneer 10 was a NASA Ames probe launched on 3 March 1972, which became the first spacecraft to fly past Jupiter, in December 1973. Its last signal was received in January 2003, so the position shown is a prediction from its last known trajectory.",
+  "sentences": [
+    {
+      "text": "Pioneer 10 was a NASA Ames probe launched on 3 March 1972, which became the first spacecraft to fly past Jupiter, in December 1973.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "Its last signal was received in January 2003, so the position shown is a prediction from its last known trajectory.",
+      "supported_by": [
+        "facts[1]",
+        "position_note"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "pioneer-10",
+    "name": "Pioneer 10",
+    "horizons": "-23",
+    "operator": "NASA / Ames",
+    "launch_date": "1972-03-03",
+    "facts": [
+      "First spacecraft to fly past Jupiter, in December 1973.",
+      "Its last signal was received in January 2003."
+    ],
+    "wikipedia": "Pioneer_10",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Pioneer 10",
+        "url": "https://en.wikipedia.org/wiki/Pioneer_10"
+      }
+    ],
+    "position_note": "Contact was lost in 2003, so this position is a prediction from its last known trajectory."
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Pioneer 10",
+      "url": "https://en.wikipedia.org/wiki/Pioneer_10"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

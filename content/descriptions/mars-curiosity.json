@@ -1,0 +1,59 @@
+{
+  "id": "mars-curiosity",
+  "text": "Curiosity is the rover of NASA/JPL's Mars Science Laboratory mission, which landed in Gale crater on 6 August 2012. It has since driven many kilometres up Mount Sharp; the coordinates shown are its landing site.",
+  "sentences": [
+    {
+      "text": "Curiosity is the rover of NASA/JPL's Mars Science Laboratory mission, which landed in Gale crater on 6 August 2012.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "It has since driven many kilometres up Mount Sharp; the coordinates shown are its landing site.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "curiosity",
+    "name": "Curiosity (MSL)",
+    "kind": "rover",
+    "mission": "Mars Science Laboratory",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2011-11-26",
+    "arrival_date": "2012-08-06",
+    "lat": -4.5895,
+    "lon": 137.4417,
+    "outcome": "success",
+    "facts": [
+      "Coordinates are the landing site in Gale crater; the rover has since driven many kilometres up Mount Sharp."
+    ],
+    "wikipedia": "Curiosity_(rover)",
+    "sources": [
+      {
+        "title": "Wikipedia: Curiosity (rover)",
+        "url": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Curiosity (rover)",
+      "url": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

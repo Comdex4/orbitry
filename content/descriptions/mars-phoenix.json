@@ -1,0 +1,58 @@
+{
+  "id": "mars-phoenix",
+  "text": "Phoenix was a NASA/JPL lander that touched down in Mars's northern plains on 25 May 2008. It confirmed water ice just below the surface.",
+  "sentences": [
+    {
+      "text": "Phoenix was a NASA/JPL lander that touched down in Mars's northern plains on 25 May 2008.",
+      "supported_by": [
+        "operator",
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "It confirmed water ice just below the surface.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "phoenix",
+    "name": "Phoenix",
+    "kind": "lander",
+    "mission": "Phoenix",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2007-08-04",
+    "arrival_date": "2008-05-25",
+    "lat": 68.22,
+    "lon": -125.75,
+    "outcome": "success",
+    "facts": [
+      "Confirmed water ice just below the surface in the northern plains."
+    ],
+    "wikipedia": "Phoenix_(spacecraft)",
+    "sources": [
+      {
+        "title": "Wikipedia: Phoenix (spacecraft)",
+        "url": "https://en.wikipedia.org/wiki/Phoenix_(spacecraft)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Phoenix (spacecraft)",
+      "url": "https://en.wikipedia.org/wiki/Phoenix_(spacecraft)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

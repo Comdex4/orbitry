@@ -1,0 +1,57 @@
+{
+  "id": "moon-apollo-17",
+  "text": "Apollo 17 landed on the Moon on 11 December 1972 and remains the most recent crewed lunar landing. Eugene Cernan and Harrison Schmitt explored the Taurus–Littrow valley.",
+  "sentences": [
+    {
+      "text": "Apollo 17 landed on the Moon on 11 December 1972 and remains the most recent crewed lunar landing.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "Eugene Cernan and Harrison Schmitt explored the Taurus–Littrow valley.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-17",
+    "name": "Apollo 17 (Challenger)",
+    "kind": "crewed",
+    "mission": "Apollo 17",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1972-12-07",
+    "arrival_date": "1972-12-11",
+    "lat": 20.1908,
+    "lon": 30.77168,
+    "outcome": "success",
+    "facts": [
+      "Most recent crewed landing: Eugene Cernan and Harrison Schmitt, in the Taurus–Littrow valley."
+    ],
+    "wikipedia": "Apollo_17",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 17",
+        "url": "https://en.wikipedia.org/wiki/Apollo_17"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 17",
+      "url": "https://en.wikipedia.org/wiki/Apollo_17"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

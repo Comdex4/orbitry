@@ -1,0 +1,46 @@
+{
+  "id": "mars-mars-odyssey",
+  "text": "2001 Mars Odyssey is a NASA orbiter launched on 7 April 2001. It reached orbit around Mars on 24 October 2001.",
+  "sentences": [
+    {
+      "text": "2001 Mars Odyssey is a NASA orbiter launched on 7 April 2001. It reached orbit around Mars on 24 October 2001.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "mars-odyssey",
+    "name": "2001 Mars Odyssey",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2001-04-07",
+    "arrival_date": "2001-10-24",
+    "wikipedia": "2001_Mars_Odyssey",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: 2001 Mars Odyssey",
+        "url": "https://en.wikipedia.org/wiki/2001_Mars_Odyssey"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: 2001 Mars Odyssey",
+      "url": "https://en.wikipedia.org/wiki/2001_Mars_Odyssey"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}

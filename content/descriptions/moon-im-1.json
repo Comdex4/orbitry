@@ -1,0 +1,58 @@
+{
+  "id": "moon-im-1",
+  "text": "IM-1 Odysseus was a lander from the US company Intuitive Machines that touched down on 22 February 2024. It made the first commercial soft landing on the Moon but tipped onto its side at touchdown.",
+  "sentences": [
+    {
+      "text": "IM-1 Odysseus was a lander from the US company Intuitive Machines that touched down on 22 February 2024.",
+      "supported_by": [
+        "operator",
+        "country",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first commercial soft landing on the Moon but tipped onto its side at touchdown.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "im-1",
+    "name": "IM-1 Odysseus",
+    "kind": "lander",
+    "mission": "IM-1",
+    "operator": "Intuitive Machines",
+    "country": "USA",
+    "launch_date": "2024-02-15",
+    "arrival_date": "2024-02-22",
+    "lat": -80.13,
+    "lon": 1.44,
+    "outcome": "partial",
+    "facts": [
+      "First commercial soft landing on the Moon; tipped onto its side at touchdown."
+    ],
+    "wikipedia": "IM-1",
+    "sources": [
+      {
+        "title": "Wikipedia: IM-1",
+        "url": "https://en.wikipedia.org/wiki/IM-1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: IM-1",
+      "url": "https://en.wikipedia.org/wiki/IM-1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "unreviewed"
+  }
+}
