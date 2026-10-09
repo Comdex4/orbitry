@@ -9,8 +9,10 @@ if (/[?&](norad|color|t)=/.test(location.search)) location.replace('/globe/' + l
 chrome();
 const set = (id, text, sub) => { const el = $(id); if (el) el.textContent = text; if (sub && $(id + 'Sub')) $(id + 'Sub').textContent = sub; };
 
-const globe = new Globe($('#heroGlobe'), { interactive: false, autoRotate: true });
-globe.camDist = globe.camCur = 3.1;
+const globe = new Globe($('#heroGlobe'), { interactive: false, autoRotate: true, maxPixelRatio: 1.5 });
+// Framed as a horizon: the canvas sits mostly below the fold, so only the top of the Earth shows.
+globe.camDist = globe.camCur = 3.25;
+globe.rotX = 0.25;
 
 loadCatalog().then(({ raw, objects }) => {
   globe.setObjects(objects);
@@ -21,12 +23,13 @@ loadCatalog().then(({ raw, objects }) => {
   const fetched = raw.sources.elements.fetched;
   if (fetched) set('#sFresh', ago(fetched));
   $('#heroTag').textContent = `${n} objects · positions computed live in your browser`;
+  $('#heroBadge').textContent = `Live · ${n} objects in orbit right now`;
 }).catch(() => { $('#heroTag').textContent = 'Open the live globe'; });
 
 Promise.all([getJSON('/data/moon.json'), getJSON('/data/mars.json')])
   .then(([m, r]) => set('#sSites', `${m.sites.length} + ${r.sites.length}`)).catch(() => {});
 
-getJSON('/data/descriptions.json').then((d) => { const n = String(Object.keys(d).length); set('#sSummaries', n); set('#sReviewed', n); }).catch(() => {});
+getJSON('/data/descriptions.json').then((d) => set('#sReviewed', String(Object.keys(d).length))).catch(() => {});
 
 getJSON('/data/solar-system.json').then((ss) => {
   const v = ss.bodies.find((b) => b.slug === 'voyager-1'), e = ss.bodies.find((b) => b.name === 'Earth');
