@@ -1,11 +1,11 @@
-import { chrome, $, $$, esc, me, api, getJSON, geocode, savedLocation, rememberLocation } from './common.js';
+import { chrome, $, $$, esc, session, api, getJSON, geocode, savedLocation, rememberLocation, STATIC_NOTE } from './common.js';
 import { PLANS } from './plans.js';
 import { fetchWeather, planNight } from '../lib/planner.js';
 import { fieldOfView } from '../lib/streaks.js';
 
 chrome();
 const DIRS = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-let user = null, unlocked = false, loc = savedLocation(), plan = null, targetsData = null;
+let user = null, server = false, unlocked = false, loc = savedLocation(), plan = null, targetsData = null;
 
 $('#hz').innerHTML = DIRS.map((d, i) => `<label>${d}<input type="number" min="0" max="80" value="0" data-hz="${i}" aria-label="Obstruction toward ${d}"></label>`).join('');
 const today = new Date(); $('#date').value = new Date(today - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
@@ -48,8 +48,8 @@ $('#locQ').addEventListener('input', () => {
 
 function gate() {
   const g = $('#gate');
-  const cta = !user
-    ? `<a class="btn primary" href="/account/?next=/planner/">Sign in</a>`
+  const cta = !server ? `<span class="dim">${esc(STATIC_NOTE)}</span>`
+    : !user ? `<a class="btn primary" href="/account/?next=/planner/">Sign in</a>`
     : `<button class="btn primary" type="button" id="buy">Subscribe · ${esc(PLANS.planner.price)}</button>`;
   if (unlocked) { g.innerHTML = ''; return; }
   g.innerHTML = `<div class="notice info" style="margin-top:14px">Tonight's darkness, Moon and cloud forecast are free. Target recommendations, satellite-streak warnings and the nightly email are part of the <strong>${esc(PLANS.planner.name)}</strong> plan. <span style="margin-left:8px">${cta}</span></div>`;
@@ -151,7 +151,7 @@ $('#save').onclick = async () => {
 };
 
 showFov(); showLoc();
-user = await me();
+({ server, user } = await session());
 unlocked = !!user?.planner;
 if (unlocked) {
   try {

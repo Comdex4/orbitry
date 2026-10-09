@@ -1,5 +1,7 @@
-# Refreshes the data every two hours and deploys the site with it.
-# Needs repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Refreshes the data every two hours and deploys the full site (with accounts and the API)
+# to Cloudflare. Turned on by setting the repository variable DEPLOY_TARGET to "cloudflare"
+# and adding the secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# Until then, pages.yml publishes the static site to GitHub Pages instead.
 name: Data refresh and deploy
 on:
   schedule:
@@ -12,6 +14,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   deploy:
+    if: vars.DEPLOY_TARGET == 'cloudflare'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

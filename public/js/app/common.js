@@ -26,7 +26,11 @@ export function chrome({ footer = true } = {}) {
       <span><a href="/about/">Data &amp; accuracy</a> · <a href="/developers/">API</a> · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span></div>`;
     document.body.append(f);
   }
-  me().then((u) => { if (u) { const a = $('#acct'); a.textContent = 'Account'; } });
+  session().then(({ server, user }) => {
+    const a = $('#acct');
+    if (!server) a.hidden = true; // static hosting (e.g. GitHub Pages): no accounts
+    else if (user) a.textContent = 'Account';
+  });
 }
 
 const jsonCache = new Map();
@@ -45,11 +49,15 @@ export function api(path, method = 'GET', body) {
   return getJSON(path, { method, headers: body ? { 'content-type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined });
 }
 
-let mePromise;
-export function me() {
-  if (!mePromise) mePromise = getJSON('/api/me').then((r) => r.user || null).catch(() => null);
-  return mePromise;
+// Accounts, alerts and paid plans need the Orbitry Worker. On static hosting such as
+// GitHub Pages /api/me doesn't exist, and those features are hidden.
+let sessionPromise;
+export function session() {
+  if (!sessionPromise) sessionPromise = getJSON('/api/me').then((r) => ({ server: true, user: r.user || null })).catch(() => ({ server: false, user: null }));
+  return sessionPromise;
 }
+export const me = () => session().then((s) => s.user);
+export const STATIC_NOTE = 'Accounts, email alerts, API keys and paid plans run on the Orbitry server, which isn\'t connected to this copy of the site.';
 
 let catalogPromise;
 export function loadCatalog() {
