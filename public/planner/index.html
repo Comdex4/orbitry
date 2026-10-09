@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Astrophotography planner — Orbitry</title>
+<meta name="description" content="What to shoot tonight: weather, Moon, darkness and target visibility for your location and gear, with warnings when a satellite will streak through your frame.">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.grid{display:grid;grid-template-columns:340px 1fr;gap:18px;margin-top:20px;align-items:start}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card h3{margin:0 0 10px;font-size:1rem}
+.form{display:grid;gap:10px}
+.form .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.form input:not([type=checkbox]),.form select{width:100%}
+.hz{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:4px;text-align:center;font-size:.72rem;color:var(--mute)}
+.hz input{width:100%;padding:4px 2px;text-align:center}
+.bars{display:flex;align-items:flex-end;gap:2px;height:70px;margin-top:8px}
+.bars div{flex:1;background:linear-gradient(#93a0b8,#5b6478);border-radius:2px 2px 0 0;min-height:2px;position:relative}
+.bars div.moon{box-shadow:inset 0 -3px 0 #ffd166}
+.axis{display:flex;justify-content:space-between;font-size:.72rem;color:var(--dim);margin-top:2px}
+.lock{position:relative}
+.lock .veil{position:absolute;inset:0;background:rgba(5,7,13,.78);backdrop-filter:blur(3px);display:grid;place-items:center;text-align:center;border-radius:16px;padding:20px}
+.frames{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px;margin-top:10px}
+.frame{border:1px solid var(--line);border-radius:8px;padding:4px;font-size:.7rem;color:var(--mute);text-align:center}
+.frame.hit{border-color:rgba(255,95,162,.6)}
+.frame svg{width:100%;aspect-ratio:3/2;background:#070b16;border-radius:4px;display:block}
+progress{width:100%}
+</style>
+</head>
+<body>
+<main class="page" style="width:min(1240px,100% - 32px)">
+  <h1>Astrophotography planner</h1>
+  <p class="lede">What to shoot tonight from where you are, with the gear you have, and a warning before a satellite crosses your frame.</p>
+  <div id="gate"></div>
+  <div class="grid">
+    <div class="card">
+      <h3>Your setup</h3>
+      <form class="form" id="setup">
+        <div class="field" style="position:relative"><label for="locQ">Location</label><input id="locQ" type="search" placeholder="Search a place" autocomplete="off"><ul class="sugg" id="locSugg" hidden style="position:absolute;top:62px;left:0;right:0;z-index:4"></ul><span class="dim" id="locNow" style="font-size:.82rem"></span></div>
+        <div class="field"><label for="date">Night of</label><input id="date" type="date"></div>
+        <div class="field"><label for="sensor">Camera sensor</label><select id="sensor">
+          <option value="36x24">Full frame (36 × 24 mm)</option><option value="23.5x15.6" selected>APS-C (23.5 × 15.6 mm)</option><option value="22.3x14.9">APS-C Canon (22.3 × 14.9 mm)</option>
+          <option value="17.3x13">Micro Four Thirds (17.3 × 13 mm)</option><option value="13.2x8.8">1-inch (13.2 × 8.8 mm)</option><option value="11.3x7.1">IMX571 crop (11.3 × 7.1 mm)</option><option value="custom">Custom…</option></select></div>
+        <div class="two" id="customSensor" hidden><div class="field"><label for="sw">Width (mm)</label><input id="sw" type="number" step="0.1" value="23.5"></div><div class="field"><label for="sh">Height (mm)</label><input id="sh" type="number" step="0.1" value="15.6"></div></div>
+        <div class="two"><div class="field"><label for="focal">Focal length (mm)</label><input id="focal" type="number" min="5" value="135"></div><div class="field"><label for="minAlt">Lowest alt. (°)</label><input id="minAlt" type="number" min="0" max="80" value="25"></div></div>
+        <div class="field"><label>Horizon obstructions (° above horizon)</label><div class="hz" id="hz"></div></div>
+        <p class="dim" id="fovNote" style="margin:0;font-size:.82rem"></p>
+        <label class="row" style="gap:6px" id="emailRow"><input type="checkbox" id="emailNightly"> Email me tonight's plan each afternoon</label>
+        <div class="row"><button class="btn primary" type="submit">Plan the night</button><button class="btn" type="button" id="save">Save setup</button></div>
+        <p id="saveMsg" class="mute" style="margin:0;font-size:.84rem"></p>
+      </form>
+    </div>
+    <div>
+      <div class="card" id="tonight"><p class="mute">Set your location to plan the night.</p></div>
+      <div class="lock" id="targetsWrap" style="margin-top:18px"><div class="card" id="targets"></div></div>
+      <div class="lock" id="streakWrap" style="margin-top:18px"><div class="card" id="streaks">
+        <h3>Satellite streak check</h3>
+        <p class="mute" style="font-size:.9rem">Pick a target above, then set your exposures. We check every tracked object against your exact field of view.</p>
+        <div class="form" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));display:grid">
+          <div class="field"><label for="sTarget">Target</label><select id="sTarget"></select></div>
+          <div class="field"><label for="sStart">First exposure (local)</label><input id="sStart" type="time" value="21:00"></div>
+          <div class="field"><label for="sLen">Exposure (s)</label><input id="sLen" type="number" min="1" max="1800" value="120"></div>
+          <div class="field"><label for="sCount">Number of frames</label><input id="sCount" type="number" min="1" max="200" value="30"></div>
+          <div class="field"><label for="sGap">Gap between frames (s)</label><input id="sGap" type="number" min="0" max="600" value="5"></div>
+          <div class="field"><label for="sRot">Camera rotation (°)</label><input id="sRot" type="number" min="0" max="180" placeholder="unknown"></div>
+        </div>
+        <p><button class="btn primary" id="sRun" type="button">Check for streaks</button></p>
+        <progress id="sProg" value="0" max="1" hidden></progress>
+        <div id="sOut"></div>
+      </div></div>
+    </div>
+  </div>
+  <p class="dim" style="font-size:.82rem;margin-top:24px">Weather from <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>. Target positions from <a href="https://github.com/mattiaverga/OpenNGC" rel="noopener">OpenNGC</a> (CC BY-SA 4.0). Sun and Moon from low-precision formulas, good to a fraction of a degree. Streak predictions use public orbital elements: a satellite's position can be off by a few kilometres, which is a large angle for a narrow field, so treat a near-miss as a possible hit. Only publicly tracked objects are checked.</p>
+</main>
+<script type="module" src="/js/app/planner.js"></script>
+</body>
+</html>

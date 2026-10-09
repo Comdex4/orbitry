@@ -1,0 +1,39 @@
+# Cloudflare Worker serving the static site from ./public and the API under /api.
+name = "orbitry"
+main = "src/worker/index.js"
+compatibility_date = "2026-09-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+not_found_handling = "404-page"
+
+# Serve on the custom domain once the orbitry.net zone is on Cloudflare (uncomment):
+# routes = [{ pattern = "orbitry.net", custom_domain = true }]
+
+[vars]
+SITE_URL = "https://orbitry.net"
+EMAIL_FROM = "Orbitry <alerts@orbitry.net>"
+
+# Create with: npx wrangler d1 create orbitry   (then paste the id here)
+[[d1_databases]]
+binding = "DB"
+database_name = "orbitry"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+# Pass alerts every 15 minutes; the same run handles re-entry alerts and nightly planner emails.
+[triggers]
+crons = ["*/15 * * * *"]
+
+[observability]
+enabled = true
+
+# Secrets (set with `npx wrangler secret put NAME`):
+#   RESEND_API_KEY          email delivery
+#   STRIPE_SECRET_KEY       payments
+#   STRIPE_WEBHOOK_SECRET   verifies Stripe webhooks
+#   STRIPE_PRICE_API_PRO    Stripe price ID for API Pro
+#   STRIPE_PRICE_PLANNER    Stripe price ID for the astrophotography planner
+#   IP_SALT                 any random string; salts hashed IPs used for anonymous rate limits

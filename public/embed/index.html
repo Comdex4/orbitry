@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live satellite globe — Orbitry</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+html,body{height:100%;overflow:hidden}
+.legend-mini{left:8px;top:8px;padding:6px 8px;font-size:.78rem}
+.legend-mini .legend button{font-size:.78rem;padding:2px 4px}
+.credit{right:8px;bottom:8px;padding:5px 9px;font-size:.76rem}
+.credit a{color:var(--text)}
+.tip{left:8px;bottom:8px;padding:5px 9px;font-size:.76rem;color:var(--mute)}
+</style>
+</head>
+<body>
+<main class="app-main" id="stage" style="height:100%">
+  <canvas class="view" id="canvas" role="img" aria-label="Live 3D globe of satellites in Earth orbit, by Orbitry"></canvas>
+  <div class="float legend-mini panel" id="lg"><div class="legend" id="legend"></div></div>
+  <p class="float tip panel" id="tip">Drag to rotate · click a dot</p>
+  <p class="float credit panel"><a href="/" target="_blank" rel="noopener">Orbitry</a> · data: CelesTrak, GCAT · <span id="age"></span></p>
+  <div class="loading" id="loading"><div><div class="spin"></div>Loading…</div></div>
+</main>
+<script type="module">
+import { $, esc, loadCatalog, ago, fail } from '/js/app/common.js';
+import { Globe } from '/js/app/globe.js';
+const p = new URLSearchParams(location.search);
+const g = new Globe($('#canvas'), { onSelect: (o) => { $('#tip').innerHTML = o ? `<a href="/object/?norad=${o.norad}" target="_blank" rel="noopener" style="color:var(--text)">${esc(o.name)}</a> · NORAD ${o.norad}` : 'Drag to rotate · click a dot'; } });
+if (p.get('legend') === '0') $('#lg').hidden = true;
+try {
+  const { raw, objects } = await loadCatalog();
+  g.setObjects(objects);
+  const { groups, counts } = g.setColoring(['orbit', 'purpose', 'country', 'operator'].includes(p.get('color')) ? p.get('color') : 'orbit');
+  $('#legend').innerHTML = Object.entries(groups).filter(([k]) => counts[k]).map(([, v]) => `<button type="button" aria-pressed="true" tabindex="-1"><i class="dot" style="background:${v.color}"></i>${esc(v.label)}</button>`).join('');
+  const n = +p.get('norad'); if (n) { const i = g.indexOf(n); if (i >= 0) g.select(i, true); }
+  $('#age').textContent = `elements ${ago(raw.sources.elements.fetched)}`;
+  $('#loading').hidden = true;
+} catch (e) { fail($('#loading'), 'Could not load orbital data.'); }
+</script>
+</body>
+</html>

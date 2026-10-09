@@ -1,0 +1,30 @@
+{
+  "name": "orbitry",
+  "private": true,
+  "type": "module",
+  "description": "Orbitry: every publicly tracked human-made object in space, on a globe, a map and an API.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "pipeline": "node pipeline/build.js",
+    "pipeline:fast": "node pipeline/build.js --skip-slow",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply orbitry --local",
+    "db:migrate": "wrangler d1 migrations apply orbitry --remote",
+    "test": "node --test --no-warnings \"test/*.test.js\"",
+    "check:sites": "node scripts/check-sites.js",
+    "draft": "node scripts/draft-descriptions.js",
+    "review": "node scripts/review.js",
+    "vendor": "node scripts/vendor.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@anthropic-ai/sdk": "0.128.0",
+    "three": "0.185.1",
+    "wrangler": "4.137.0",
+    "zod": "4.6.5",
+    "satellite.js": "7.1.0"
+  }
+}

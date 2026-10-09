@@ -1,0 +1,520 @@
+{
+ "body": "mars",
+ "radius_km": 3389.5,
+ "conventions": {
+  "longitude": "Planetocentric, east-positive, -180 to 180.",
+  "positions": "Landing or impact coordinates. Rovers have since moved from these points."
+ },
+ "sites": [
+  {
+   "slug": "mars-2",
+   "name": "Mars 2 lander",
+   "kind": "lander",
+   "mission": "Mars 2",
+   "operator": "Lavochkin",
+   "country": "USSR",
+   "launch_date": "1971-05-19",
+   "arrival_date": "1971-11-27",
+   "lat": -45.0,
+   "lon": 47.0,
+   "outcome": "failure",
+   "facts": [
+    "First human-made object to reach the surface of Mars; crashed. Coordinates are approximate."
+   ],
+   "wikipedia": "Mars_2",
+   "sources": [
+    {
+     "title": "Wikipedia: Mars 2",
+     "url": "https://en.wikipedia.org/wiki/Mars_2"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "mars-3",
+   "name": "Mars 3 lander",
+   "kind": "lander",
+   "mission": "Mars 3",
+   "operator": "Lavochkin",
+   "country": "USSR",
+   "launch_date": "1971-05-28",
+   "arrival_date": "1971-12-02",
+   "lat": -45.0,
+   "lon": -158.0,
+   "outcome": "partial",
+   "facts": [
+    "First soft landing on Mars; contact was lost about 20 seconds after landing. Coordinates are approximate."
+   ],
+   "wikipedia": "Mars_3",
+   "sources": [
+    {
+     "title": "Wikipedia: Mars 3",
+     "url": "https://en.wikipedia.org/wiki/Mars_3"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "viking-1",
+   "name": "Viking 1 lander",
+   "kind": "lander",
+   "mission": "Viking 1",
+   "operator": "NASA",
+   "country": "USA",
+   "launch_date": "1975-08-20",
+   "arrival_date": "1976-07-20",
+   "lat": 22.27,
+   "lon": -47.95,
+   "outcome": "success",
+   "facts": [
+    "First fully successful Mars landing; operated until 1982."
+   ],
+   "wikipedia": "Viking_1",
+   "sources": [
+    {
+     "title": "Wikipedia: Viking 1",
+     "url": "https://en.wikipedia.org/wiki/Viking_1"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "viking-2",
+   "name": "Viking 2 lander",
+   "kind": "lander",
+   "mission": "Viking 2",
+   "operator": "NASA",
+   "country": "USA",
+   "launch_date": "1975-09-09",
+   "arrival_date": "1976-09-03",
+   "lat": 47.64,
+   "lon": 134.29,
+   "outcome": "success",
+   "facts": [
+    "Operated in Utopia Planitia until 1980."
+   ],
+   "wikipedia": "Viking_2",
+   "sources": [
+    {
+     "title": "Wikipedia: Viking 2",
+     "url": "https://en.wikipedia.org/wiki/Viking_2"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "pathfinder",
+   "name": "Mars Pathfinder / Sojourner",
+   "kind": "rover",
+   "mission": "Mars Pathfinder",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "1996-12-04",
+   "arrival_date": "1997-07-04",
+   "lat": 19.13,
+   "lon": -33.22,
+   "outcome": "success",
+   "facts": [
+    "Sojourner was the first rover on Mars."
+   ],
+   "wikipedia": "Mars_Pathfinder",
+   "sources": [
+    {
+     "title": "Wikipedia: Mars Pathfinder",
+     "url": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "beagle-2",
+   "name": "Beagle 2",
+   "kind": "lander",
+   "mission": "Mars Express",
+   "operator": "ESA / UK",
+   "country": "Europe",
+   "launch_date": "2003-06-02",
+   "arrival_date": "2003-12-25",
+   "lat": 11.53,
+   "lon": 90.43,
+   "outcome": "failure",
+   "facts": [
+    "Landed but never made contact; found in orbital images in 2015 with its solar panels only partly deployed."
+   ],
+   "wikipedia": "Beagle_2",
+   "sources": [
+    {
+     "title": "Wikipedia: Beagle 2",
+     "url": "https://en.wikipedia.org/wiki/Beagle_2"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "spirit",
+   "name": "Spirit (MER-A)",
+   "kind": "rover",
+   "mission": "Mars Exploration Rover",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2003-06-10",
+   "arrival_date": "2004-01-04",
+   "lat": -14.5684,
+   "lon": 175.4726,
+   "outcome": "success",
+   "facts": [
+    "Coordinates are the landing site in Gusev crater."
+   ],
+   "wikipedia": "Spirit_(rover)",
+   "sources": [
+    {
+     "title": "Wikipedia: Spirit (rover)",
+     "url": "https://en.wikipedia.org/wiki/Spirit_(rover)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "opportunity",
+   "name": "Opportunity (MER-B)",
+   "kind": "rover",
+   "mission": "Mars Exploration Rover",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2003-07-07",
+   "arrival_date": "2004-01-25",
+   "lat": -1.9462,
+   "lon": -5.5266,
+   "outcome": "success",
+   "facts": [
+    "Drove more than 45 km over almost 15 years. Coordinates are the landing site in Meridiani Planum."
+   ],
+   "wikipedia": "Opportunity_(rover)",
+   "sources": [
+    {
+     "title": "Wikipedia: Opportunity (rover)",
+     "url": "https://en.wikipedia.org/wiki/Opportunity_(rover)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "phoenix",
+   "name": "Phoenix",
+   "kind": "lander",
+   "mission": "Phoenix",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2007-08-04",
+   "arrival_date": "2008-05-25",
+   "lat": 68.22,
+   "lon": -125.75,
+   "outcome": "success",
+   "facts": [
+    "Confirmed water ice just below the surface in the northern plains."
+   ],
+   "wikipedia": "Phoenix_(spacecraft)",
+   "sources": [
+    {
+     "title": "Wikipedia: Phoenix (spacecraft)",
+     "url": "https://en.wikipedia.org/wiki/Phoenix_(spacecraft)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "curiosity",
+   "name": "Curiosity (MSL)",
+   "kind": "rover",
+   "mission": "Mars Science Laboratory",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2011-11-26",
+   "arrival_date": "2012-08-06",
+   "lat": -4.5895,
+   "lon": 137.4417,
+   "outcome": "success",
+   "facts": [
+    "Coordinates are the landing site in Gale crater; the rover has since driven many kilometres up Mount Sharp."
+   ],
+   "wikipedia": "Curiosity_(rover)",
+   "sources": [
+    {
+     "title": "Wikipedia: Curiosity (rover)",
+     "url": "https://en.wikipedia.org/wiki/Curiosity_(rover)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "schiaparelli",
+   "name": "Schiaparelli EDM",
+   "kind": "lander",
+   "mission": "ExoMars 2016",
+   "operator": "ESA / Roscosmos",
+   "country": "Europe",
+   "launch_date": "2016-03-14",
+   "arrival_date": "2016-10-19",
+   "lat": -2.05,
+   "lon": -6.21,
+   "outcome": "failure",
+   "facts": [
+    "Crashed after a software error during descent."
+   ],
+   "wikipedia": "Schiaparelli_EDM",
+   "sources": [
+    {
+     "title": "Wikipedia: Schiaparelli EDM",
+     "url": "https://en.wikipedia.org/wiki/Schiaparelli_EDM"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "insight",
+   "name": "InSight",
+   "kind": "lander",
+   "mission": "InSight",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2018-05-05",
+   "arrival_date": "2018-11-26",
+   "lat": 4.502,
+   "lon": 135.623,
+   "outcome": "success",
+   "facts": [
+    "Recorded more than 1,300 marsquakes before its mission ended in 2022."
+   ],
+   "wikipedia": "InSight",
+   "sources": [
+    {
+     "title": "Wikipedia: InSight",
+     "url": "https://en.wikipedia.org/wiki/InSight"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "perseverance",
+   "name": "Perseverance and Ingenuity",
+   "kind": "rover",
+   "mission": "Mars 2020",
+   "operator": "NASA / JPL",
+   "country": "USA",
+   "launch_date": "2020-07-30",
+   "arrival_date": "2021-02-18",
+   "lat": 18.4447,
+   "lon": 77.4508,
+   "outcome": "success",
+   "facts": [
+    "Collecting rock samples in Jezero crater. Coordinates are the landing site.",
+    "Carried the Ingenuity helicopter, the first powered aircraft to fly on another planet."
+   ],
+   "wikipedia": "Perseverance_(rover)",
+   "sources": [
+    {
+     "title": "Wikipedia: Perseverance (rover)",
+     "url": "https://en.wikipedia.org/wiki/Perseverance_(rover)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  },
+  {
+   "slug": "zhurong",
+   "name": "Tianwen-1 / Zhurong",
+   "kind": "rover",
+   "mission": "Tianwen-1",
+   "operator": "CNSA",
+   "country": "China",
+   "launch_date": "2020-07-23",
+   "arrival_date": "2021-05-14",
+   "lat": 25.066,
+   "lon": 109.925,
+   "outcome": "success",
+   "facts": [
+    "China's first Mars rover, in Utopia Planitia."
+   ],
+   "wikipedia": "Zhurong_(rover)",
+   "sources": [
+    {
+     "title": "Wikipedia: Zhurong (rover)",
+     "url": "https://en.wikipedia.org/wiki/Zhurong_(rover)"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   }
+  }
+ ],
+ "orbiters": [
+  {
+   "slug": "mars-odyssey",
+   "name": "2001 Mars Odyssey",
+   "operator": "NASA",
+   "country": "USA",
+   "launch_date": "2001-04-07",
+   "arrival_date": "2001-10-24",
+   "wikipedia": "2001_Mars_Odyssey",
+   "model": "mars-odyssey",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: 2001 Mars Odyssey",
+     "url": "https://en.wikipedia.org/wiki/2001_Mars_Odyssey"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "mars-express",
+   "name": "Mars Express",
+   "operator": "ESA",
+   "country": "Europe",
+   "launch_date": "2003-06-02",
+   "arrival_date": "2003-12-25",
+   "wikipedia": "Mars_Express",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: Mars Express",
+     "url": "https://en.wikipedia.org/wiki/Mars_Express"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "mro",
+   "name": "Mars Reconnaissance Orbiter",
+   "operator": "NASA",
+   "country": "USA",
+   "launch_date": "2005-08-12",
+   "arrival_date": "2006-03-10",
+   "wikipedia": "Mars_Reconnaissance_Orbiter",
+   "model": "mro",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: Mars Reconnaissance Orbiter",
+     "url": "https://en.wikipedia.org/wiki/Mars_Reconnaissance_Orbiter"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "maven",
+   "name": "MAVEN",
+   "operator": "NASA",
+   "country": "USA",
+   "launch_date": "2013-11-18",
+   "arrival_date": "2014-09-22",
+   "wikipedia": "MAVEN",
+   "model": "maven",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: MAVEN",
+     "url": "https://en.wikipedia.org/wiki/MAVEN"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "tgo",
+   "name": "ExoMars Trace Gas Orbiter",
+   "operator": "ESA / Roscosmos",
+   "country": "Europe",
+   "launch_date": "2016-03-14",
+   "arrival_date": "2016-10-19",
+   "wikipedia": "Trace_Gas_Orbiter",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: Trace Gas Orbiter",
+     "url": "https://en.wikipedia.org/wiki/Trace_Gas_Orbiter"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "hope",
+   "name": "Emirates Mars Mission (Hope)",
+   "operator": "MBRSC",
+   "country": "United Arab Emirates",
+   "launch_date": "2020-07-19",
+   "arrival_date": "2021-02-09",
+   "wikipedia": "Emirates_Mars_Mission",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: Emirates Mars Mission",
+     "url": "https://en.wikipedia.org/wiki/Emirates_Mars_Mission"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  {
+   "slug": "tianwen-1-orbiter",
+   "name": "Tianwen-1 orbiter",
+   "operator": "CNSA",
+   "country": "China",
+   "launch_date": "2020-07-23",
+   "arrival_date": "2021-02-10",
+   "wikipedia": "Tianwen-1",
+   "facts": [],
+   "sources": [
+    {
+     "title": "Wikipedia: Tianwen-1",
+     "url": "https://en.wikipedia.org/wiki/Tianwen-1"
+    }
+   ],
+   "review": {
+    "status": "unreviewed"
+   },
+   "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  }
+ ]
+}

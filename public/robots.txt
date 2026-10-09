@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /api/
+Disallow: /account/
+Sitemap: https://orbitry.net/sitemap.xml

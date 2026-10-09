@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<title>Privacy — Orbitry</title>
+</head>
+<body>
+<main class="page narrow">
+  <h1>Privacy</h1>
+  <p class="mute">Last updated 9 October 2026</p>
+  <h2>The short version</h2>
+  <p>You can use Orbitry without an account. If you create one, we keep your email address and the things you choose to save, use them only to run the features you asked for, and never sell them. There's no advertising and no tracking cookies.</p>
+  <h2>Without an account</h2>
+  <p>Satellite positions, passes and the planner's calculations run in your browser. If you search for a place or use "my location", the coordinates stay in your browser (in local storage) unless you save them to an account. Place search is sent to Open-Meteo's geocoding service, and the planner's weather forecast is requested from Open-Meteo directly by your browser.</p>
+  <p>To enforce API limits for requests without a key, we count requests per day against a salted hash of your IP address, not the address itself.</p>
+  <h2>With an account</h2>
+  <p>We store your email address, saved locations, favorites, alerts, API keys (as one-way hashes), planner settings, and which plans you have. We use your email to send sign-in links and the alerts and nightly plans you turn on. Delete your account from the account page at any time and all of this is removed.</p>
+  <h2>Payments</h2>
+  <p>Paid plans are handled by Stripe. We never see or store your card details; we keep only a Stripe customer reference so you can manage your subscription.</p>
+  <h2>Service providers</h2>
+  <p>Orbitry runs on Cloudflare, which processes standard technical data such as IP addresses to deliver pages and stop abuse. Email is sent through Resend. Pages load fonts from Google Fonts, photos from Wikimedia Commons, launch images from The Space Devs, 3D models from GitHub, and the 3D model viewer from jsDelivr, so those services see your IP address when your browser fetches from them.</p>
+  <h2>Contact</h2>
+  <p>Questions or deletion requests: <a href="mailto:crice@orbitry.net">crice@orbitry.net</a>.</p>
+</main>
+<script type="module">import { chrome } from '/js/app/common.js'; chrome();</script>
+</body>
+</html>

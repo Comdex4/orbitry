@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Launches &amp; re-entries — Orbitry</title>
+<meta name="description" content="What's going up and coming down: upcoming orbital launches, recent launches, recent re-entries, and objects that are low and decaying.">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.tabs{display:inline-flex;margin:22px 0 4px;flex-wrap:wrap}
+.launch{display:grid;grid-template-columns:96px 1fr auto;gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid var(--line)}
+.launch img{width:96px;height:72px;object-fit:cover;border-radius:10px;background:#0a1020}
+.launch .ph{width:96px;height:72px;border-radius:10px;background:linear-gradient(135deg,#13203d,#0a1020)}
+.launch h3{font-size:1rem;margin:0 0 2px}
+.launch .when{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.launch .cd{font:600 1rem var(--mono)}
+@media(max-width:640px){.launch{grid-template-columns:1fr}.launch img,.launch .ph{display:none}.launch .when{text-align:left}}
+</style>
+</head>
+<body>
+<main class="page">
+  <h1>Launches &amp; re-entries</h1>
+  <p class="lede">What's going up and what's coming down. Times are shown in your time zone.</p>
+  <div class="tabs seg" role="tablist" aria-label="Feed">
+    <button type="button" role="tab" data-tab="up" aria-pressed="true">Upcoming launches</button>
+    <button type="button" role="tab" data-tab="recent" aria-pressed="false">Recent launches</button>
+    <button type="button" role="tab" data-tab="down" aria-pressed="false">Coming down</button>
+  </div>
+  <section id="up"><div id="upList"><p class="mute">Loading…</p></div><p class="dim" id="upSrc" style="font-size:.82rem"></p></section>
+  <section id="recent" hidden><div id="recentList"></div></section>
+  <section id="down" hidden>
+    <h2>Recent re-entries</h2>
+    <p class="mute">Objects whose decay was recorded in the last 45 days. Dates are as published in the catalog and are usually given to the day.</p>
+    <div class="table-wrap"><table><thead><tr><th>Object</th><th>Type</th><th>Owner</th><th>Launched</th><th>Re-entered</th></tr></thead><tbody id="reTbl"></tbody></table></div>
+    <h2>Low and decaying</h2>
+    <p class="mute">Objects still in orbit with a perigee below 220 km and a rising decay rate. Orbitry doesn't predict re-entry times, because public orbital data can't support a credible time window. For official predictions, see <a href="https://aerospace.org/reentries" rel="noopener">The Aerospace Corporation</a> and <a href="https://www.space-track.org" rel="noopener">Space-Track</a>. API subscribers can get an email when one of these re-enters.</p>
+    <div class="table-wrap"><table><thead><tr><th>Object</th><th>Type</th><th class="r">Perigee</th><th class="r">Apogee</th><th>Elements from</th></tr></thead><tbody id="lowTbl"></tbody></table></div>
+    <p class="dim" id="downSrc" style="font-size:.82rem"></p>
+  </section>
+</main>
+<script type="module" src="/js/app/launches.js"></script>
+</body>
+</html>
