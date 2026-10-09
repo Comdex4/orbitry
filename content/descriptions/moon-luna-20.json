@@ -1,0 +1,56 @@
+{
+  "id": "moon-luna-20",
+  "text": "Luna 20 was a Soviet sample-return spacecraft operated by Lavochkin. It launched on 14 February 1972 and landed on the Moon on 21 February 1972, and the mission succeeded.",
+  "sentences": [
+    {
+      "text": "Luna 20 was a Soviet sample-return spacecraft operated by Lavochkin. It launched on 14 February 1972 and landed on the Moon on 21 February 1972, and the mission succeeded.",
+      "supported_by": [
+        "country",
+        "kind",
+        "operator",
+        "launch_date",
+        "arrival_date",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-20",
+    "name": "Luna 20",
+    "kind": "sample-return",
+    "mission": "Luna 20",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1972-02-14",
+    "arrival_date": "1972-02-21",
+    "lat": 3.79,
+    "lon": 56.62,
+    "outcome": "success",
+    "facts": [],
+    "wikipedia": "Luna_20",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 20",
+        "url": "https://en.wikipedia.org/wiki/Luna_20"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 20",
+      "url": "https://en.wikipedia.org/wiki/Luna_20"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

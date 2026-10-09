@@ -1,0 +1,58 @@
+{
+  "id": "moon-queqiao-2",
+  "text": "Queqiao-2 is a Chinese (CNSA) relay satellite launched on 20 March 2024, which reached lunar orbit on 24 March 2024. It relays communications for China's far-side and south-pole missions.",
+  "sentences": [
+    {
+      "text": "Queqiao-2 is a Chinese (CNSA) relay satellite launched on 20 March 2024, which reached lunar orbit on 24 March 2024.",
+      "supported_by": [
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It relays communications for China's far-side and south-pole missions.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "queqiao-2",
+    "name": "Queqiao-2",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2024-03-20",
+    "arrival_date": "2024-03-24",
+    "wikipedia": "Queqiao-2",
+    "facts": [
+      "Relay satellite for China's far-side and south-pole missions."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: Queqiao-2",
+        "url": "https://en.wikipedia.org/wiki/Queqiao-2"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Queqiao-2",
+      "url": "https://en.wikipedia.org/wiki/Queqiao-2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

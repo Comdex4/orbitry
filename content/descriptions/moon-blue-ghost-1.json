@@ -1,0 +1,61 @@
+{
+  "id": "moon-blue-ghost-1",
+  "text": "Blue Ghost Mission 1 was a lander from the US company Firefly Aerospace that reached the Moon on 2 March 2025. It landed upright in Mare Crisium.",
+  "sentences": [
+    {
+      "text": "Blue Ghost Mission 1 was a lander from the US company Firefly Aerospace that reached the Moon on 2 March 2025.",
+      "supported_by": [
+        "operator",
+        "country",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It landed upright in Mare Crisium.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "blue-ghost-1",
+    "name": "Blue Ghost Mission 1",
+    "kind": "lander",
+    "mission": "Blue Ghost Mission 1",
+    "operator": "Firefly Aerospace",
+    "country": "USA",
+    "launch_date": "2025-01-15",
+    "arrival_date": "2025-03-02",
+    "lat": 18.56,
+    "lon": 61.81,
+    "outcome": "success",
+    "facts": [
+      "Landed upright in Mare Crisium."
+    ],
+    "wikipedia": "Blue_Ghost_Mission_1",
+    "sources": [
+      {
+        "title": "Wikipedia: Blue Ghost Mission 1",
+        "url": "https://en.wikipedia.org/wiki/Blue_Ghost_Mission_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Blue Ghost Mission 1",
+      "url": "https://en.wikipedia.org/wiki/Blue_Ghost_Mission_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

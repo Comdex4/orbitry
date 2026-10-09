@@ -1,0 +1,49 @@
+{
+  "id": "mars-tgo",
+  "text": "The ExoMars Trace Gas Orbiter is a joint ESA–Roscosmos spacecraft launched on 14 March 2016. It reached Mars on 19 October 2016.",
+  "sentences": [
+    {
+      "text": "The ExoMars Trace Gas Orbiter is a joint ESA–Roscosmos spacecraft launched on 14 March 2016. It reached Mars on 19 October 2016.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "tgo",
+    "name": "ExoMars Trace Gas Orbiter",
+    "operator": "ESA / Roscosmos",
+    "country": "Europe",
+    "launch_date": "2016-03-14",
+    "arrival_date": "2016-10-19",
+    "wikipedia": "Trace_Gas_Orbiter",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Trace Gas Orbiter",
+        "url": "https://en.wikipedia.org/wiki/Trace_Gas_Orbiter"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Trace Gas Orbiter",
+      "url": "https://en.wikipedia.org/wiki/Trace_Gas_Orbiter"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

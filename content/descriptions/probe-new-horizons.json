@@ -1,0 +1,62 @@
+{
+  "id": "probe-new-horizons",
+  "text": "New Horizons is a probe operated by NASA and JHU APL, launched on 19 January 2006. It flew past Pluto on 14 July 2015 and past Arrokoth on 1 January 2019.",
+  "sentences": [
+    {
+      "text": "New Horizons is a probe operated by NASA and JHU APL, launched on 19 January 2006.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It flew past Pluto on 14 July 2015 and past Arrokoth on 1 January 2019.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "new-horizons",
+    "name": "New Horizons",
+    "horizons": "-98",
+    "operator": "NASA / JHU APL",
+    "launch_date": "2006-01-19",
+    "facts": [
+      "Flew past Pluto on 14 July 2015 and Arrokoth on 1 January 2019."
+    ],
+    "wikipedia": "New_Horizons",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: New Horizons",
+        "url": "https://en.wikipedia.org/wiki/New_Horizons"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: New Horizons",
+      "url": "https://en.wikipedia.org/wiki/New_Horizons"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "moon-apollo-12",
+  "text": "Apollo 12 was a NASA crewed mission that landed on the Moon on 19 November 1969. Pete Conrad and Alan Bean landed within walking distance of the Surveyor 3 lander.",
+  "sentences": [
+    {
+      "text": "Apollo 12 was a NASA crewed mission that landed on the Moon on 19 November 1969.",
+      "supported_by": [
+        "operator",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "Pete Conrad and Alan Bean landed within walking distance of the Surveyor 3 lander.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-12",
+    "name": "Apollo 12 (Intrepid)",
+    "kind": "crewed",
+    "mission": "Apollo 12",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1969-11-14",
+    "arrival_date": "1969-11-19",
+    "lat": -3.01239,
+    "lon": -23.42157,
+    "outcome": "success",
+    "facts": [
+      "Pete Conrad and Alan Bean landed within walking distance of Surveyor 3."
+    ],
+    "wikipedia": "Apollo_12",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 12",
+        "url": "https://en.wikipedia.org/wiki/Apollo_12"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 12",
+      "url": "https://en.wikipedia.org/wiki/Apollo_12"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

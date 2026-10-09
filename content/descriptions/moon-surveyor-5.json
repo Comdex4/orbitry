@@ -1,0 +1,54 @@
+{
+  "id": "moon-surveyor-5",
+  "text": "Surveyor 5 was a NASA/JPL lander launched on 8 September 1967. It landed successfully on the Moon on 11 September 1967.",
+  "sentences": [
+    {
+      "text": "Surveyor 5 was a NASA/JPL lander launched on 8 September 1967. It landed successfully on the Moon on 11 September 1967.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "surveyor-5",
+    "name": "Surveyor 5",
+    "kind": "lander",
+    "mission": "Surveyor 5",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1967-09-08",
+    "arrival_date": "1967-09-11",
+    "lat": 1.42,
+    "lon": 23.18,
+    "outcome": "success",
+    "facts": [],
+    "wikipedia": "Surveyor_5",
+    "sources": [
+      {
+        "title": "Wikipedia: Surveyor 5",
+        "url": "https://en.wikipedia.org/wiki/Surveyor_5"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Surveyor 5",
+      "url": "https://en.wikipedia.org/wiki/Surveyor_5"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "probe-juice",
+  "text": "JUICE is a European Space Agency probe launched on 14 April 2023. It is on its way to Jupiter to study the moons Ganymede, Callisto and Europa.",
+  "sentences": [
+    {
+      "text": "JUICE is a European Space Agency probe launched on 14 April 2023.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is on its way to Jupiter to study the moons Ganymede, Callisto and Europa.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "juice",
+    "name": "JUICE",
+    "horizons": "-28",
+    "operator": "ESA",
+    "launch_date": "2023-04-14",
+    "facts": [
+      "On its way to Jupiter to study Ganymede, Callisto and Europa."
+    ],
+    "wikipedia": "Jupiter_Icy_Moons_Explorer",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Jupiter Icy Moons Explorer",
+        "url": "https://en.wikipedia.org/wiki/Jupiter_Icy_Moons_Explorer"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Jupiter Icy Moons Explorer",
+      "url": "https://en.wikipedia.org/wiki/Jupiter_Icy_Moons_Explorer"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

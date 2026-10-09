@@ -1,0 +1,62 @@
+{
+  "id": "mars-opportunity",
+  "text": "Opportunity was a NASA/JPL Mars Exploration Rover that landed in Meridiani Planum on 25 January 2004. It drove more than 45 km over almost 15 years.",
+  "sentences": [
+    {
+      "text": "Opportunity was a NASA/JPL Mars Exploration Rover that landed in Meridiani Planum on 25 January 2004.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "It drove more than 45 km over almost 15 years.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "opportunity",
+    "name": "Opportunity (MER-B)",
+    "kind": "rover",
+    "mission": "Mars Exploration Rover",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2003-07-07",
+    "arrival_date": "2004-01-25",
+    "lat": -1.9462,
+    "lon": -5.5266,
+    "outcome": "success",
+    "facts": [
+      "Drove more than 45 km over almost 15 years. Coordinates are the landing site in Meridiani Planum."
+    ],
+    "wikipedia": "Opportunity_(rover)",
+    "sources": [
+      {
+        "title": "Wikipedia: Opportunity (rover)",
+        "url": "https://en.wikipedia.org/wiki/Opportunity_(rover)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Opportunity (rover)",
+      "url": "https://en.wikipedia.org/wiki/Opportunity_(rover)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

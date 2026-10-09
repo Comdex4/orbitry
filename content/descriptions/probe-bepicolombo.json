@@ -1,0 +1,62 @@
+{
+  "id": "probe-bepicolombo",
+  "text": "BepiColombo is a joint ESA–JAXA mission launched on 20 October 2018. It is made of two orbiters travelling together to Mercury.",
+  "sentences": [
+    {
+      "text": "BepiColombo is a joint ESA–JAXA mission launched on 20 October 2018.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is made of two orbiters travelling together to Mercury.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "bepicolombo",
+    "name": "BepiColombo",
+    "horizons": "-121",
+    "operator": "ESA / JAXA",
+    "launch_date": "2018-10-20",
+    "facts": [
+      "Two orbiters travelling together to Mercury."
+    ],
+    "wikipedia": "BepiColombo",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: BepiColombo",
+        "url": "https://en.wikipedia.org/wiki/BepiColombo"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: BepiColombo",
+      "url": "https://en.wikipedia.org/wiki/BepiColombo"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

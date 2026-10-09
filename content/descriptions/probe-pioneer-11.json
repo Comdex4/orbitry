@@ -1,0 +1,66 @@
+{
+  "id": "probe-pioneer-11",
+  "text": "Pioneer 11 was a NASA Ames probe launched on 6 April 1973, which became the first spacecraft to fly past Saturn, in September 1979. Contact ended in 1995, so the position shown is a prediction from its last known trajectory.",
+  "sentences": [
+    {
+      "text": "Pioneer 11 was a NASA Ames probe launched on 6 April 1973, which became the first spacecraft to fly past Saturn, in September 1979.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "Contact ended in 1995, so the position shown is a prediction from its last known trajectory.",
+      "supported_by": [
+        "facts[1]",
+        "position_note"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "pioneer-11",
+    "name": "Pioneer 11",
+    "horizons": "-24",
+    "operator": "NASA / Ames",
+    "launch_date": "1973-04-06",
+    "facts": [
+      "First spacecraft to fly past Saturn, in September 1979.",
+      "Contact ended in 1995."
+    ],
+    "wikipedia": "Pioneer_11",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Pioneer 11",
+        "url": "https://en.wikipedia.org/wiki/Pioneer_11"
+      }
+    ],
+    "position_note": "Contact was lost in 1995, so this position is a prediction from its last known trajectory."
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Pioneer 11",
+      "url": "https://en.wikipedia.org/wiki/Pioneer_11"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "moon-slim",
+  "text": "SLIM was a Japanese (JAXA) lander that reached the Moon on 19 January 2024. It landed within about 100 m of its target but ended up on its nose, so the mission counts as a partial success.",
+  "sentences": [
+    {
+      "text": "SLIM was a Japanese (JAXA) lander that reached the Moon on 19 January 2024.",
+      "supported_by": [
+        "country",
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It landed within about 100 m of its target but ended up on its nose, so the mission counts as a partial success.",
+      "supported_by": [
+        "facts[0]",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "slim",
+    "name": "SLIM",
+    "kind": "lander",
+    "mission": "SLIM",
+    "operator": "JAXA",
+    "country": "Japan",
+    "launch_date": "2023-09-06",
+    "arrival_date": "2024-01-19",
+    "lat": -13.316,
+    "lon": 25.251,
+    "outcome": "partial",
+    "facts": [
+      "Landed within about 100 m of its target, but ended up on its nose."
+    ],
+    "wikipedia": "Smart_Lander_for_Investigating_Moon",
+    "sources": [
+      {
+        "title": "Wikipedia: Smart Lander for Investigating Moon",
+        "url": "https://en.wikipedia.org/wiki/Smart_Lander_for_Investigating_Moon"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Smart Lander for Investigating Moon",
+      "url": "https://en.wikipedia.org/wiki/Smart_Lander_for_Investigating_Moon"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

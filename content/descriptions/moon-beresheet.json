@@ -1,0 +1,63 @@
+{
+  "id": "moon-beresheet",
+  "text": "Beresheet was an Israeli lander operated by SpaceIL and IAI, launched on 22 February 2019. On 11 April 2019 an engine fault during its landing attempt caused it to crash.",
+  "sentences": [
+    {
+      "text": "Beresheet was an Israeli lander operated by SpaceIL and IAI, launched on 22 February 2019.",
+      "supported_by": [
+        "country",
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "On 11 April 2019 an engine fault during its landing attempt caused it to crash.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "beresheet",
+    "name": "Beresheet",
+    "kind": "lander",
+    "mission": "Beresheet",
+    "operator": "SpaceIL / IAI",
+    "country": "Israel",
+    "launch_date": "2019-02-22",
+    "arrival_date": "2019-04-11",
+    "lat": 32.6,
+    "lon": 19.3,
+    "outcome": "failure",
+    "facts": [
+      "Crashed during its landing attempt after an engine fault."
+    ],
+    "wikipedia": "Beresheet",
+    "sources": [
+      {
+        "title": "Wikipedia: Beresheet",
+        "url": "https://en.wikipedia.org/wiki/Beresheet"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Beresheet",
+      "url": "https://en.wikipedia.org/wiki/Beresheet"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

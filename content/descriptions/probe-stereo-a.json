@@ -1,0 +1,62 @@
+{
+  "id": "probe-stereo-a",
+  "text": "STEREO-A is a NASA spacecraft launched on 26 October 2006. It is one of a pair of spacecraft launched to view the Sun in stereo.",
+  "sentences": [
+    {
+      "text": "STEREO-A is a NASA spacecraft launched on 26 October 2006.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is one of a pair of spacecraft launched to view the Sun in stereo.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "stereo-a",
+    "name": "STEREO-A",
+    "horizons": "-234",
+    "operator": "NASA",
+    "launch_date": "2006-10-26",
+    "facts": [
+      "One of a pair of spacecraft launched to view the Sun in stereo."
+    ],
+    "wikipedia": "STEREO",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: STEREO",
+        "url": "https://en.wikipedia.org/wiki/STEREO"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: STEREO",
+      "url": "https://en.wikipedia.org/wiki/STEREO"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

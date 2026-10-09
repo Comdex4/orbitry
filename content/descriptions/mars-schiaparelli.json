@@ -1,0 +1,61 @@
+{
+  "id": "mars-schiaparelli",
+  "text": "Schiaparelli was a lander from the ESA–Roscosmos ExoMars 2016 mission that reached Mars on 19 October 2016. A software error during descent caused it to crash.",
+  "sentences": [
+    {
+      "text": "Schiaparelli was a lander from the ESA–Roscosmos ExoMars 2016 mission that reached Mars on 19 October 2016.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "A software error during descent caused it to crash.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "schiaparelli",
+    "name": "Schiaparelli EDM",
+    "kind": "lander",
+    "mission": "ExoMars 2016",
+    "operator": "ESA / Roscosmos",
+    "country": "Europe",
+    "launch_date": "2016-03-14",
+    "arrival_date": "2016-10-19",
+    "lat": -2.05,
+    "lon": -6.21,
+    "outcome": "failure",
+    "facts": [
+      "Crashed after a software error during descent."
+    ],
+    "wikipedia": "Schiaparelli_EDM",
+    "sources": [
+      {
+        "title": "Wikipedia: Schiaparelli EDM",
+        "url": "https://en.wikipedia.org/wiki/Schiaparelli_EDM"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Schiaparelli EDM",
+      "url": "https://en.wikipedia.org/wiki/Schiaparelli_EDM"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "mars-beagle-2",
+  "text": "Beagle 2 was a British lander carried to Mars by ESA's Mars Express and due to land on 25 December 2003. It landed but never made contact. Orbital images from 2015 showed its solar panels only partly deployed.",
+  "sentences": [
+    {
+      "text": "Beagle 2 was a British lander carried to Mars by ESA's Mars Express and due to land on 25 December 2003.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It landed but never made contact. Orbital images from 2015 showed its solar panels only partly deployed.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "beagle-2",
+    "name": "Beagle 2",
+    "kind": "lander",
+    "mission": "Mars Express",
+    "operator": "ESA / UK",
+    "country": "Europe",
+    "launch_date": "2003-06-02",
+    "arrival_date": "2003-12-25",
+    "lat": 11.53,
+    "lon": 90.43,
+    "outcome": "failure",
+    "facts": [
+      "Landed but never made contact; found in orbital images in 2015 with its solar panels only partly deployed."
+    ],
+    "wikipedia": "Beagle_2",
+    "sources": [
+      {
+        "title": "Wikipedia: Beagle 2",
+        "url": "https://en.wikipedia.org/wiki/Beagle_2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Beagle 2",
+      "url": "https://en.wikipedia.org/wiki/Beagle_2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "moon-lunokhod-1",
+  "text": "Lunokhod 1 was a Soviet rover carried to the Moon by Luna 17, which landed on 17 November 1970. It was the first rover to operate on another world. The coordinates shown are its landing site.",
+  "sentences": [
+    {
+      "text": "Lunokhod 1 was a Soviet rover carried to the Moon by Luna 17, which landed on 17 November 1970.",
+      "supported_by": [
+        "country",
+        "kind",
+        "mission",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first rover to operate on another world. The coordinates shown are its landing site.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "lunokhod-1",
+    "name": "Luna 17 / Lunokhod 1",
+    "kind": "rover",
+    "mission": "Luna 17",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1970-11-10",
+    "arrival_date": "1970-11-17",
+    "lat": 38.24,
+    "lon": -35.0,
+    "outcome": "success",
+    "facts": [
+      "First rover to operate on another world. Coordinates are the landing site."
+    ],
+    "wikipedia": "Lunokhod_1",
+    "sources": [
+      {
+        "title": "Wikipedia: Lunokhod 1",
+        "url": "https://en.wikipedia.org/wiki/Lunokhod_1"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Lunokhod 1",
+      "url": "https://en.wikipedia.org/wiki/Lunokhod_1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

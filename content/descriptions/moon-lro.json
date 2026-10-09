@@ -1,0 +1,49 @@
+{
+  "id": "moon-lro",
+  "text": "The Lunar Reconnaissance Orbiter is a NASA spacecraft launched on 18 June 2009. It entered orbit around the Moon on 23 June 2009.",
+  "sentences": [
+    {
+      "text": "The Lunar Reconnaissance Orbiter is a NASA spacecraft launched on 18 June 2009. It entered orbit around the Moon on 23 June 2009.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "lro",
+    "name": "Lunar Reconnaissance Orbiter",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2009-06-18",
+    "arrival_date": "2009-06-23",
+    "wikipedia": "Lunar_Reconnaissance_Orbiter",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Lunar Reconnaissance Orbiter",
+        "url": "https://en.wikipedia.org/wiki/Lunar_Reconnaissance_Orbiter"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Lunar Reconnaissance Orbiter",
+      "url": "https://en.wikipedia.org/wiki/Lunar_Reconnaissance_Orbiter"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

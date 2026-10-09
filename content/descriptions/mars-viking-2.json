@@ -1,0 +1,60 @@
+{
+  "id": "mars-viking-2",
+  "text": "The Viking 2 lander was a NASA spacecraft that landed on Mars on 3 September 1976. It worked in Utopia Planitia until 1980.",
+  "sentences": [
+    {
+      "text": "The Viking 2 lander was a NASA spacecraft that landed on Mars on 3 September 1976.",
+      "supported_by": [
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It worked in Utopia Planitia until 1980.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "viking-2",
+    "name": "Viking 2 lander",
+    "kind": "lander",
+    "mission": "Viking 2",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1975-09-09",
+    "arrival_date": "1976-09-03",
+    "lat": 47.64,
+    "lon": 134.29,
+    "outcome": "success",
+    "facts": [
+      "Operated in Utopia Planitia until 1980."
+    ],
+    "wikipedia": "Viking_2",
+    "sources": [
+      {
+        "title": "Wikipedia: Viking 2",
+        "url": "https://en.wikipedia.org/wiki/Viking_2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Viking 2",
+      "url": "https://en.wikipedia.org/wiki/Viking_2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

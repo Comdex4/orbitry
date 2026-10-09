@@ -1,0 +1,50 @@
+{
+  "id": "mars-tianwen-1-orbiter",
+  "text": "The Tianwen-1 orbiter is a Chinese (CNSA) spacecraft launched on 23 July 2020. It entered orbit around Mars on 10 February 2021.",
+  "sentences": [
+    {
+      "text": "The Tianwen-1 orbiter is a Chinese (CNSA) spacecraft launched on 23 July 2020. It entered orbit around Mars on 10 February 2021.",
+      "supported_by": [
+        "country",
+        "operator",
+        "launch_date",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "tianwen-1-orbiter",
+    "name": "Tianwen-1 orbiter",
+    "operator": "CNSA",
+    "country": "China",
+    "launch_date": "2020-07-23",
+    "arrival_date": "2021-02-10",
+    "wikipedia": "Tianwen-1",
+    "facts": [],
+    "sources": [
+      {
+        "title": "Wikipedia: Tianwen-1",
+        "url": "https://en.wikipedia.org/wiki/Tianwen-1"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Tianwen-1",
+      "url": "https://en.wikipedia.org/wiki/Tianwen-1"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

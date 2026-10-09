@@ -1,0 +1,61 @@
+{
+  "id": "mars-pathfinder",
+  "text": "Mars Pathfinder was a NASA/JPL mission that landed on Mars on 4 July 1997, seven months after launch. It carried Sojourner, the first rover on Mars.",
+  "sentences": [
+    {
+      "text": "Mars Pathfinder was a NASA/JPL mission that landed on Mars on 4 July 1997, seven months after launch.",
+      "supported_by": [
+        "operator",
+        "arrival_date",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It carried Sojourner, the first rover on Mars.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "pathfinder",
+    "name": "Mars Pathfinder / Sojourner",
+    "kind": "rover",
+    "mission": "Mars Pathfinder",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1996-12-04",
+    "arrival_date": "1997-07-04",
+    "lat": 19.13,
+    "lon": -33.22,
+    "outcome": "success",
+    "facts": [
+      "Sojourner was the first rover on Mars."
+    ],
+    "wikipedia": "Mars_Pathfinder",
+    "sources": [
+      {
+        "title": "Wikipedia: Mars Pathfinder",
+        "url": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Mars Pathfinder",
+      "url": "https://en.wikipedia.org/wiki/Mars_Pathfinder"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

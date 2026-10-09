@@ -1,0 +1,63 @@
+{
+  "id": "moon-apollo-11",
+  "text": "Apollo 11 was the NASA mission that made the first crewed landing on the Moon, on 20 July 1969. Neil Armstrong and Buzz Aldrin landed in Mare Tranquillitatis while Michael Collins stayed in lunar orbit.",
+  "sentences": [
+    {
+      "text": "Apollo 11 was the NASA mission that made the first crewed landing on the Moon, on 20 July 1969.",
+      "supported_by": [
+        "operator",
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "Neil Armstrong and Buzz Aldrin landed in Mare Tranquillitatis while Michael Collins stayed in lunar orbit.",
+      "supported_by": [
+        "facts[0]",
+        "facts[1]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "apollo-11",
+    "name": "Apollo 11 (Eagle)",
+    "kind": "crewed",
+    "mission": "Apollo 11",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "1969-07-16",
+    "arrival_date": "1969-07-20",
+    "lat": 0.67408,
+    "lon": 23.47297,
+    "outcome": "success",
+    "facts": [
+      "First crewed landing: Neil Armstrong and Buzz Aldrin, with Michael Collins in lunar orbit.",
+      "Landing site in Mare Tranquillitatis."
+    ],
+    "wikipedia": "Apollo_11",
+    "sources": [
+      {
+        "title": "Wikipedia: Apollo 11",
+        "url": "https://en.wikipedia.org/wiki/Apollo_11"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Apollo 11",
+      "url": "https://en.wikipedia.org/wiki/Apollo_11"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

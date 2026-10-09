@@ -1,0 +1,62 @@
+{
+  "id": "probe-psyche",
+  "text": "Psyche is a NASA/JPL probe launched on 13 October 2023. It is on its way to 16 Psyche, a metal-rich asteroid.",
+  "sentences": [
+    {
+      "text": "Psyche is a NASA/JPL probe launched on 13 October 2023.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It is on its way to 16 Psyche, a metal-rich asteroid.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "psyche",
+    "name": "Psyche",
+    "horizons": "-255",
+    "operator": "NASA / JPL",
+    "launch_date": "2023-10-13",
+    "facts": [
+      "On its way to the metal-rich asteroid 16 Psyche."
+    ],
+    "wikipedia": "Psyche_(spacecraft)",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: Psyche (spacecraft)",
+        "url": "https://en.wikipedia.org/wiki/Psyche_(spacecraft)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: Psyche (spacecraft)",
+      "url": "https://en.wikipedia.org/wiki/Psyche_(spacecraft)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

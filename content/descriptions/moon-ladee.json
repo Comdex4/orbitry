@@ -1,0 +1,61 @@
+{
+  "id": "moon-ladee",
+  "text": "LADEE was a NASA lunar mission launched on 7 September 2013. It ended on 18 April 2014 by impacting the far side of the Moon, as planned.",
+  "sentences": [
+    {
+      "text": "LADEE was a NASA lunar mission launched on 7 September 2013.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It ended on 18 April 2014 by impacting the far side of the Moon, as planned.",
+      "supported_by": [
+        "arrival_date",
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "ladee",
+    "name": "LADEE",
+    "kind": "impact",
+    "mission": "LADEE",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2013-09-07",
+    "arrival_date": "2014-04-18",
+    "lat": 11.85,
+    "lon": 93.25,
+    "outcome": "success",
+    "facts": [
+      "Ended its mission by impacting the far side, as planned."
+    ],
+    "wikipedia": "Lunar_Atmosphere_and_Dust_Environment_Explorer",
+    "sources": [
+      {
+        "title": "Wikipedia: Lunar Atmosphere and Dust Environment Explorer",
+        "url": "https://en.wikipedia.org/wiki/Lunar_Atmosphere_and_Dust_Environment_Explorer"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Lunar Atmosphere and Dust Environment Explorer",
+      "url": "https://en.wikipedia.org/wiki/Lunar_Atmosphere_and_Dust_Environment_Explorer"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

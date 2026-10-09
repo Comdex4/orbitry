@@ -1,0 +1,62 @@
+{
+  "id": "mars-mars-3",
+  "text": "The Mars 3 lander was a Soviet spacecraft operated by Lavochkin that reached Mars on 2 December 1971. It made the first soft landing on Mars, but contact was lost about 20 seconds later. Its coordinates are approximate.",
+  "sentences": [
+    {
+      "text": "The Mars 3 lander was a Soviet spacecraft operated by Lavochkin that reached Mars on 2 December 1971.",
+      "supported_by": [
+        "country",
+        "operator",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first soft landing on Mars, but contact was lost about 20 seconds later. Its coordinates are approximate.",
+      "supported_by": [
+        "facts[0]",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "mars-3",
+    "name": "Mars 3 lander",
+    "kind": "lander",
+    "mission": "Mars 3",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1971-05-28",
+    "arrival_date": "1971-12-02",
+    "lat": -45.0,
+    "lon": -158.0,
+    "outcome": "partial",
+    "facts": [
+      "First soft landing on Mars; contact was lost about 20 seconds after landing. Coordinates are approximate."
+    ],
+    "wikipedia": "Mars_3",
+    "sources": [
+      {
+        "title": "Wikipedia: Mars 3",
+        "url": "https://en.wikipedia.org/wiki/Mars_3"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Mars 3",
+      "url": "https://en.wikipedia.org/wiki/Mars_3"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

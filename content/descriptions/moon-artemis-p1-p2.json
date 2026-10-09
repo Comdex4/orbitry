@@ -1,0 +1,58 @@
+{
+  "id": "moon-artemis-p1-p2",
+  "text": "ARTEMIS P1 and P2 are two of NASA's five THEMIS spacecraft, launched on 17 February 2007. They were moved into orbit around the Moon in 2011.",
+  "sentences": [
+    {
+      "text": "ARTEMIS P1 and P2 are two of NASA's five THEMIS spacecraft, launched on 17 February 2007.",
+      "supported_by": [
+        "facts[0]",
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "They were moved into orbit around the Moon in 2011.",
+      "supported_by": [
+        "facts[0]",
+        "arrival_date"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "artemis-p1-p2",
+    "name": "ARTEMIS P1 and P2",
+    "operator": "NASA",
+    "country": "USA",
+    "launch_date": "2007-02-17",
+    "arrival_date": "2011-07-01",
+    "wikipedia": "THEMIS",
+    "facts": [
+      "Two of the five THEMIS spacecraft, moved into lunar orbit in 2011."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia: THEMIS",
+        "url": "https://en.wikipedia.org/wiki/THEMIS"
+      }
+    ],
+    "status_note": "Listed as in orbit when this record was compiled; check the operator for current status."
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: THEMIS",
+      "url": "https://en.wikipedia.org/wiki/THEMIS"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

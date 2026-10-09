@@ -1,0 +1,62 @@
+{
+  "id": "moon-ranger-7",
+  "text": "Ranger 7 was a NASA/JPL probe launched on 28 July 1964 that impacted the Moon on 31 July 1964. Before impact it returned more than 4,300 images.",
+  "sentences": [
+    {
+      "text": "Ranger 7 was a NASA/JPL probe launched on 28 July 1964 that impacted the Moon on 31 July 1964.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "Before impact it returned more than 4,300 images.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "ranger-7",
+    "name": "Ranger 7",
+    "kind": "impact",
+    "mission": "Ranger 7",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1964-07-28",
+    "arrival_date": "1964-07-31",
+    "lat": -10.63,
+    "lon": -20.68,
+    "outcome": "success",
+    "facts": [
+      "Returned over 4,300 images before impact."
+    ],
+    "wikipedia": "Ranger_7",
+    "sources": [
+      {
+        "title": "Wikipedia: Ranger 7",
+        "url": "https://en.wikipedia.org/wiki/Ranger_7"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Ranger 7",
+      "url": "https://en.wikipedia.org/wiki/Ranger_7"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

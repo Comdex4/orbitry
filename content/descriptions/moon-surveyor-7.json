@@ -1,0 +1,61 @@
+{
+  "id": "moon-surveyor-7",
+  "text": "Surveyor 7 was a NASA/JPL lander that reached the Moon on 10 January 1968, three days after launch. It landed near Tycho crater.",
+  "sentences": [
+    {
+      "text": "Surveyor 7 was a NASA/JPL lander that reached the Moon on 10 January 1968, three days after launch.",
+      "supported_by": [
+        "operator",
+        "arrival_date",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It landed near Tycho crater.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "surveyor-7",
+    "name": "Surveyor 7",
+    "kind": "lander",
+    "mission": "Surveyor 7",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1968-01-07",
+    "arrival_date": "1968-01-10",
+    "lat": -41.0,
+    "lon": -11.4,
+    "outcome": "success",
+    "facts": [
+      "Landed near Tycho crater."
+    ],
+    "wikipedia": "Surveyor_7",
+    "sources": [
+      {
+        "title": "Wikipedia: Surveyor 7",
+        "url": "https://en.wikipedia.org/wiki/Surveyor_7"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Surveyor 7",
+      "url": "https://en.wikipedia.org/wiki/Surveyor_7"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

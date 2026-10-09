@@ -1,0 +1,56 @@
+{
+  "id": "moon-luna-24",
+  "text": "Luna 24 was a Soviet sample-return mission operated by Lavochkin. It landed on the Moon on 18 August 1976, nine days after launch, and succeeded.",
+  "sentences": [
+    {
+      "text": "Luna 24 was a Soviet sample-return mission operated by Lavochkin. It landed on the Moon on 18 August 1976, nine days after launch, and succeeded.",
+      "supported_by": [
+        "country",
+        "kind",
+        "operator",
+        "arrival_date",
+        "launch_date",
+        "outcome"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-24",
+    "name": "Luna 24",
+    "kind": "sample-return",
+    "mission": "Luna 24",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1976-08-09",
+    "arrival_date": "1976-08-18",
+    "lat": 12.71,
+    "lon": 62.21,
+    "outcome": "success",
+    "facts": [],
+    "wikipedia": "Luna_24",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 24",
+        "url": "https://en.wikipedia.org/wiki/Luna_24"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 24",
+      "url": "https://en.wikipedia.org/wiki/Luna_24"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "moon-ranger-9",
+  "text": "Ranger 9 was a NASA/JPL probe launched on 21 March 1965 that impacted the Moon on 24 March 1965. It came down inside Alphonsus crater.",
+  "sentences": [
+    {
+      "text": "Ranger 9 was a NASA/JPL probe launched on 21 March 1965 that impacted the Moon on 24 March 1965.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It came down inside Alphonsus crater.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "ranger-9",
+    "name": "Ranger 9",
+    "kind": "impact",
+    "mission": "Ranger 9",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "1965-03-21",
+    "arrival_date": "1965-03-24",
+    "lat": -12.83,
+    "lon": -2.39,
+    "outcome": "success",
+    "facts": [
+      "Impacted inside Alphonsus crater."
+    ],
+    "wikipedia": "Ranger_9",
+    "sources": [
+      {
+        "title": "Wikipedia: Ranger 9",
+        "url": "https://en.wikipedia.org/wiki/Ranger_9"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Ranger 9",
+      "url": "https://en.wikipedia.org/wiki/Ranger_9"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

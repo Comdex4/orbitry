@@ -1,0 +1,62 @@
+{
+  "id": "probe-jwst",
+  "text": "The James Webb Space Telescope is a joint NASA, ESA and CSA observatory launched on 25 December 2021. It orbits the Sun–Earth L2 point, about 1.5 million km from Earth.",
+  "sentences": [
+    {
+      "text": "The James Webb Space Telescope is a joint NASA, ESA and CSA observatory launched on 25 December 2021.",
+      "supported_by": [
+        "operator",
+        "launch_date"
+      ]
+    },
+    {
+      "text": "It orbits the Sun–Earth L2 point, about 1.5 million km from Earth.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "jwst",
+    "name": "James Webb Space Telescope",
+    "horizons": "-170",
+    "operator": "NASA / ESA / CSA",
+    "launch_date": "2021-12-25",
+    "facts": [
+      "Orbits the Sun–Earth L2 point, about 1.5 million km from Earth."
+    ],
+    "wikipedia": "James_Webb_Space_Telescope",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: James Webb Space Telescope",
+        "url": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: James Webb Space Telescope",
+      "url": "https://en.wikipedia.org/wiki/James_Webb_Space_Telescope"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

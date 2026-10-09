@@ -1,0 +1,62 @@
+{
+  "id": "moon-luna-9",
+  "text": "Luna 9 was a Soviet lander, operated by OKB-1 and Lavochkin, that touched down on the Moon on 3 February 1966. It made the first soft landing on the Moon and sent back the first photographs from its surface.",
+  "sentences": [
+    {
+      "text": "Luna 9 was a Soviet lander, operated by OKB-1 and Lavochkin, that touched down on the Moon on 3 February 1966.",
+      "supported_by": [
+        "operator",
+        "country",
+        "kind",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It made the first soft landing on the Moon and sent back the first photographs from its surface.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-9",
+    "name": "Luna 9",
+    "kind": "lander",
+    "mission": "Luna 9",
+    "operator": "OKB-1 / Lavochkin",
+    "country": "USSR",
+    "launch_date": "1966-01-31",
+    "arrival_date": "1966-02-03",
+    "lat": 7.08,
+    "lon": -64.37,
+    "outcome": "success",
+    "facts": [
+      "First soft landing on the Moon and first photographs from its surface."
+    ],
+    "wikipedia": "Luna_9",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 9",
+        "url": "https://en.wikipedia.org/wiki/Luna_9"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 9",
+      "url": "https://en.wikipedia.org/wiki/Luna_9"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "probe-osiris-apex",
+  "text": "OSIRIS-APEX is a NASA spacecraft launched on 8 September 2016 under the name OSIRIS-REx. It delivered samples of asteroid Bennu to Earth on 24 September 2023 and is now heading for asteroid Apophis.",
+  "sentences": [
+    {
+      "text": "OSIRIS-APEX is a NASA spacecraft launched on 8 September 2016 under the name OSIRIS-REx.",
+      "supported_by": [
+        "operator",
+        "launch_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "It delivered samples of asteroid Bennu to Earth on 24 September 2023 and is now heading for asteroid Apophis.",
+      "supported_by": [
+        "facts[0]",
+        "facts[1]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "osiris-apex",
+    "name": "OSIRIS-APEX",
+    "horizons": "-64",
+    "operator": "NASA",
+    "launch_date": "2016-09-08",
+    "facts": [
+      "Launched as OSIRIS-REx; delivered asteroid Bennu samples to Earth on 24 September 2023.",
+      "Now heading for asteroid Apophis."
+    ],
+    "wikipedia": "OSIRIS-REx",
+    "sources": [
+      {
+        "title": "NASA/JPL Horizons ephemeris",
+        "url": "https://ssd.jpl.nasa.gov/horizons/"
+      },
+      {
+        "title": "Wikipedia: OSIRIS-REx",
+        "url": "https://en.wikipedia.org/wiki/OSIRIS-REx"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "NASA/JPL Horizons ephemeris",
+      "url": "https://ssd.jpl.nasa.gov/horizons/"
+    },
+    {
+      "title": "Wikipedia: OSIRIS-REx",
+      "url": "https://en.wikipedia.org/wiki/OSIRIS-REx"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

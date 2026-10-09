@@ -1,0 +1,63 @@
+{
+  "id": "mars-perseverance",
+  "text": "Perseverance is the rover of NASA/JPL's Mars 2020 mission. It landed on 18 February 2021 and is collecting rock samples in Jezero crater. It carried Ingenuity, the first powered aircraft to fly on another planet.",
+  "sentences": [
+    {
+      "text": "Perseverance is the rover of NASA/JPL's Mars 2020 mission. It landed on 18 February 2021 and is collecting rock samples in Jezero crater.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date",
+        "facts[0]"
+      ]
+    },
+    {
+      "text": "It carried Ingenuity, the first powered aircraft to fly on another planet.",
+      "supported_by": [
+        "facts[1]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "perseverance",
+    "name": "Perseverance and Ingenuity",
+    "kind": "rover",
+    "mission": "Mars 2020",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2020-07-30",
+    "arrival_date": "2021-02-18",
+    "lat": 18.4447,
+    "lon": 77.4508,
+    "outcome": "success",
+    "facts": [
+      "Collecting rock samples in Jezero crater. Coordinates are the landing site.",
+      "Carried the Ingenuity helicopter, the first powered aircraft to fly on another planet."
+    ],
+    "wikipedia": "Perseverance_(rover)",
+    "sources": [
+      {
+        "title": "Wikipedia: Perseverance (rover)",
+        "url": "https://en.wikipedia.org/wiki/Perseverance_(rover)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Perseverance (rover)",
+      "url": "https://en.wikipedia.org/wiki/Perseverance_(rover)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

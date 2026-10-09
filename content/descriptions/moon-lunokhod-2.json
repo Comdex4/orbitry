@@ -1,0 +1,62 @@
+{
+  "id": "moon-lunokhod-2",
+  "text": "Lunokhod 2 was a Soviet rover delivered by Luna 21, which landed on the Moon on 15 January 1973. The coordinates shown are its landing site.",
+  "sentences": [
+    {
+      "text": "Lunokhod 2 was a Soviet rover delivered by Luna 21, which landed on the Moon on 15 January 1973.",
+      "supported_by": [
+        "country",
+        "kind",
+        "mission",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "The coordinates shown are its landing site.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "lunokhod-2",
+    "name": "Luna 21 / Lunokhod 2",
+    "kind": "rover",
+    "mission": "Luna 21",
+    "operator": "Lavochkin",
+    "country": "USSR",
+    "launch_date": "1973-01-08",
+    "arrival_date": "1973-01-15",
+    "lat": 25.85,
+    "lon": 30.45,
+    "outcome": "success",
+    "facts": [
+      "Coordinates are the landing site."
+    ],
+    "wikipedia": "Lunokhod_2",
+    "sources": [
+      {
+        "title": "Wikipedia: Lunokhod 2",
+        "url": "https://en.wikipedia.org/wiki/Lunokhod_2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Lunokhod 2",
+      "url": "https://en.wikipedia.org/wiki/Lunokhod_2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

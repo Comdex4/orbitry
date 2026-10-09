@@ -1,0 +1,61 @@
+{
+  "id": "mars-spirit",
+  "text": "Spirit was a NASA/JPL Mars Exploration Rover that landed on 4 January 2004. The coordinates shown are its landing site in Gusev crater.",
+  "sentences": [
+    {
+      "text": "Spirit was a NASA/JPL Mars Exploration Rover that landed on 4 January 2004.",
+      "supported_by": [
+        "operator",
+        "mission",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "The coordinates shown are its landing site in Gusev crater.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "spirit",
+    "name": "Spirit (MER-A)",
+    "kind": "rover",
+    "mission": "Mars Exploration Rover",
+    "operator": "NASA / JPL",
+    "country": "USA",
+    "launch_date": "2003-06-10",
+    "arrival_date": "2004-01-04",
+    "lat": -14.5684,
+    "lon": 175.4726,
+    "outcome": "success",
+    "facts": [
+      "Coordinates are the landing site in Gusev crater."
+    ],
+    "wikipedia": "Spirit_(rover)",
+    "sources": [
+      {
+        "title": "Wikipedia: Spirit (rover)",
+        "url": "https://en.wikipedia.org/wiki/Spirit_(rover)"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Spirit (rover)",
+      "url": "https://en.wikipedia.org/wiki/Spirit_(rover)"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}

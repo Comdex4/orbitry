@@ -1,0 +1,63 @@
+{
+  "id": "moon-luna-2",
+  "text": "Luna 2 was a Soviet spacecraft, operated by OKB-1, that struck the Moon on 14 September 1959, two days after launch. It was the first human-made object to reach the surface of another world.",
+  "sentences": [
+    {
+      "text": "Luna 2 was a Soviet spacecraft, operated by OKB-1, that struck the Moon on 14 September 1959, two days after launch.",
+      "supported_by": [
+        "operator",
+        "country",
+        "kind",
+        "launch_date",
+        "arrival_date"
+      ]
+    },
+    {
+      "text": "It was the first human-made object to reach the surface of another world.",
+      "supported_by": [
+        "facts[0]"
+      ]
+    }
+  ],
+  "omitted": null,
+  "record": {
+    "slug": "luna-2",
+    "name": "Luna 2",
+    "kind": "impact",
+    "mission": "Luna 2",
+    "operator": "OKB-1",
+    "country": "USSR",
+    "launch_date": "1959-09-12",
+    "arrival_date": "1959-09-14",
+    "lat": 29.1,
+    "lon": 0.0,
+    "outcome": "success",
+    "facts": [
+      "First human-made object to reach the surface of another world."
+    ],
+    "wikipedia": "Luna_2",
+    "sources": [
+      {
+        "title": "Wikipedia: Luna 2",
+        "url": "https://en.wikipedia.org/wiki/Luna_2"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "title": "Wikipedia: Luna 2",
+      "url": "https://en.wikipedia.org/wiki/Luna_2"
+    }
+  ],
+  "drafted_by": "Claude",
+  "drafted_at": "2026-10-09T00:00:00Z",
+  "checks": {
+    "unsupported_citations": []
+  },
+  "review": {
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
+  }
+}
