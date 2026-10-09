@@ -19,6 +19,7 @@
 <main class="page">
   <h1>API &amp; embeds</h1>
   <p class="lede">One clean JSON catalog of human-made objects in space, from low Earth orbit to the surface of Mars, for developers, educators and newsrooms. Plus globe views you can drop into a page.</p>
+  <p class="notice" id="staticNote" hidden></p>
   <div class="toc"><a class="btn small" href="#tiers">Plans</a><a class="btn small" href="#start">Quick start</a><a class="btn small" href="#endpoints">Endpoints</a><a class="btn small" href="#attribution">Attribution</a><a class="btn small" href="#embed">Embeds</a></div>
 
   <h2 id="tiers">Plans</h2>
@@ -70,9 +71,10 @@ curl -H "Authorization: Bearer orb_your_key" \
   <iframe id="embedPreview" title="Orbitry globe preview" loading="lazy"></iframe>
 </main>
 <script type="module">
-import { chrome, $ } from '/js/app/common.js';
+import { chrome, $, session, STATIC_NOTE } from '/js/app/common.js';
 import { PLANS } from '/js/app/plans.js';
 chrome();
+session().then(({ server }) => { if (!server) $('#staticNote').hidden = false, $('#staticNote').textContent = STATIC_NOTE + ' The API below describes the full deployment; the embeds work here.'; });
 $('#proPrice').textContent = PLANS.api_pro.price;
 function update() {
   const p = new URLSearchParams({ color: $('#eColor').value });

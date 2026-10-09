@@ -67,7 +67,11 @@ npm run dev                 # http://localhost:8787. Sign-in links are printed i
 
 To try the static pages without the Worker, serve `public/` with any static server. Account features then show as unavailable.
 
-## Deploying (Cloudflare Workers + D1)
+## Publishing on GitHub Pages (static)
+
+`.github/workflows/pages.yml` builds the data and publishes `public/` to GitHub Pages every two hours and on every push to `main`. One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**, and set the custom domain to `orbitry.net` on the same page. On Pages, everything that runs in the browser works. Accounts, alerts, API keys, the API and the paid planner features need the Worker below, so the site hides them.
+
+## Deploying the full site (Cloudflare Workers + D1)
 
 1. `npx wrangler d1 create orbitry`, then put the returned `database_id` into `wrangler.toml`.
 2. Set secrets with `npx wrangler secret put …`:
@@ -76,7 +80,7 @@ To try the static pages without the Worker, serve `public/` with any static serv
    - `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_API_PRO`, `STRIPE_PRICE_PLANNER`
 3. Point a Stripe webhook at `https://orbitry.net/api/billing/webhook` for `checkout.session.completed` and `customer.subscription.*`, and turn on the customer portal.
 4. Uncomment the `routes` line in `wrangler.toml` once orbitry.net is a Cloudflare zone.
-5. Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub secrets. `.github/workflows/data.yml` then rebuilds the data every two hours, deploys, and records element history in D1.
+5. Add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` as GitHub secrets and set the repository variable `DEPLOY_TARGET` to `cloudflare`. `.github/workflows/data.yml` then rebuilds the data every two hours, deploys, and records element history in D1, and the Pages workflow stops. Point orbitry.net's DNS at Cloudflare instead of GitHub Pages.
 
 Displayed prices live in `public/js/app/plans.js`. What you charge is set by the Stripe prices.
 

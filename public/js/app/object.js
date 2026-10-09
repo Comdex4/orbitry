@@ -1,6 +1,6 @@
 // Object pages: Earth-orbit objects (?norad=25544) and curated records (?id=moon:apollo-11,
 // ?id=mars:curiosity, ?id=probe:voyager-1).
-import { chrome, $, esc, getJSON, loadCatalog, fmtDate, ago, km, reviewChip, sourcesList, photoFigure, me, api } from './common.js';
+import { chrome, $, esc, getJSON, loadCatalog, fmtDate, ago, km, reviewChip, sourcesList, photoFigure, me, api, session } from './common.js';
 import { ORBITS, PURPOSES, TYPES, orbitShape, epochMs } from '../lib/catalog.js';
 import { satrecFor, stateAt, groundTrack, accuracyNote, ageDays } from '../lib/orbit.js';
 import { stateAt as ephState, describe as ephDescribe, lightTime } from '../lib/ephemeris.js';
@@ -86,6 +86,7 @@ async function earthObject(norad) {
     $('#now').innerHTML = st ? row('Altitude', km(st.alt)) + row('Speed', `${st.speed.toFixed(2)} km/s`) + row('Over', `${Math.abs(st.lat).toFixed(2)}° ${st.lat >= 0 ? 'N' : 'S'}, ${Math.abs(st.lon).toFixed(2)}° ${st.lon >= 0 ? 'E' : 'W'}`) : row('Position', 'Cannot be computed from these elements');
   };
   tick(); setInterval(tick, 1000);
+  session().then(({ server }) => { if (!server) main.querySelector('a[href^="/api/v1"]')?.remove(); });
   drawTrack(rec);
   favButton(norad);
 }

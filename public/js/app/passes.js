@@ -1,11 +1,11 @@
-import { chrome, $, $$, esc, loadCatalog, geocode, savedLocation, rememberLocation, me, getJSON, api, fmtDateTime, fmtTime } from './common.js';
+import { chrome, $, $$, esc, loadCatalog, geocode, savedLocation, rememberLocation, session, getJSON, api, fmtDateTime, fmtTime } from './common.js';
 import { satrecFor } from '../lib/orbit.js';
 import { predictPasses, look, observerGd } from '../lib/passes.js';
 import { launchGroup } from '../lib/catalog.js';
 
 chrome();
 const params = new URLSearchParams(location.search);
-let loc = savedLocation(), target = params.get('norad') || '25544', objects = [], user = null;
+let loc = savedLocation(), target = params.get('norad') || '25544', objects = [], user = null, server = false;
 
 function showLoc() {
   $('#locNow').innerHTML = loc ? `Showing passes for <strong>${esc(loc.name || 'your location')}</strong> <span class="dim">(${loc.lat.toFixed(3)}, ${loc.lon.toFixed(3)})</span>` : 'No location set.';
@@ -128,7 +128,7 @@ async function run() {
 
 async function renderAlert() {
   const box = $('#alertBox');
-  if (target === 'trains') { box.innerHTML = ''; return; }
+  if (target === 'trains' || !server) { box.innerHTML = ''; return; }
   if (!user) { box.innerHTML = `<a class="btn small" href="/account/?next=${encodeURIComponent(location.pathname + location.search)}">Sign in to get email alerts for these passes</a>`; return; }
   box.innerHTML = '<button class="btn small" type="button" id="mkAlert">Email me before visible passes</button>';
   $('#mkAlert').onclick = async () => {
@@ -140,7 +140,7 @@ async function renderAlert() {
 showLoc();
 if (!['25544', '48274', 'trains', '20580'].includes(target)) $$('#targets button').forEach((b) => b.setAttribute('aria-pressed', 'false'));
 else $$('#targets button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.t === target)));
-user = await me();
+({ server, user } = await session());
 if (user) {
   try {
     const { locations } = await getJSON('/api/locations');

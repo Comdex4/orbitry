@@ -1,4 +1,4 @@
-import { chrome, $, $$, esc, me, api, getJSON, geocode, fmtDate } from './common.js';
+import { chrome, $, $$, esc, session, api, getJSON, geocode, fmtDate, STATIC_NOTE } from './common.js';
 import { PLANS } from './plans.js';
 
 chrome();
@@ -105,5 +105,6 @@ async function loadKeys() {
   del('#keyList', '/api/keys', loadKeys);
 }
 
-const u = await me();
-u ? accountView(u) : signInView();
+const { server, user: u } = await session();
+if (!server) main.innerHTML = `<h1>Accounts</h1><p class="lede">${esc(STATIC_NOTE)}</p><p>Everything else works without an account: the <a href="/">globe</a>, <a href="/passes/">pass predictions</a>, the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>`;
+else u ? accountView(u) : signInView();
