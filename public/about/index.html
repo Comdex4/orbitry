@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<title>Data &amp; accuracy — Orbitry</title>
+<meta name="description" content="Where Orbitry's data comes from, how positions are calculated, how accurate they are, and how photos, models and descriptions are licensed and reviewed.">
+</head>
+<body>
+<main class="page narrow">
+  <h1>Data &amp; accuracy</h1>
+  <p class="lede">A map of space is only useful if you know how far to trust it. Here's where everything on Orbitry comes from, how it's calculated, and what it can't tell you.</p>
+
+  <h2 id="earth">Objects in Earth orbit</h2>
+  <p><strong>What's shown.</strong> Every object in CelesTrak's <em>active</em> set: satellites believed to be operating, plus some rocket bodies. Most debris isn't in that set. Only publicly tracked objects appear; some military and intelligence satellites are missing or published with incomplete data.</p>
+  <p><strong>How positions are calculated.</strong> Orbitry downloads the latest orbital elements (General Perturbations element sets, in CCSDS OMM format) from CelesTrak every few hours. Your browser runs them through SGP4, the standard model those elements are made for, to work out where each object is at any time you choose.</p>
+  <p><strong>How accurate that is.</strong> Near the element epoch, SGP4 positions for low Earth orbit are typically good to around a kilometre, and the error grows by roughly one to three kilometres per day after that. It grows faster for low objects in high drag, during geomagnetic storms, and for satellites that are manoeuvring. Every object shows its data age and an accuracy note. That's fine for visualisation and for timing a pass to within a minute, and not good enough for collision avoidance or pointing a narrow instrument.</p>
+  <p><strong>Rewind and fast-forward.</strong> The time controls run the same elements forwards or backwards. The further you go from the epoch, the less the positions mean; we keep the slider within three days for that reason.</p>
+  <p><strong>Operator, country, purpose and mass</strong> come from Jonathan McDowell's General Catalog of Artificial Space Objects (GCAT), used under CC BY 4.0. Purpose groups are our own simplification of GCAT's mission categories. Object type and launch date come from CelesTrak's SATCAT.</p>
+
+  <h2 id="surface">Moon and Mars</h2>
+  <p>Landing and impact sites, mission dates and outcomes are compiled by hand from public sources (NASA, ESA, other agencies and mission teams, with Wikipedia and Wikidata as starting points) and kept in a file anyone can inspect. Coordinates are planetocentric, east-positive longitudes. Rovers have moved from their landing points; we show where they landed.</p>
+  <p>Each record carries a review status. <span class="chip warn">Awaiting review</span> means it was compiled from the listed sources but hasn't yet been checked by a second person. We cross-check coordinates against Wikidata automatically and investigate any disagreement.</p>
+
+  <h2 id="deep">Deep space</h2>
+  <p>Positions and velocities of planets and probes come from NASA/JPL's Horizons system, sampled daily over a window around today and interpolated in your browser. Distance and light time are geometric (straight-line, at the speed of light), not the actual round-trip a mission's ground station measures. Pioneer 10 and 11 are no longer in contact; their positions are trajectory predictions.</p>
+
+  <h2 id="launches">Launches and re-entries</h2>
+  <p>Launch schedules come from The Space Devs' Launch Library 2 and change often. Re-entries are as recorded in CelesTrak's SATCAT. Orbitry does not predict re-entry times, because public data can't support a useful time window; the "low and decaying" list only ranks objects by how low they are.</p>
+
+  <h2 id="passes">Pass predictions</h2>
+  <p>A pass is <em>visible</em> when the object is lit by the Sun, your sky is at least as dark as civil twilight, and the object is above your horizon. Brightness is estimated only where an object's intrinsic magnitude is known from observers' measurements; otherwise we don't guess.</p>
+
+  <h2 id="media">Photos, 3D models and descriptions</h2>
+  <p><strong>Photos</strong> come from Wikimedia Commons via Wikidata. We only use images whose licence is recorded on Commons as public domain or Creative Commons, and every photo is captioned with its author and licence.</p>
+  <p><strong>3D models</strong> are from NASA's 3D Resources collection and follow NASA's media usage guidelines.</p>
+  <p><strong>Descriptions</strong> are drafted by Claude, an AI model made by Anthropic, using only the sourced facts in the record shown on the page. Each sentence is tied to the fields it relies on, and nothing is published until a person has checked it against the sources. Unchecked drafts are never shown.</p>
+
+  <h2 id="licences">Credits and licences</h2>
+  <ul class="sources">
+    <li>Orbital elements and SATCAT: <a href="https://celestrak.org" rel="noopener">CelesTrak</a> (Dr T.S. Kelso)</li>
+    <li>GCAT: <a href="https://planet4589.org/space/gcat/" rel="noopener">Jonathan C. McDowell</a>, CC BY 4.0</li>
+    <li>Ephemerides: <a href="https://ssd.jpl.nasa.gov/horizons/" rel="noopener">NASA/JPL Horizons</a></li>
+    <li>Launches: <a href="https://thespacedevs.com" rel="noopener">The Space Devs</a> Launch Library 2</li>
+    <li>Deep-sky objects: <a href="https://github.com/mattiaverga/OpenNGC" rel="noopener">OpenNGC</a> by Mattia Verga, CC BY-SA 4.0</li>
+    <li>Weather: <a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>, CC BY 4.0</li>
+    <li>Earth textures: NASA Visible Earth (Blue Marble, Black Marble), public domain, via the three-globe project</li>
+    <li>Moon and Mars textures: <a href="https://www.solarsystemscope.com/textures/" rel="noopener">Solar System Scope</a>, CC BY 4.0, based on NASA data</li>
+    <li>3D models: <a href="https://github.com/nasa/NASA-3D-Resources" rel="noopener">NASA 3D Resources</a></li>
+    <li>Software: <a href="https://github.com/shashwatak/satellite-js" rel="noopener">satellite.js</a> (MIT), <a href="https://threejs.org" rel="noopener">three.js</a> (MIT), <a href="https://modelviewer.dev" rel="noopener">model-viewer</a> (Apache 2.0)</li>
+  </ul>
+  <p class="dim">Orbitry is an independent project and isn't affiliated with or endorsed by any of these organisations or any space agency. Found an error? Email <a href="mailto:crice@orbitry.net">crice@orbitry.net</a>.</p>
+</main>
+<script type="module">import { chrome } from '/js/app/common.js'; chrome();</script>
+</body>
+</html>

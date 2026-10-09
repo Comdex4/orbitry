@@ -1,0 +1,6 @@
+node_modules/
+.cache/
+.wrangler/
+.dev.vars
+public/data/*
+!public/data/.gitkeep

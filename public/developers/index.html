@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>API &amp; embeds — Orbitry</title>
+<meta name="description" content="The Orbitry API: one JSON catalog from low Earth orbit to the surface of Mars. Free tier with attribution, plus embeddable globe views for classrooms and newsrooms.">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>.ep{margin:18px 0}.ep h3{font-family:var(--mono);font-size:.95rem;font-weight:500;color:var(--accent)}.ep p{color:#c3cbdb;font-size:.92rem}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+#embedOut{width:100%;height:120px}
+#embedPreview{width:100%;height:420px;border:1px solid var(--line);border-radius:14px;background:#05070d}</style>
+</head>
+<body>
+<main class="page">
+  <h1>API &amp; embeds</h1>
+  <p class="lede">One clean JSON catalog of human-made objects in space, from low Earth orbit to the surface of Mars, for developers, educators and newsrooms. Plus globe views you can drop into a page.</p>
+  <div class="toc"><a class="btn small" href="#tiers">Plans</a><a class="btn small" href="#start">Quick start</a><a class="btn small" href="#endpoints">Endpoints</a><a class="btn small" href="#attribution">Attribution</a><a class="btn small" href="#embed">Embeds</a></div>
+
+  <h2 id="tiers">Plans</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th></th><th>No key</th><th>Free key</th><th>API Pro <span class="dim" id="proPrice"></span></th></tr></thead>
+    <tbody>
+      <tr><td>Requests per day</td><td>500 per IP</td><td>2,000</td><td>100,000</td></tr>
+      <tr><td>Objects, positions, passes, Moon, Mars, deep space, launches, re-entries</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Bulk catalog download (<code>/catalog</code>)</td><td>—</td><td>—</td><td>✓</td></tr>
+      <tr><td>Element history (<code>/objects/{norad}/history</code>)</td><td>—</td><td>—</td><td>✓</td></tr>
+      <tr><td>Re-entry alerts by email or webhook</td><td>—</td><td>—</td><td>✓</td></tr>
+      <tr><td>Attribution required</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    </tbody></table></div>
+  <p class="mute" style="font-size:.9rem">Get a free key or subscribe from your <a href="/account/">account</a>. Limits reset at 00:00 UTC. Responses include <code>x-ratelimit-remaining</code>.</p>
+
+  <h2 id="start">Quick start</h2>
+  <pre><code>curl https://orbitry.net/api/v1/objects/25544
+
+curl -H "Authorization: Bearer orb_your_key" \
+  "https://orbitry.net/api/v1/objects/25544/passes?lat=51.48&amp;lon=0&amp;days=3&amp;visible_only=true"</code></pre>
+  <p class="mute">Every response is <code>{"data": …, "meta": {"attribution": …, …}}</code>. Errors are <code>{"error": "message"}</code> with an HTTP status. CORS is open, so you can call the API from a browser.</p>
+
+  <h2 id="endpoints">Endpoints</h2>
+  <div class="ep"><h3>GET /api/v1/objects</h3><p>Search active Earth-orbit objects. Parameters: <code>q</code> (name, NORAD number or international designator), <code>orbit</code> (leo, meo, geo, heo), <code>purpose</code> (comms, earthobs, weather, navigation, science, human, tech, military, unknown), <code>type</code> (PAY, R/B, DEB), <code>country</code>, <code>operator</code>, <code>limit</code> (≤500), <code>offset</code>.</p></div>
+  <div class="ep"><h3>GET /api/v1/objects/{norad}</h3><p>Everything about one object: operator, country, purpose, launch date, mass, orbit, the OMM element set, photo with license, 3D model if any, and a reviewed summary if one is published. <code>meta</code> gives the data age and a plain-language accuracy statement.</p></div>
+  <div class="ep"><h3>GET /api/v1/objects/{norad}/position?t=ISO</h3><p>SGP4 position at a time within 30 days of the element epoch: latitude, longitude, altitude, speed, and TEME and Earth-fixed vectors.</p></div>
+  <div class="ep"><h3>GET /api/v1/objects/{norad}/passes?lat=&amp;lon=&amp;height=&amp;days=&amp;min_el=&amp;visible_only=</h3><p>Rise, highest point and set for each pass over an observer, with compass directions, visibility and estimated magnitude where known. Up to 10 days.</p></div>
+  <div class="ep"><h3>GET /api/v1/objects/{norad}/history?from=&amp;to= <span class="chip warn">Pro</span></h3><p>Element sets as published by CelesTrak, recorded since Orbitry's history service started.</p></div>
+  <div class="ep"><h3>GET /api/v1/catalog <span class="chip warn">Pro</span></h3><p>The whole merged catalog in one download, with OMM elements for every object.</p></div>
+  <div class="ep"><h3>GET /api/v1/moon · /api/v1/mars</h3><p>Landers, rovers, impact sites (planetocentric coordinates, east-positive) and orbiters, with dates, outcomes, sources and review status.</p></div>
+  <div class="ep"><h3>GET /api/v1/deep-space</h3><p>Current distance from Earth and the Sun, speed and one-way light time for deep-space probes, from NASA/JPL Horizons.</p></div>
+  <div class="ep"><h3>GET /api/v1/launches · /api/v1/reentries</h3><p>Upcoming and recent launches (from The Space Devs' Launch Library 2), recent re-entries and low, decaying objects.</p></div>
+  <div class="ep"><h3>GET · POST · DELETE /api/v1/alerts <span class="chip warn">Pro</span></h3><p>Create a re-entry alert with <code>{"kind": "reentry", "norad": 12345, "webhook_url": "https://…"}</code>. We email you, and POST <code>{"type": "reentry", "object": {…}}</code> to your webhook, when the object is recorded as re-entered.</p></div>
+
+  <h2 id="attribution">Attribution and accuracy</h2>
+  <p>Show <em>"Data from Orbitry"</em> with a link to <a href="https://orbitry.net">orbitry.net</a> wherever you use the data, on every tier. The exact text is in each response's <code>meta.attribution</code>. Orbitry's data comes from CelesTrak, Jonathan McDowell's GCAT (CC BY 4.0), NASA/JPL Horizons, The Space Devs, OpenNGC and Wikimedia Commons; individual photos carry their own licenses in the <code>photo</code> field.</p>
+  <p class="notice">Positions are computed from public orbital elements with SGP4. They're good for visualisation and pass timing, not for collision avoidance, precise pointing or safety-of-flight decisions. See <a href="/about/">Data &amp; accuracy</a>.</p>
+
+  <h2 id="embed">Embed a globe</h2>
+  <p>Put a live globe in a lesson or an article with an iframe. Pick options and copy the code.</p>
+  <div class="row" style="margin:10px 0">
+    <label class="row" style="gap:6px">Color by <select id="eColor"><option value="orbit">Orbit</option><option value="purpose">Purpose</option><option value="country">Country</option><option value="operator">Operator</option></select></label>
+    <label class="row" style="gap:6px">Follow object <input id="eNorad" inputmode="numeric" placeholder="NORAD, e.g. 25544" style="width:170px"></label>
+    <label class="row" style="gap:6px"><input type="checkbox" id="eLegend" checked> Legend</label>
+    <label class="row" style="gap:6px">Height <select id="eH"><option>360</option><option selected>480</option><option>600</option></select></label>
+  </div>
+  <textarea id="embedOut" readonly aria-label="Embed code"></textarea>
+  <p><button class="btn small" id="copy" type="button">Copy code</button></p>
+  <iframe id="embedPreview" title="Orbitry globe preview" loading="lazy"></iframe>
+</main>
+<script type="module">
+import { chrome, $ } from '/js/app/common.js';
+import { PLANS } from '/js/app/plans.js';
+chrome();
+$('#proPrice').textContent = PLANS.api_pro.price;
+function update() {
+  const p = new URLSearchParams({ color: $('#eColor').value });
+  if (+$('#eNorad').value) p.set('norad', $('#eNorad').value);
+  if (!$('#eLegend').checked) p.set('legend', '0');
+  const src = `${location.origin}/embed/?${p}`;
+  $('#embedOut').value = `<iframe src="${src}" width="100%" height="${$('#eH').value}" style="border:0;border-radius:12px" title="Live satellite globe by Orbitry" loading="lazy" allowfullscreen></iframe>`;
+  $('#embedPreview').src = src; $('#embedPreview').style.height = $('#eH').value + 'px';
+}
+for (const id of ['#eColor', '#eNorad', '#eLegend', '#eH']) $(id).addEventListener('change', update);
+$('#copy').onclick = () => { navigator.clipboard?.writeText($('#embedOut').value); $('#copy').textContent = 'Copied'; };
+update();
+</script>
+</body>
+</html>

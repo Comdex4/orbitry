@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deep space — Orbitry</title>
+<meta name="description" content="Where the Voyagers, New Horizons, Parker Solar Probe and other deep-space probes are now: distance from Earth, speed and signal travel time, from NASA/JPL Horizons.">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+.side{width:min(440px,calc(100% - 24px))}
+#tbl td,#tbl th{padding:6px 8px;font-size:.82rem}
+#tbl tr{cursor:pointer}
+#tbl tr[aria-selected="true"]{background:rgba(92,200,255,.1)}
+</style>
+</head>
+<body class="app">
+<main class="app-main" id="stage">
+  <h1 class="sr">Deep-space probes and planets</h1>
+  <canvas class="view" id="canvas" role="img" aria-label="Top-down map of the solar system showing planets and deep-space probes. Drag to pan, scroll to zoom."></canvas>
+  <aside class="float side panel">
+    <div class="scroll">
+      <h2>Probes now</h2>
+      <div class="table-wrap"><table id="tbl"><thead><tr><th>Probe</th><th class="r">From Earth</th><th class="r">Signal time</th><th class="r">Speed*</th></tr></thead><tbody></tbody></table></div>
+      <p class="dim" style="font-size:.76rem;margin-top:8px">*Speed relative to the Sun. Signal time is one-way, at the speed of light. Positions from <a href="https://ssd.jpl.nasa.gov/horizons/" rel="noopener">NASA/JPL Horizons</a>, sampled daily and interpolated; <span id="gen"></span>. Pioneer 10 and 11 are no longer in contact, so their positions are predictions.</p>
+      <div id="detail" hidden style="margin-top:10px"></div>
+    </div>
+  </aside>
+  <div class="float timebar panel">
+    <div class="seg" role="group" aria-label="Scale" id="scale">
+      <button type="button" data-s="log" aria-pressed="true" title="Compress distances so everything fits">Log scale</button>
+      <button type="button" data-s="lin" aria-pressed="false" title="True proportions">Linear</button>
+    </div>
+    <span class="clock" id="clock">--</span>
+    <label class="sr" for="day">Date</label>
+    <input type="range" id="day" min="-30" max="90" step="1" value="0">
+    <button class="btn small" type="button" id="now">Today</button>
+  </div>
+  <div class="loading" id="loading"><div><div class="spin"></div>Loading ephemerides…</div></div>
+</main>
+<script type="module" src="/js/app/solar.js"></script>
+</body>
+</html>

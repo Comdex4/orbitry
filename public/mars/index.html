@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mars — Orbitry</title>
+<meta name="description" content="Every lander, rover and impact site on the Mars at its real coordinates, with mission dates, outcomes and sources.">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/site.css">
+<style>
+#list{list-style:none;margin:0;padding:0}
+#list button{display:flex;align-items:center;gap:9px;width:100%;background:none;border:0;color:var(--text);text-align:left;padding:6px 6px;border-radius:8px;font:inherit;font-size:.86rem;cursor:pointer;line-height:1.3}
+#list button:hover,#list button[aria-current="true"]{background:rgba(92,200,255,.1)}
+#list small,#orbiters small{color:var(--mute)}
+#orbiters{margin:0;padding-left:18px;font-size:.86rem}
+#iFacts{margin:12px 0 0;padding-left:18px;font-size:.88rem;color:#c9d1e0}
+</style>
+</head>
+<body class="app" data-body="mars">
+<main class="app-main" id="stage">
+  <h1 class="sr">Human-made objects on the Mars</h1>
+  <canvas class="view" id="canvas" role="img" aria-label="Rotatable globe of the Mars with landing and impact sites marked. Drag to rotate, click a marker for details."></canvas>
+  <aside class="float side panel" id="side">
+    <div class="scroll">
+      <p class="always" style="margin:0 0 6px"><button class="btn small ghost" type="button" id="collapse">Hide list</button></p>
+      <h2>On the surface</h2>
+      <div class="legend" id="legend"></div>
+      <h2>Sites, oldest first</h2>
+      <ul id="list"></ul>
+      <h2>In orbit</h2>
+      <ul id="orbiters"></ul>
+      <p class="dim" style="font-size:.78rem;margin-top:14px">Coordinates are landing or impact points; rovers have since moved. Records marked <em>Awaiting review</em> have not yet been checked by a second person. <a href="/about/#surface">How this data is compiled</a></p>
+    </div>
+  </aside>
+  <aside class="float details panel" id="info" hidden aria-live="polite">
+    <button class="close" id="infoX" type="button" aria-label="Close details">×</button>
+    <h3 id="iName"></h3>
+    <p class="sub" id="iSub"></p>
+    <dl class="facts" id="iDl"></dl>
+    <ul id="iFacts"></ul>
+    <p style="margin-top:12px"><a class="btn small primary" id="iPage" href="#">Full page, photo &amp; sources</a></p>
+  </aside>
+  <div class="float timebar panel"><button class="btn small" type="button" id="zin" aria-label="Zoom in">+</button><button class="btn small" type="button" id="zout" aria-label="Zoom out">−</button></div>
+  <div class="loading" id="loading"><div><div class="spin"></div>Loading…</div></div>
+</main>
+<script type="module" src="/js/app/surface.js"></script>
+</body>
+</html>
