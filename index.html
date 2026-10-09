@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Orbitry — Everything humans have put in space</title>
+<meta name="description" content="Orbitry is a live visualizer and catalog of human-made objects in space, built on open public data. Explore every tracked satellite on an interactive 3D globe.">
+<meta property="og:title" content="Orbitry — Everything humans have put in space">
+<meta property="og:description" content="A live 3D globe of every publicly tracked satellite, with the Moon, Mars and deep space on the way.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://orbitry.net">
+<meta name="theme-color" content="#05070d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05070d; --panel:rgba(12,17,30,.82); --card:#0b1120; --line:rgba(255,255,255,.1);
+  --text:#e9edf6; --mute:#93a0b8; --accent:#5cc8ff; --warm:#ffb454; --pink:#ff5fa2; --vio:#b48cff; --ok:#6be3a4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;pointer-events:none;
+  background-image:
+   radial-gradient(1px 1px at 30px 40px,#fff,transparent),
+   radial-gradient(1px 1px at 120px 210px,#cfe6ff,transparent),
+   radial-gradient(1.5px 1.5px at 260px 90px,#fff,transparent),
+   radial-gradient(1px 1px at 330px 300px,#ffe9c7,transparent),
+   radial-gradient(1px 1px at 190px 340px,#fff,transparent),
+   radial-gradient(1px 1px at 380px 150px,#cfe6ff,transparent);
+  background-size:400px 400px}
+a{color:var(--accent)}
+h1,h2,h3{font-family:"Space Grotesk","Inter",system-ui,sans-serif;line-height:1.15;margin:0}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:20px 0}
+.brand{display:flex;align-items:center;gap:10px;font:600 1.25rem "Space Grotesk",sans-serif;color:var(--text);text-decoration:none;letter-spacing:.01em}
+.brand svg{width:28px;height:28px}
+.nav nav{display:flex;align-items:center;gap:22px}
+.nav nav a{color:var(--mute);text-decoration:none;font-size:.95rem}
+.nav nav a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#121a2e;color:var(--text);padding:10px 18px;border-radius:999px;font:500 .95rem "Inter",sans-serif;text-decoration:none;cursor:pointer;transition:.15s}
+.btn:hover{border-color:rgba(92,200,255,.5);background:#16213a}
+.btn.primary{background:var(--accent);color:#04121c;border-color:transparent;font-weight:600}
+.btn.primary:hover{background:#82d6ff}
+@media(max-width:640px){.nav nav a.hide-sm{display:none}}
+
+/* hero */
+.hero{padding:44px 0 36px;max-width:780px}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(92,200,255,.35);padding:4px 12px;border-radius:999px;margin-bottom:20px}
+h1{font-size:clamp(2.2rem,5.4vw,3.9rem);font-weight:700;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--vio));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--mute);font-size:1.12rem;margin:20px 0 28px;max-width:640px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+
+/* stage */
+.stage{position:relative;height:clamp(480px,76vh,800px);border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:radial-gradient(ellipse at 50% 42%,#0e1d3a 0%,#080d1a 58%,#04060b 100%)}
+#globe{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+#globe.dragging{cursor:grabbing}
+.panel{background:var(--panel);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px}
+.search{position:absolute;top:14px;left:14px;width:min(290px,calc(100% - 140px));z-index:3}
+.search input{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:inherit;font-size:.95rem;backdrop-filter:blur(10px)}
+.search input::placeholder{color:#6f7b92}
+#sugg{list-style:none;margin:6px 0 0;padding:6px;max-height:280px;overflow:auto}
+#sugg[hidden]{display:none}
+#sugg button{width:100%;text-align:left;background:none;border:0;color:var(--text);padding:8px 10px;border-radius:8px;font:inherit;font-size:.9rem;cursor:pointer}
+#sugg button:hover,#sugg button:focus-visible{background:rgba(92,200,255,.14)}
+#sugg small{color:var(--mute)}
+.ctrls{position:absolute;top:14px;right:14px;z-index:3;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.row{display:flex;gap:6px}
+.ctrls button{min-width:40px;height:40px;padding:0 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--text);font:500 .9rem "Inter",sans-serif;cursor:pointer;backdrop-filter:blur(10px)}
+.ctrls button:hover{border-color:rgba(92,200,255,.5)}
+.ctrls button.on{background:rgba(92,200,255,.2);border-color:rgba(92,200,255,.6)}
+#clock{font:500 .78rem ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--mute);background:var(--panel);border:1px solid var(--line);padding:4px 9px;border-radius:8px}
+.info{position:absolute;right:14px;bottom:14px;width:min(320px,calc(100% - 28px));z-index:4;padding:16px 18px 14px}
+.info[hidden]{display:none}
+.info h3{font-size:1.15rem;padding-right:28px}
+.info .sub{margin:4px 0 12px;color:var(--mute);font-size:.82rem}
+.info dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;margin:0;font-size:.88rem}
+.info dt{color:var(--mute)}
+.info dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.info dd.warn{color:var(--warm)}
+.info .soon{margin:12px 0 0;font-size:.78rem;color:#6f7b92;border-top:1px solid var(--line);padding-top:10px}
+.info .x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:8px;border:0;background:none;color:var(--mute);font-size:1.3rem;cursor:pointer}
+.info .x:hover{color:var(--text)}
+.loading{position:absolute;inset:0;display:grid;place-items:center;z-index:2;text-align:center;color:var(--mute);pointer-events:none}
+.loading.err{pointer-events:auto}
+.loading[hidden]{display:none}
+.spin{width:30px;height:30px;border-radius:50%;border:3px solid rgba(255,255,255,.12);border-top-color:var(--accent);animation:sp 1s linear infinite;margin:0 auto 12px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.below{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between;padding:14px 4px 0}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.legend button{display:inline-flex;align-items:center;gap:8px;background:#0e1527;border:1px solid var(--line);color:var(--text);padding:6px 12px;border-radius:999px;font:inherit;font-size:.85rem;cursor:pointer}
+.legend button[aria-pressed="false"]{opacity:.4}
+.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.legend span{color:var(--mute);font-variant-numeric:tabular-nums}
+#status{margin:0;color:var(--mute);font-size:.85rem}
+
+/* sections */
+section{padding:84px 0 0}
+.sec-h{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.01em}
+.sec-p{color:var(--mute);max-width:640px;margin:12px 0 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card h3{font-size:1.15rem;margin:12px 0 8px}
+.card p{margin:0;color:var(--mute);font-size:.95rem}
+.chip{display:inline-block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid}
+.chip.live{color:var(--ok);border-color:rgba(107,227,164,.4)}
+.chip.dev{color:var(--warm);border-color:rgba(255,180,84,.4)}
+.chip.plan{color:var(--mute);border-color:var(--line)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+@media(max-width:760px){.two{grid-template-columns:1fr}}
+.two .card p+p{margin-top:12px}
+.wl{margin-top:84px;background:linear-gradient(135deg,#0d1a33,#0b1120 60%);border:1px solid var(--line);border-radius:24px;padding:clamp(28px,5vw,56px)}
+.wl form{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;max-width:520px}
+.wl input[type=email]{flex:1 1 240px;padding:13px 16px;border-radius:999px;border:1px solid var(--line);background:#070c18;color:var(--text);font:inherit}
+#wlmsg{min-height:1.5em;margin:12px 0 0;color:var(--mute);font-size:.9rem}
+footer{padding:56px 0 48px;color:var(--mute);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;border-top:1px solid var(--line);padding-top:24px}
+footer a{color:var(--mute)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.spin{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a class="brand" href="/" aria-label="Orbitry home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6" fill="#5cc8ff"/><ellipse cx="16" cy="16" rx="14" ry="5.5" transform="rotate(-25 16 16)" fill="none" stroke="#e9edf6" stroke-width="1.6"/><circle cx="26.8" cy="8.7" r="2" fill="#ffb454"/></svg>
+      Orbitry
+    </a>
+    <nav aria-label="Primary">
+      <a class="hide-sm" href="#globe">Globe</a>
+      <a class="hide-sm" href="#roadmap">Roadmap</a>
+      <a class="hide-sm" href="#data">Data</a>
+      <a class="btn primary" href="#waitlist">Join waitlist</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <span class="eyebrow">Early preview</span>
+      <h1>Everything humans have put in space, <em>in one place.</em></h1>
+      <p class="lede">Orbitry is a live visualizer and catalog for human-made objects, from the satellite passing over your house to the rovers on Mars. It runs on open public data, and every source is credited. Today: the Earth-orbit globe below. Next: the Moon, Mars and deep space.</p>
+      <div class="cta">
+        <a class="btn primary" href="#globe">Explore the live globe</a>
+        <a class="btn" href="#roadmap">See what's coming</a>
+      </div>
+    </div>
+
+    <h2 class="sr">Live globe of Earth orbit</h2>
+    <div class="stage" id="globe">
+      <canvas id="canvas" role="img" aria-label="Interactive 3D globe showing active satellites in Earth orbit. Drag to rotate, click an object for details."></canvas>
+
+      <div class="search">
+        <input id="q" type="search" placeholder="Search name or NORAD ID (try ISS)" autocomplete="off" aria-label="Search satellites by name or NORAD ID">
+        <ul id="sugg" class="panel" hidden></ul>
+      </div>
+
+      <div class="ctrls">
+        <div class="row">
+          <button id="iss" type="button" title="Jump to the International Space Station">ISS</button>
+          <button id="zin" type="button" aria-label="Zoom in">+</button>
+          <button id="zout" type="button" aria-label="Zoom out">−</button>
+        </div>
+        <div class="row" role="group" aria-label="Time speed">
+          <button type="button" data-s="1" class="on">1×</button>
+          <button type="button" data-s="60">60×</button>
+          <button type="button" data-s="600">600×</button>
+        </div>
+        <span id="clock" aria-label="Simulation time in UTC">--:--:-- UTC</span>
+      </div>
+
+      <aside class="info panel" id="info" hidden aria-live="polite">
+        <button class="x" id="infoX" type="button" aria-label="Close details">×</button>
+        <h3 id="iName"></h3>
+        <p class="sub" id="iSub"></p>
+        <dl id="iDl"></dl>
+        <p class="soon">Photos, a 3D model and mission details are coming to object pages.</p>
+      </aside>
+
+      <div class="loading" id="loading">
+        <div><div class="spin"></div><div id="loadMsg">Loading live orbital data…</div></div>
+      </div>
+    </div>
+    <div class="below">
+      <div class="legend" id="legend" aria-label="Orbit types (click to show or hide)"></div>
+      <p id="status">Drag to rotate · click any dot for details</p>
+    </div>
+
+    <section id="roadmap">
+      <h2 class="sec-h">What's live, and what's next</h2>
+      <p class="sec-p">Orbitry is being built in stages, and each stage is usable on its own. Here is where things honestly stand.</p>
+      <div class="cards">
+        <div class="card"><span class="chip live">Live</span><h3>Earth-orbit globe</h3><p>Every publicly tracked active satellite, positioned in your browser from current orbital elements. Search, filter by orbit type, click any object, and fast-forward time.</p></div>
+        <div class="card"><span class="chip dev">In development</span><h3>Moon, Mars &amp; deep space</h3><p>Rovers, landers, orbiters and far-flung probes like Voyager, with coordinates and mission facts drawn from NASA sources.</p></div>
+        <div class="card"><span class="chip plan">Planned</span><h3>Object pages</h3><p>Photos, 3D models and plain-language summaries for each object, with the license and source of every asset tracked.</p></div>
+        <div class="card"><span class="chip plan">Planned</span><h3>Developer API</h3><p>One clean JSON catalog from low Earth orbit to the surface of Mars, for educators, newsrooms and app builders.</p></div>
+        <div class="card"><span class="chip plan">Planned</span><h3>Astrophotography planner</h3><p>Tonight's best targets for your location and gear, with warnings for satellite streaks across your frame.</p></div>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2 class="sec-h">Real data, with stated limits</h2>
+      <p class="sec-p">A visualizer is only useful if you can trust what it shows, so here is exactly what it does and doesn't claim.</p>
+      <div class="two">
+        <div class="card">
+          <h3>How positions are calculated</h3>
+          <p>Positions come from public orbital elements run through the standard SGP4 model, right in your browser. That is good for visualizing and for rough pass timing, but not for collision avoidance or precise pointing.</p>
+          <p>Orbital elements age, and accuracy drops as they do. The details panel shows how old each object's data is.</p>
+          <p>Only publicly tracked objects appear. Some military and sensitive satellites are missing or incomplete in public data.</p>
+        </div>
+        <div class="card">
+          <h3>Sources</h3>
+          <p><strong>Used today:</strong> <a href="https://celestrak.org" rel="noopener">CelesTrak</a> for orbital elements.</p>
+          <p><strong>Planned:</strong> NASA JPL Horizons for deep-space positions, The Space Devs' Launch Library 2 for launches, and the UCS Satellite Database and Jonathan McDowell's catalog for object details.</p>
+          <p>Orbitry is an independent project and is not affiliated with or endorsed by any of these organizations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wl" id="waitlist" style="padding:clamp(28px,5vw,56px)">
+      <h2 class="sec-h">Get early access</h2>
+      <p class="sec-p">Be the first to know when the Moon and Mars views, the developer API and the astrophotography planner open.</p>
+      <form id="wl" method="post" target="_blank" novalidate>
+        <label class="sr" for="email">Email address</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com" autocomplete="email">
+        <input type="hidden" name="embed" value="1">
+        <button class="btn primary" type="submit">Join waitlist</button>
+      </form>
+      <p id="wlmsg" role="status">One email when something launches. No spam, unsubscribe any time.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Orbitry</span>
+      <span><a href="/privacy.html">Privacy</a> · Orbital data courtesy of <a href="https://celestrak.org" rel="noopener">CelesTrak</a></span>
+    </div>
+  </footer>
+</div>
+
+<noscript><p style="text-align:center;color:#93a0b8">The interactive globe needs JavaScript.</p></noscript>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- config ---------- */
+  // Create a free Buttondown account and put your username here to turn on the waitlist form.
+  var WAITLIST_USER = '';
+
+  var RE = 6371, MU = 398600.4418;
+  var TLE_SOURCES = ['/api/tle', 'https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=tle'];
+  var CACHE_KEY = 'orbitry_tle_v1', CACHE_MS = 2 * 3600 * 1000; // CelesTrak asks for no more than one fetch per ~2h
+  var TEXTURES = ['earth-dark.jpg', 'earth-night.jpg', 'earth-blue-marble.jpg'];
+  var TEX_BASE = 'https://unpkg.com/three-globe/example/img/';
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+
+  /* ---------- waitlist (independent of the globe) ---------- */
+  var wl = $('wl'), wlmsg = $('wlmsg');
+  wl.addEventListener('submit', function (e) {
+    var email = $('email');
+    if (!email.value || !/^\S+@\S+\.\S+$/.test(email.value)) { e.preventDefault(); wlmsg.textContent = 'Please enter a valid email address.'; return; }
+    if (!WAITLIST_USER) { e.preventDefault(); wlmsg.textContent = 'The waitlist is not connected yet. Please check back soon.'; return; }
+    wl.action = 'https://buttondown.email/api/emails/embed-subscribe/' + encodeURIComponent(WAITLIST_USER);
+    wlmsg.textContent = 'Thanks! Check your inbox to confirm your email.';
+  });
+
+  /* ---------- globe ---------- */
+  var loading = $('loading'), loadMsg = $('loadMsg'), statusEl = $('status');
+  function fail(msg) {
+    loading.hidden = false; loading.classList.add('err');
+    loadMsg.innerHTML = esc(msg) + '<br><br><button class="btn" id="retry" type="button">Try again</button>';
+    $('retry').onclick = function () { location.reload(); };
+  }
+  if (typeof THREE === 'undefined' || typeof satellite === 'undefined') { fail('The globe libraries could not be loaded. Check your connection or ad blocker.'); return; }
+
+  var canvas = $('canvas'), stage = $('globe');
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true }); }
+  catch (err) { fail('Your browser could not start WebGL, which the globe needs.'); return; }
+  var PR = Math.min(window.devicePixelRatio || 1, 2);
+  renderer.setPixelRatio(PR);
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  var camDist = 3.6, camCur = 3.6, CAM_MIN = 1.5, CAM_MAX = 8;
+  var world = new THREE.Group(); scene.add(world);
+  var rotX = 0.5, rotY = 0.17, focus = null, autoRotate = !reduceMotion;
+
+  function ll(lat, lon, R) {
+    var p = lat * Math.PI / 180, l = lon * Math.PI / 180;
+    return new THREE.Vector3(R * Math.cos(p) * Math.cos(l), R * Math.sin(p), -R * Math.cos(p) * Math.sin(l));
+  }
+
+  // Earth
+  var earthMat = new THREE.MeshBasicMaterial({ color: 0x0b1a2e });
+  world.add(new THREE.Mesh(new THREE.SphereGeometry(1, 64, 64), earthMat));
+  (function loadTex(i) {
+    if (i >= TEXTURES.length) return;
+    var loader = new THREE.TextureLoader(); loader.setCrossOrigin('anonymous');
+    loader.load(TEX_BASE + TEXTURES[i], function (t) {
+      t.encoding = THREE.sRGBEncoding; t.anisotropy = 4;
+      earthMat.map = t; earthMat.color.set(TEXTURES[i] === 'earth-blue-marble.jpg' ? 0x7f8fa5 : 0xffffff); earthMat.needsUpdate = true;
+    }, undefined, function () { loadTex(i + 1); });
+  })(0);
+
+  // Graticule
+  (function () {
+    var pts = [], R = 1.003, lat, lon;
+    for (lat = -60; lat <= 60; lat += 30) for (lon = 0; lon < 360; lon += 6) pts.push(ll(lat, lon, R), ll(lat, lon + 6, R));
+    for (lon = 0; lon < 360; lon += 30) for (lat = -90; lat < 90; lat += 6) pts.push(ll(lat, lon, R), ll(lat + 6, lon, R));
+    var g = new THREE.BufferGeometry().setFromPoints(pts);
+    world.add(new THREE.LineSegments(g, new THREE.LineBasicMaterial({ color: 0x5cc8ff, transparent: true, opacity: 0.13 })));
+  })();
+
+  // Atmosphere glow
+  scene.add(new THREE.Mesh(new THREE.SphereGeometry(1.14, 64, 64), new THREE.ShaderMaterial({
+    vertexShader: 'varying vec3 vN;void main(){vN=normalize(normalMatrix*normal);gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}',
+    fragmentShader: 'varying vec3 vN;void main(){float i=pow(0.62-dot(vN,vec3(0.0,0.0,1.0)),3.0);gl_FragColor=vec4(0.25,0.6,1.0,1.0)*clamp(i,0.0,1.0);}',
+    side: THREE.BackSide, blending: THREE.AdditiveBlending, transparent: true, depthWrite: false
+  })));
+
+  function dotTexture(ring) {
+    var c = document.createElement('canvas'); c.width = c.height = 64;
+    var x = c.getContext('2d');
+    if (ring) { x.strokeStyle = '#fff'; x.lineWidth = 6; x.beginPath(); x.arc(32, 32, 24, 0, 6.2832); x.stroke(); }
+    else { var g = x.createRadialGradient(32, 32, 0, 32, 32, 30); g.addColorStop(0, '#fff'); g.addColorStop(0.55, '#fff'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, 64, 64); }
+    return new THREE.CanvasTexture(c);
+  }
+
+  // Satellite points
+  var COL = { starlink: [0.36, 0.78, 1], leo: [0.92, 0.95, 1], meo: [1, 0.71, 0.33], geo: [1, 0.37, 0.64], heo: [0.71, 0.55, 1] };
+  var LABEL = { starlink: 'Starlink (low Earth orbit)', leo: 'Low Earth orbit', meo: 'Medium Earth orbit', geo: 'Geosynchronous', heo: 'Highly elliptical' };
+  var LEGEND_ORDER = ['starlink', 'leo', 'meo', 'geo', 'heo'];
+  var sats = [], N = 0, positions, colors, geom, points;
+  var hiddenCls = {};
+
+  // Selection marker and orbit ring
+  var marker = new THREE.Points(new THREE.BufferGeometry().setAttribute('position', new THREE.BufferAttribute(new Float32Array(3), 3)),
+    new THREE.PointsMaterial({ size: 22 * PR, map: dotTexture(true), color: 0xffffff, transparent: true, depthTest: false, sizeAttenuation: false }));
+  marker.visible = false; marker.frustumCulled = false; marker.renderOrder = 5; world.add(marker);
+  var ringGeo = new THREE.BufferGeometry();
+  var ring = new THREE.Line(ringGeo, new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.55 }));
+  ring.visible = false; ring.frustumCulled = false; world.add(ring);
+
+  /* ---------- data ---------- */
+  function parseTLE(text) {
+    var lines = text.split(/\r?\n/).map(function (l) { return l.replace(/\s+$/, ''); }).filter(Boolean), out = [], i = 0;
+    while (i + 2 < lines.length) {
+      if (lines[i + 1].indexOf('1 ') === 0 && lines[i + 2].indexOf('2 ') === 0) { out.push({ name: lines[i].trim(), l1: lines[i + 1], l2: lines[i + 2] }); i += 3; }
+      else i++;
+    }
+    return out;
+  }
+  function fetchText(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.text();
+    }).then(function (t) { if (!/\n1 \d{5}/.test(t)) throw new Error('Unexpected response'); return t; });
+  }
+  function loadTLE() {
+    try {
+      var c = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+      if (c && Date.now() - c.t < CACHE_MS && c.text) return Promise.resolve({ text: c.text, t: c.t });
+    } catch (e) {}
+    var i = 0;
+    function next() {
+      if (i >= TLE_SOURCES.length) return Promise.reject(new Error('All sources failed'));
+      return fetchText(TLE_SOURCES[i++]).then(function (text) {
+        var t = Date.now();
+        try { localStorage.setItem(CACHE_KEY, JSON.stringify({ t: t, text: text })); } catch (e) {}
+        return { text: text, t: t };
+      }, next);
+    }
+    return next();
+  }
+
+  function build(text) {
+    var parsed = parseTLE(text);
+    for (var i = 0; i < parsed.length; i++) {
+      var p = parsed[i], rec;
+      try { rec = satellite.twoline2satrec(p.l1, p.l2); } catch (e) { continue; }
+      if (!rec || rec.error || !rec.no) continue;
+      var n = rec.no / 60, a = Math.cbrt(MU / (n * n)), alt = a - RE, ecc = rec.ecco, period = 2 * Math.PI / rec.no, cls;
+      if (/^STARLINK/i.test(p.name)) cls = 'starlink';
+      else if (ecc > 0.25) cls = 'heo';
+      else if (alt < 2000) cls = 'leo';
+      else if (period > 1300 && period < 1600) cls = 'geo';
+      else if (alt < 35000) cls = 'meo';
+      else cls = 'geo';
+      var yr = +p.l1.slice(18, 20), days = +p.l1.slice(20, 32);
+      sats.push({ name: p.name, lname: p.name.toLowerCase(), norad: p.l1.slice(2, 7).trim(), intl: p.l1.slice(9, 17).trim(), rec: rec, cls: cls, period: period, incl: rec.inclo * 180 / Math.PI, epoch: Date.UTC(yr < 57 ? 2000 + yr : 1900 + yr, 0, 1) + (days - 1) * 864e5 });
+    }
+    N = sats.length;
+    if (!N) throw new Error('No satellites parsed');
+    positions = new Float32Array(N * 3); colors = new Float32Array(N * 3);
+    var counts = {};
+    for (var k = 0; k < N; k++) { var c = COL[sats[k].cls]; colors[3 * k] = c[0]; colors[3 * k + 1] = c[1]; colors[3 * k + 2] = c[2]; counts[sats[k].cls] = (counts[sats[k].cls] || 0) + 1; }
+    geom = new THREE.BufferGeometry();
+    geom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    points = new THREE.Points(geom, new THREE.PointsMaterial({ size: 3.4 * PR, map: dotTexture(false), vertexColors: true, transparent: true, alphaTest: 0.1, depthWrite: false, sizeAttenuation: false }));
+    points.frustumCulled = false; world.add(points);
+    buildLegend(counts);
+  }
+
+  function buildLegend(counts) {
+    var lg = $('legend'); lg.innerHTML = '';
+    LEGEND_ORDER.forEach(function (key) {
+      if (!counts[key]) return;
+      var c = COL[key], b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-pressed', 'true');
+      b.innerHTML = '<i style="background:rgb(' + Math.round(c[0] * 255) + ',' + Math.round(c[1] * 255) + ',' + Math.round(c[2] * 255) + ')"></i>' + esc(LABEL[key]) + ' <span>' + counts[key].toLocaleString() + '</span>';
+      b.onclick = function () {
+        hiddenCls[key] = !hiddenCls[key]; b.setAttribute('aria-pressed', hiddenCls[key] ? 'false' : 'true');
+        updatePositions();
+      };
+      lg.appendChild(b);
+    });
+  }
+
+  /* ---------- simulation ---------- */
+  var simMs = Date.now(), speed = 1, lastT = performance.now(), sinceUpdate = 1e9, sel = -1, visible = true;
+
+  function updatePositions() {
+    if (!N) return;
+    var d = new Date(simMs), gm = satellite.gstime(d);
+    for (var i = 0; i < N; i++) {
+      var s = sats[i], o = 3 * i;
+      if (hiddenCls[s.cls]) { positions[o] = positions[o + 1] = positions[o + 2] = 0; continue; }
+      var pv = satellite.propagate(s.rec, d), p = pv.position;
+      if (!p || isNaN(p.x)) { positions[o] = positions[o + 1] = positions[o + 2] = 0; continue; }
+      var e = satellite.eciToEcf(p, gm);
+      positions[o] = e.x / RE; positions[o + 1] = e.z / RE; positions[o + 2] = -e.y / RE;
+    }
+    geom.attributes.position.needsUpdate = true;
+    $('clock').textContent = d.toISOString().slice(11, 19) + ' UTC';
+    if (sel >= 0) { setMarker(); drawRing(d, gm); refreshInfo(d, gm); }
+  }
+  function setMarker() {
+    var a = marker.geometry.attributes.position.array, o = 3 * sel;
+    a[0] = positions[o]; a[1] = positions[o + 1]; a[2] = positions[o + 2];
+    marker.geometry.attributes.position.needsUpdate = true;
+    marker.visible = !(a[0] === 0 && a[1] === 0 && a[2] === 0);
+  }
+  function drawRing(d, gm) {
+    var s = sats[sel], steps = 180, arr = [], T = s.period * 60000;
+    for (var k = 0; k <= steps; k++) {
+      var pv = satellite.propagate(s.rec, new Date(d.getTime() + (k / steps) * T));
+      if (!pv.position || isNaN(pv.position.x)) continue;
+      var e = satellite.eciToEcf(pv.position, gm);
+      arr.push(new THREE.Vector3(e.x / RE, e.z / RE, -e.y / RE));
+    }
+    ringGeo.setFromPoints(arr); ring.visible = arr.length > 2;
+  }
+
+  /* ---------- info panel ---------- */
+  var info = $('info');
+  function refreshInfo(d, gm) {
+    var s = sats[sel], pv = satellite.propagate(s.rec, d), rows = [];
+    if (pv.position && pv.velocity) {
+      var g = satellite.eciToGeodetic(pv.position, gm), v = pv.velocity;
+      var la = satellite.degreesLat(g.latitude), lo = satellite.degreesLong(g.longitude);
+      rows.push(['Altitude', Math.round(g.height).toLocaleString() + ' km'], ['Speed', Math.hypot(v.x, v.y, v.z).toFixed(2) + ' km/s'],
+        ['Latitude', Math.abs(la).toFixed(2) + '° ' + (la >= 0 ? 'N' : 'S')], ['Longitude', Math.abs(lo).toFixed(2) + '° ' + (lo >= 0 ? 'E' : 'W')]);
+    } else rows.push(['Position', 'unavailable (elements too old)']);
+    var age = (simMs - s.epoch) / 864e5;
+    rows.push(['Orbit', LABEL[s.cls]], ['Period', s.period < 1440 ? s.period.toFixed(1) + ' min' : (s.period / 60).toFixed(1) + ' h'], ['Inclination', s.incl.toFixed(1) + '°']);
+    rows.push(['Data age', (age < 0 ? '0.0' : age.toFixed(1)) + ' days' + (age > 10 ? ' (stale)' : ''), age > 10]);
+    $('iDl').innerHTML = rows.map(function (r) { return '<dt>' + esc(r[0]) + '</dt><dd' + (r[2] ? ' class="warn"' : '') + '>' + esc(r[1]) + '</dd>'; }).join('');
+  }
+  function select(i, doFocus) {
+    sel = i;
+    if (i < 0) { info.hidden = true; marker.visible = false; ring.visible = false; return; }
+    var s = sats[i]; autoRotate = false;
+    $('iName').textContent = s.name;
+    $('iSub').textContent = 'NORAD ' + s.norad + (s.intl ? ' · ' + s.intl : '');
+    info.hidden = false;
+    updatePositions();
+    if (doFocus) {
+      var o = 3 * i, x = positions[o], y = positions[o + 1], z = positions[o + 2], r = Math.hypot(x, y, z);
+      if (r > 0) focus = { x: Math.asin(y / r), y: -Math.PI / 2 - Math.atan2(-z, x) };
+    }
+  }
+  $('infoX').onclick = function () { select(-1); };
+
+  /* ---------- interaction ---------- */
+  var ptrs = new Map(), moved = 0, pinchD = 0;
+  function pdist() { var a = Array.from(ptrs.values()); return Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y); }
+  canvas.addEventListener('pointerdown', function (e) {
+    canvas.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    moved = 0; focus = null; autoRotate = false; canvas.classList.add('dragging');
+    if (ptrs.size === 2) pinchD = pdist();
+  });
+  canvas.addEventListener('pointermove', function (e) {
+    var p = ptrs.get(e.pointerId); if (!p) return;
+    var dx = e.clientX - p.x, dy = e.clientY - p.y; p.x = e.clientX; p.y = e.clientY; moved += Math.abs(dx) + Math.abs(dy);
+    if (ptrs.size === 1) { var k = 0.0055 * clamp(camDist / 3.6, 0.35, 1.6); rotY += dx * k; rotX = clamp(rotX + dy * k, -1.45, 1.45); }
+    else if (ptrs.size === 2) { var d = pdist(); if (pinchD) camDist = clamp(camDist * pinchD / d, CAM_MIN, CAM_MAX); pinchD = d; }
+  });
+  function endPtr(e) {
+    if (!ptrs.delete(e.pointerId)) return;
+    if (ptrs.size < 2) pinchD = 0;
+    if (!ptrs.size) { canvas.classList.remove('dragging'); if (moved < 6 && e.type === 'pointerup') pick(e.clientX, e.clientY); }
+  }
+  canvas.addEventListener('pointerup', endPtr); canvas.addEventListener('pointercancel', endPtr);
+  canvas.addEventListener('wheel', function (ev) {
+    if (!(ev.ctrlKey || ev.metaKey)) return; // plain scrolling still scrolls the page
+    ev.preventDefault(); camDist = clamp(camDist * (ev.deltaY > 0 ? 1.08 : 0.92), CAM_MIN, CAM_MAX);
+  }, { passive: false });
+  $('zin').onclick = function () { camDist = clamp(camDist * 0.8, CAM_MIN, CAM_MAX); };
+  $('zout').onclick = function () { camDist = clamp(camDist * 1.25, CAM_MIN, CAM_MAX); };
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-s]'), function (b) {
+    b.onclick = function () {
+      speed = +b.getAttribute('data-s');
+      Array.prototype.forEach.call(document.querySelectorAll('[data-s]'), function (x) { x.classList.toggle('on', x === b); });
+    };
+  });
+
+  var _v = new THREE.Vector3(), _w = new THREE.Vector3(), _cam = new THREE.Vector3();
+  function pick(cx, cy) {
+    if (!N) return;
+    var r = canvas.getBoundingClientRect(), sx = cx - r.left, sy = cy - r.top;
+    camera.position.set(0, 0, camCur); world.updateMatrixWorld(); camera.updateMatrixWorld();
+    _cam.copy(camera.position);
+    var best = -1, bd = 15 * 15;
+    for (var i = 0; i < N; i++) {
+      var o = 3 * i; if (!positions[o] && !positions[o + 1] && !positions[o + 2]) continue;
+      _w.set(positions[o], positions[o + 1], positions[o + 2]).applyMatrix4(world.matrixWorld);
+      // skip anything hidden behind the Earth
+      _v.copy(_w).sub(_cam);
+      var a = _v.dot(_v), b = 2 * _cam.dot(_v), c = _cam.dot(_cam) - 1, disc = b * b - 4 * a * c;
+      if (disc > 0) { var t = (-b - Math.sqrt(disc)) / (2 * a); if (t > 0 && t < 1) continue; }
+      _v.copy(_w).project(camera);
+      var px = (_v.x * 0.5 + 0.5) * r.width, py = (-_v.y * 0.5 + 0.5) * r.height, dd = (px - sx) * (px - sx) + (py - sy) * (py - sy);
+      if (dd < bd) { bd = dd; best = i; }
+    }
+    select(best, false);
+  }
+
+  // search
+  var q = $('q'), sugg = $('sugg');
+  function renderSugg() {
+    var v = q.value.trim().toLowerCase(); sugg.innerHTML = '';
+    if (v.length < 2 || !N) { sugg.hidden = true; return; }
+    var out = [];
+    for (var i = 0; i < N && out.length < 8; i++) if (sats[i].lname.indexOf(v) !== -1 || sats[i].norad === v) out.push(i);
+    if (!out.length) { sugg.hidden = true; return; }
+    out.forEach(function (i) {
+      var li = document.createElement('li'), b = document.createElement('button'); b.type = 'button';
+      b.innerHTML = esc(sats[i].name) + ' <small>· ' + esc(sats[i].norad) + '</small>';
+      b.onclick = function () { select(i, true); sugg.hidden = true; q.value = ''; q.blur(); };
+      li.appendChild(b); sugg.appendChild(li);
+    });
+    sugg.hidden = false;
+  }
+  q.addEventListener('input', renderSugg);
+  q.addEventListener('keydown', function (e) { if (e.key === 'Enter') { var b = sugg.querySelector('button'); if (b) b.click(); } if (e.key === 'Escape') { sugg.hidden = true; } });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.search')) sugg.hidden = true; });
+  $('iss').onclick = function () {
+    for (var i = 0; i < N; i++) if (/^ISS \(/i.test(sats[i].name)) { select(i, true); return; }
+    statusEl.textContent = 'The ISS was not found in the current data set.';
+  };
+
+  /* ---------- render loop ---------- */
+  function resize() {
+    var r = stage.getBoundingClientRect(), w = Math.max(1, r.width), h = Math.max(1, r.height);
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.fov = w / h < 0.95 ? 56 : 40; camera.updateProjectionMatrix();
+  }
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(stage); else window.addEventListener('resize', resize);
+  resize();
+  if (window.IntersectionObserver) new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }).observe(stage);
+
+  function wrap(a) { while (a > Math.PI) a -= 2 * Math.PI; while (a < -Math.PI) a += 2 * Math.PI; return a; }
+  function frame(now) {
+    requestAnimationFrame(frame);
+    var dt = Math.min(now - lastT, 250); lastT = now;
+    if (!visible) return;
+    simMs += dt * speed; sinceUpdate += dt;
+    if (N && sinceUpdate > (speed === 1 ? 1000 : 200)) { sinceUpdate = 0; updatePositions(); }
+    if (focus) {
+      var dy = wrap(focus.y - rotY), dx = focus.x - rotX;
+      rotY += dy * 0.09; rotX += dx * 0.09;
+      if (Math.abs(dy) < 0.003 && Math.abs(dx) < 0.003) focus = null;
+    } else if (autoRotate) rotY += 0.0007 * (dt / 16);
+    camCur += (camDist - camCur) * 0.15;
+    camera.position.set(0, 0, camCur);
+    world.rotation.set(rotX, rotY, 0);
+    renderer.render(scene, camera);
+  }
+  requestAnimationFrame(frame);
+
+  /* ---------- go ---------- */
+  loadTLE().then(function (res) {
+    build(res.text); updatePositions();
+    loading.hidden = true;
+    var fetched = new Date(res.t);
+    statusEl.textContent = N.toLocaleString() + ' active objects · orbital data from CelesTrak, fetched ' + fetched.toISOString().slice(0, 16).replace('T', ' ') + ' UTC · drag to rotate, click a dot for details';
+  }).catch(function (err) {
+    fail('Live orbital data could not be loaded (' + err.message + ').');
+  });
+})();
+</script>
+</body>
+</html>
