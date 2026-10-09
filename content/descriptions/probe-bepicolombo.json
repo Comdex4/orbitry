@@ -54,6 +54,9 @@
     "unsupported_citations": []
   },
   "review": {
-    "status": "unreviewed"
+    "status": "approved",
+    "by": "Connor",
+    "on": "2026-10-09",
+    "notes": "Approved via the summary review page"
   }
 }
