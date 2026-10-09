@@ -21,7 +21,7 @@ class Stmt {
 export function d1() {
   const db = new DatabaseSync(':memory:');
   db.exec('PRAGMA foreign_keys = ON');
-  db.exec(fs.readFileSync(path.join(ROOT, 'migrations', '0001_init.sql'), 'utf8'));
+  for (const f of fs.readdirSync(path.join(ROOT, 'migrations')).filter((x) => x.endsWith('.sql')).sort()) db.exec(fs.readFileSync(path.join(ROOT, 'migrations', f), 'utf8'));
   return { prepare: (sql) => new Stmt(db, sql), raw: db };
 }
 

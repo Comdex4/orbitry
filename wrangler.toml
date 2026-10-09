@@ -37,3 +37,5 @@ enabled = true
 #   STRIPE_PRICE_API_PRO    Stripe price ID for API Pro
 #   STRIPE_PRICE_PLANNER    Stripe price ID for the astrophotography planner
 #   IP_SALT                 any random string; salts hashed IPs used for anonymous rate limits
+#   ANTHROPIC_API_KEY       turns on "Ask about this object" (Claude API key from console.anthropic.com)
+# Optional variable: ASK_MODEL to choose the Claude model for questions (default claude-opus-5-5).

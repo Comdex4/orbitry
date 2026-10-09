@@ -5,6 +5,7 @@ import { handleApi } from './api.js';
 import * as acct from './account.js';
 import { checkout, portal, webhook } from './billing.js';
 import { runScheduled } from './cron.js';
+import { ask, askStatus } from './ask.js';
 
 async function route(req, env) {
   const url = new URL(req.url), p = url.pathname.replace(/\/+$/, '') || '/', m = req.method;
@@ -19,6 +20,8 @@ async function route(req, env) {
     case 'POST /api/auth/logout': return logout(req, env);
     case 'GET /api/me': { const u = await sessionUser(req, env); return json({ user: u ? publicUser(u) : null }); }
     case 'POST /api/billing/webhook': return webhook(req, env);
+    case 'GET /api/ask': return askStatus(env);
+    case 'POST /api/ask': return ask(req, env);
   }
 
   const user = await requireUser(req, env);

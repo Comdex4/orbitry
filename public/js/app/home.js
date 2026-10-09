@@ -52,6 +52,12 @@ getJSON('/data/launches.json').then((l) => {
   tick(); setInterval(tick, 30000);
 }).catch(() => {});
 
+// "Ask about this object" says "Live" once the API key is set on the Worker.
+getJSON('/api/ask').then((s) => {
+  if (!s?.enabled) return;
+  $$('[data-ask]').forEach((c) => { c.textContent = 'Live'; c.classList.add('ok'); $('#liveList').append(c.closest('li')); });
+}).catch(() => {});
+
 // Server features (accounts, alerts, API keys, the paid planner) say "Live" once the Worker is deployed.
 session().then(({ server }) => {
   if (!server) return;
