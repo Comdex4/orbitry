@@ -3,86 +3,247 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Orbitry — every tracked object in Earth orbit, live</title>
-<meta name="description" content="A live 3D globe of every publicly tracked active satellite, colored by orbit, operator, country or purpose. Search, rewind or fast-forward time, and see how old the data is.">
+<title>Orbitry — everything humans have put in space</title>
+<meta name="description" content="A live 3D globe of every publicly tracked satellite, the landers and rovers on the Moon and Mars, deep-space probes, pass predictions and an open API. Every view shows how old its data is.">
 <meta property="og:title" content="Orbitry — everything humans have put in space">
-<meta property="og:description" content="Live 3D globe of active satellites, with the Moon, Mars, deep-space probes, launches and pass predictions.">
+<meta property="og:description" content="Live satellites on a 3D globe, Moon and Mars landing sites, deep-space probes, pass predictions and an API, built on open data.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://orbitry.net/">
+<meta property="og:image" content="https://orbitry.net/img/shot-globe.jpg">
 <meta name="theme-color" content="#05070d">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/site.css">
+<style>
+/* Landing: a live hero, a strip of live numbers, then one band per audience, each with a real screenshot. */
+.land{width:min(1180px,100% - 32px);margin:0 auto}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;align-items:center;padding:48px 0 28px}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-top:28px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+.eyebrow .live{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(107,227,164,.6);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(107,227,164,0)}100%{box-shadow:0 0 0 0 rgba(107,227,164,0)}}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);letter-spacing:-.025em;line-height:1.04;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{font-size:1.1rem;margin:18px 0 26px;max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.cta .btn{padding:11px 18px;font-size:.97rem}
+.globe-box{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;justify-self:center;border-radius:50%;cursor:pointer}
+.globe-box canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.globe-box .tag{position:absolute;left:50%;bottom:4%;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;color:var(--mute);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 12px}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:8px 0 0}
+.stat{background:var(--card);padding:16px 18px;min-width:0}
+.stat .k{color:var(--mute);font-size:.8rem}
+.stat .v{font:600 1.45rem/1.2 var(--head);margin-top:4px;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.stat .s{color:var(--dim);font-size:.78rem;margin-top:2px}
+.band{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;padding:72px 0 0}
+.band.flip{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.band.flip .copy{order:2}
+.band > *,.hero > *{min-width:0}
+.globe-box .tag{max-width:92%;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:900px){.band,.band.flip{grid-template-columns:1fr;gap:20px;padding-top:56px}.band.flip .copy{order:0}}
+.kicker{color:var(--accent);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin:0 0 8px}
+.band h2,.sec h2{font-size:clamp(1.6rem,3.2vw,2.3rem);letter-spacing:-.015em;text-wrap:balance}
+.band p{color:#c3cbdb;max-width:56ch}
+.band ul{margin:14px 0 18px;padding-left:18px;color:#c3cbdb}
+.band li{margin:5px 0}
+.shot{border:1px solid var(--line2);border-radius:14px;overflow:hidden;background:#0a1020;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.shot img{display:block;width:100%;height:auto}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.pair{grid-template-columns:1fr}}
+.sec{padding:84px 0 0}
+.sec > p.lede{margin-top:10px}
+.claude{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:26px}
+.claude .card h3{font-size:1.08rem;margin:0 0 8px}
+.claude .card p{color:#c3cbdb;margin:0;font-size:.95rem}
+.claude .num{font:600 2rem var(--head);color:var(--accent);margin-bottom:4px;font-variant-numeric:tabular-nums}
+.who{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px}
+.who div{border-top:2px solid var(--accent);padding-top:12px}
+.who h3{font-size:1rem;margin:0 0 6px}
+.who p{margin:0;color:var(--mute);font-size:.92rem}
+.trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:22px}
+.trust h3{font-size:1rem;margin:0 0 6px}
+.trust p{margin:0;color:#c3cbdb;font-size:.94rem}
+.sources{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.sources a{color:var(--mute);text-decoration:none;border:1px solid var(--line2);border-radius:999px;padding:4px 12px;font-size:.84rem}
+.sources a:hover{color:var(--text)}
+.status{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:22px}
+.status ul{list-style:none;margin:10px 0 0;padding:0}
+.status li{display:flex;gap:10px;align-items:baseline;padding:7px 0;border-bottom:1px solid var(--line);font-size:.94rem}
+.status li:last-child{border-bottom:0}
+.code{margin:16px 0 0}
+.code pre{margin:0;font-size:.82rem}
+.final{margin:90px 0 0;padding:clamp(28px,5vw,54px);border:1px solid var(--line);border-radius:22px;background:radial-gradient(ellipse at 80% 0%,#12274a 0%,#0b1120 60%);display:grid;gap:14px}
+.final h2{font-size:clamp(1.7rem,3.6vw,2.6rem);text-wrap:balance}
+.contact{color:var(--mute);font-size:.92rem}
+.contact code{user-select:all}
+@media (prefers-reduced-motion:reduce){.eyebrow .live{animation:none}}
+</style>
 </head>
-<body class="app">
-<main class="app-main" id="stage">
-  <h1 class="sr">Live globe of objects in Earth orbit</h1>
-  <canvas class="view" id="canvas" role="img" aria-label="Interactive 3D globe of active satellites. Drag to rotate, scroll or pinch to zoom, click a point for details."></canvas>
-
-  <aside class="float side panel" id="side">
-    <div class="scroll">
-      <div class="always">
-        <label class="sr" for="q">Search</label>
-        <input id="q" type="search" placeholder="Search name or NORAD ID (try ISS)" autocomplete="off" style="width:100%">
-        <ul class="sugg" id="sugg" hidden></ul>
+<body>
+<main class="land">
+  <section class="hero">
+    <div>
+      <p class="eyebrow"><span class="live" aria-hidden="true"></span>Live, from open data</p>
+      <h1>See everything humans have put in <em>space</em>.</h1>
+      <p class="lede">Orbitry puts <strong data-n="objects">every active satellite</strong> on a live 3D globe, marks every lander, rover and impact site on the Moon and Mars at its real coordinates, and follows the probes leaving the solar system. Every view says how old its data is and how far to trust it.</p>
+      <div class="cta">
+        <a class="btn primary" href="/globe/">Open the live globe</a>
+        <a class="btn" href="/passes/?norad=25544">When can I see the ISS?</a>
+        <a class="btn ghost" href="/developers/">API &amp; embeds</a>
       </div>
-      <h2>Color by</h2>
-      <div class="seg" role="group" aria-label="Color by" id="colorBy">
-        <button type="button" data-mode="orbit" aria-pressed="true">Orbit</button>
-        <button type="button" data-mode="purpose" aria-pressed="false">Purpose</button>
-        <button type="button" data-mode="country" aria-pressed="false">Country</button>
-        <button type="button" data-mode="operator" aria-pressed="false">Operator</button>
-      </div>
-      <h2>Show <span class="dim" style="text-transform:none;letter-spacing:0">(click to toggle)</span></h2>
-      <div class="legend" id="legend"></div>
-      <h2>Object type</h2>
-      <div class="seg" role="group" aria-label="Object type" id="typeFilter">
-        <button type="button" data-t="all" aria-pressed="true">All</button>
-        <button type="button" data-t="PAY" aria-pressed="false">Payloads</button>
-        <button type="button" data-t="other" aria-pressed="false">Rocket bodies &amp; debris</button>
-      </div>
-      <p class="dim" style="font-size:.78rem;margin-top:12px">This view uses CelesTrak's <em>active</em> set, so most debris is not shown.</p>
-      <h2>Data</h2>
-      <p class="mute" id="fresh" style="font-size:.8rem;margin:0">Loading orbital data…</p>
-      <p class="always" style="margin-top:10px"><button class="btn small ghost" type="button" id="collapse">Hide filters</button></p>
     </div>
-  </aside>
+    <a class="globe-box" href="/globe/" aria-label="Open the live globe">
+      <canvas id="heroGlobe" role="img" aria-label="Live globe of active satellites, colored by purpose"></canvas>
+      <span class="tag" id="heroTag">Loading live positions…</span>
+    </a>
+  </section>
 
-  <aside class="float details panel" id="info" hidden aria-live="polite">
-    <button class="close" id="infoX" type="button" aria-label="Close details">×</button>
-    <h3 id="iName"></h3>
-    <p class="sub" id="iSub"></p>
-    <p id="iOver" style="font-size:.86rem;color:#c9d1e0;margin:0 0 12px"></p>
-    <dl class="facts" id="iDl"></dl>
-    <p class="notice" id="iAcc" style="margin-top:12px"></p>
-    <div class="row" style="margin-top:12px">
-      <a class="btn small primary" id="iPage" href="#">Object page</a>
-      <a class="btn small" id="iPass" href="#">Passes over me</a>
-      <button class="btn small" id="iFav" type="button" hidden>☆ Favorite</button>
-    </div>
-  </aside>
-
-  <div class="float timebar panel" id="timebar">
-    <div class="seg" role="group" aria-label="Playback speed" id="speeds">
-      <button type="button" data-s="-600" aria-pressed="false" title="Rewind at 600×">◀◀</button>
-      <button type="button" data-s="-60" aria-pressed="false" title="Rewind at 60×">◀</button>
-      <button type="button" data-s="0" aria-pressed="false" title="Pause">❚❚</button>
-      <button type="button" data-s="1" aria-pressed="true" title="Real time">1×</button>
-      <button type="button" data-s="60" aria-pressed="false" title="60× faster">60×</button>
-      <button type="button" data-s="600" aria-pressed="false" title="600× faster">600×</button>
-      <button type="button" data-s="3600" aria-pressed="false" title="3600× faster">1 h/s</button>
-    </div>
-    <span class="clock" id="clock" aria-live="off">--</span>
-    <label class="sr" for="jump">Jump to time</label>
-    <input type="range" id="jump" min="-72" max="72" step="1" value="0" title="Jump up to 3 days back or ahead">
-    <button class="btn small" type="button" id="now">Now</button>
-    <span class="row" style="gap:4px"><button class="btn small" type="button" id="zin" aria-label="Zoom in">+</button><button class="btn small" type="button" id="zout" aria-label="Zoom out">−</button></span>
+  <div class="strip" aria-label="Live numbers">
+    <div class="stat"><div class="k">Tracked in Earth orbit</div><div class="v" id="sObjects">—</div><div class="s">active objects, positioned live</div></div>
+    <div class="stat"><div class="k">Orbital data refreshed</div><div class="v" id="sFresh">—</div><div class="s">from CelesTrak, every two hours</div></div>
+    <div class="stat"><div class="k">On the Moon and Mars</div><div class="v" id="sSites">—</div><div class="s">landing and impact sites</div></div>
+    <div class="stat"><div class="k">Voyager 1's signal takes</div><div class="v" id="sVoyager">—</div><div class="s" id="sVoyagerSub">to reach Earth</div></div>
+    <div class="stat"><div class="k">Next launch</div><div class="v" id="sLaunch">—</div><div class="s" id="sLaunchSub">&nbsp;</div></div>
+    <div class="stat"><div class="k">Reviewed summaries</div><div class="v" id="sReviewed">—</div><div class="s">drafted by Claude from sourced records</div></div>
   </div>
 
-  <div class="loading" id="loading"><div><div class="spin"></div>Loading live orbital data…</div></div>
+  <section class="band">
+    <div class="copy">
+      <p class="kicker">Explore</p>
+      <h2>A live globe of Earth orbit</h2>
+      <p>Every publicly tracked active satellite, positioned in your browser from the latest orbital elements.</p>
+      <ul>
+        <li>Color by orbit, purpose, country or operator</li>
+        <li>Search by name or catalog number, then follow its orbit</li>
+        <li>Rewind or fast-forward up to three days</li>
+        <li>Each object shows its data age and an accuracy estimate</li>
+      </ul>
+      <a class="btn" href="/globe/?norad=25544">Find the ISS now</a>
+    </div>
+    <div class="shot"><img src="/img/shot-globe.jpg" width="1280" height="800" alt="The Orbitry globe with the International Space Station selected and its orbit traced" loading="lazy"></div>
+  </section>
+
+  <section class="band flip">
+    <div class="copy">
+      <p class="kicker">Beyond Earth</p>
+      <h2>The Moon, Mars and deep space</h2>
+      <p>From Luna 2 in 1959 to the landers of 2025: every landing and impact site, with mission dates, outcomes and sources. Out past the planets, the Voyagers, New Horizons and Parker Solar Probe, with live distance, speed and signal travel time from NASA/JPL Horizons.</p>
+      <div class="row"><a class="btn" href="/moon/">The Moon</a><a class="btn" href="/mars/">Mars</a><a class="btn" href="/solar-system/">Deep space</a></div>
+    </div>
+    <div class="pair">
+      <div class="shot"><img src="/img/shot-moon.jpg" width="1280" height="800" alt="The Moon with Apollo 11's landing site selected" loading="lazy"></div>
+      <div class="shot"><img src="/img/shot-deep-space.jpg" width="1280" height="800" alt="Map of deep-space probes with distances and signal times" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="copy">
+      <p class="kicker">Look up</p>
+      <h2>Know when to step outside</h2>
+      <p>Pass predictions for your location: when the ISS, the Chinese space station, a fresh Starlink train or any satellite crosses your sky, which way to look, how high it climbs and, where it can be estimated, how bright it will be.</p>
+      <a class="btn" href="/passes/">Find passes near me</a>
+    </div>
+    <div class="shot"><img src="/img/shot-passes.jpg" width="1280" height="800" alt="Starlink train passes over Denver with sky-path diagrams" loading="lazy"></div>
+  </section>
+
+  <section class="band flip">
+    <div class="copy">
+      <p class="kicker">Every object, explained</p>
+      <h2>A page for each object</h2>
+      <p>Key facts, orbit, a live ground track, a freely licensed photo and a NASA 3D model where one exists, with the licence of every image recorded and the sources one click away.</p>
+      <a class="btn" href="/object/?norad=25544">See the ISS page</a>
+    </div>
+    <div class="shot"><img src="/img/shot-object.jpg" width="1280" height="800" alt="Object page for the International Space Station with a photo and a 3D model" loading="lazy"></div>
+  </section>
+
+  <section class="band">
+    <div class="copy">
+      <p class="kicker">For astrophotographers</p>
+      <h2>Warnings before a satellite streaks your frame</h2>
+      <p>The planner combines darkness, the Moon, the cloud forecast and your horizon to rank what to shoot tonight. Then it checks every tracked object against your exact field of view, exposure by exposure, and tells you which frames will catch a sunlit satellite.</p>
+      <a class="btn" href="/planner/">Open the planner</a>
+    </div>
+    <div class="shot"><img src="/img/shot-planner.jpg" width="1280" height="800" alt="Streak check showing which of sixteen exposures a satellite will cross" loading="lazy"></div>
+  </section>
+
+  <section class="band flip">
+    <div class="copy">
+      <p class="kicker">For developers, classrooms and newsrooms</p>
+      <h2>An open API and embeddable globes</h2>
+      <p>The merged catalog as clean JSON, from low Earth orbit to the surface of Mars: objects, live positions, passes, landing sites, deep-space probes, launches and re-entries. Free with attribution. Teachers and publishers can drop a live globe into a lesson or an article with one line of HTML.</p>
+      <a class="btn" href="/developers/">Read the API docs</a>
+    </div>
+    <div class="code"><pre><code>GET /api/v1/objects/25544/passes?lat=51.5&amp;lon=-0.1&amp;visible_only=true
+
+&lt;iframe src="https://orbitry.net/embed/?color=purpose&amp;norad=25544"
+        width="100%" height="480" title="Live satellite globe"&gt;&lt;/iframe&gt;</code></pre></div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">How Orbitry uses Claude</p>
+    <h2>Built with Claude, checked by people</h2>
+    <p class="lede">Orbitry is a small, independent project. Claude drafts its writing and helped build its code; a person decides what gets published.</p>
+    <div class="claude">
+      <div class="card"><div class="num" id="sSummaries">—</div><h3>Summaries drafted by Claude, approved by a person</h3><p>Claude writes each object's plain-language summary using only the facts in its sourced record, and ties every sentence to the fact it came from. Nothing is published until a person has checked it against the sources.</p></div>
+      <div class="card"><div class="num">47</div><h3>Automated tests, and the code they check, written with Claude Code</h3><p>The globe, the orbital mechanics, the data pipeline that merges eight public sources, and the API were built with Claude Code, from an empty repository to a working product.</p></div>
+      <div class="card"><div class="num">Ask</div><h3>Questions answered from the record</h3><p>Visitors can ask about any object. Claude answers using only that object's sourced facts, shows the facts behind each sentence, and says plainly when the record doesn't cover the question.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">Who it's for</p>
+    <h2>Anyone who has ever looked up</h2>
+    <div class="who">
+      <div><h3>Students and teachers</h3><p>A real, current picture of space to explore in class, with sources students can follow.</p></div>
+      <div><h3>Newsrooms</h3><p>Launches, re-entries and embeddable globes for stories, with data age stated alongside.</p></div>
+      <div><h3>Developers</h3><p>One catalog from Earth orbit to Mars, already merged and cleaned.</p></div>
+      <div><h3>Astrophotographers</h3><p>Tonight's plan, plus warnings before a satellite crosses an exposure.</p></div>
+      <div><h3>The curious</h3><p>What that moving light was, and when it comes back.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">Accuracy</p>
+    <h2>Real data, with its limits stated</h2>
+    <div class="trust">
+      <div><h3>Computed, not guessed</h3><p>Satellite positions come from published orbital elements run through SGP4, the standard model made for them. Good to a few kilometres when fresh, for visualising and timing passes, not for collision avoidance.</p></div>
+      <div><h3>Data age on every view</h3><p>Every object shows how old its orbital data is and roughly how far off its position may be. Records still awaiting review are labelled.</p></div>
+      <div><h3>Every source credited</h3><p>Each fact, photo and model links to where it came from, with its licence. Unlicensed images are left out, not guessed at.</p></div>
+    </div>
+    <div class="sources" aria-label="Data sources">
+      <a href="https://celestrak.org" rel="noopener">CelesTrak</a><a href="https://planet4589.org/space/gcat/" rel="noopener">McDowell GCAT</a><a href="https://ssd.jpl.nasa.gov/horizons/" rel="noopener">NASA/JPL Horizons</a><a href="https://thespacedevs.com/llapi" rel="noopener">Launch Library 2</a><a href="https://commons.wikimedia.org" rel="noopener">Wikimedia Commons</a><a href="https://github.com/nasa/NASA-3D-Resources" rel="noopener">NASA 3D Resources</a><a href="https://github.com/mattiaverga/OpenNGC" rel="noopener">OpenNGC</a><a href="https://open-meteo.com" rel="noopener">Open-Meteo</a>
+    </div>
+  </section>
+
+  <section class="sec">
+    <p class="kicker">Where things stand</p>
+    <h2>What's live, and what's next</h2>
+    <div class="status">
+      <div class="card"><h3 style="margin:0">Live today</h3><ul id="liveList">
+        <li><span class="chip ok">Live</span>Earth-orbit globe with search and time travel</li>
+        <li><span class="chip ok">Live</span>Moon, Mars and deep-space views</li>
+        <li><span class="chip ok">Live</span>Launch and re-entry feed</li>
+        <li><span class="chip ok">Live</span>Object pages with photos, models and sources</li>
+        <li><span class="chip ok">Live</span>Pass predictions, including Starlink trains</li>
+        <li><span class="chip ok">Live</span>Embeddable globes</li>
+      </ul></div>
+      <div class="card"><h3 style="margin:0">Built and launching</h3><ul id="nextList">
+        <li><span class="chip" data-server>Launching</span>Free accounts with saved places and pass alerts</li>
+        <li><span class="chip" data-server>Launching</span>Public API with free and Pro keys</li>
+        <li><span class="chip" data-server>Launching</span>Astrophotography planner with streak warnings and a nightly email</li>
+        <li><span class="chip" data-ask>Launching</span>Ask Claude about any object, answered only from its sourced record</li>
+        <li><span class="chip">Next</span>Claude-drafted, human-reviewed summaries for notable satellites</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>Start with the sky above you.</h2>
+    <div class="cta"><a class="btn primary" href="/globe/">Open the live globe</a><a class="btn" href="/passes/">See what's passing over</a></div>
+    <p class="contact">Questions, partnerships or press: <code>crice@orbitry.net</code></p>
+  </section>
 </main>
-<noscript><p style="text-align:center;color:#93a0b8">The interactive globe needs JavaScript. The data is also available from the <a href="/developers/">Orbitry API</a>.</p></noscript>
-<script type="module" src="/js/app/earth.js"></script>
+<script type="module" src="/js/app/home.js"></script>
 </body>
 </html>

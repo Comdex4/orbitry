@@ -26,6 +26,33 @@ function modelBlock(m) {
     <figcaption>3D model: ${esc(m.title)}${m.note ? ' · ' + esc(m.note) : ''} · <a href="${esc(m.source)}" rel="noopener">NASA 3D Resources</a> · <a href="${esc(m.license.url)}" rel="noopener">${esc(m.license.name)}</a></figcaption></figure>`;
 }
 
+// "Ask about this object": shown only when the server has questions switched on.
+async function askBox(id, name, suggestions) {
+  const box = $('#ask');
+  const status = await getJSON('/api/ask').catch(() => null);
+  if (!box || !status?.enabled) return;
+  box.hidden = false;
+  box.innerHTML = `<h2>Ask about ${esc(name)}</h2>
+    <form class="row" id="askForm"><label class="sr" for="askQ">Your question</label>
+      <input id="askQ" maxlength="${status.limits.questionChars}" placeholder="Ask a question about ${esc(name)}" style="flex:1;min-width:220px" autocomplete="off">
+      <button class="btn primary" type="submit">Ask</button></form>
+    <div class="row" style="margin-top:8px">${suggestions.map((q) => `<button class="btn small ghost" type="button" data-q="${esc(q)}">${esc(q)}</button>`).join('')}</div>
+    <div id="askOut" aria-live="polite" style="margin-top:12px"></div>
+    <p class="dim" style="font-size:.78rem">Answered by Claude, an AI model, using only the facts on this page. It can still get things wrong, so check the sources below.</p>`;
+  const run = async (q) => {
+    const out = $('#askOut');
+    out.innerHTML = '<p class="mute">Thinking…</p>';
+    try {
+      const a = await api('/api/ask', 'POST', { id, question: q });
+      out.innerHTML = `<div class="card"><p class="mute" style="margin:0 0 6px;font-size:.85rem">${esc(a.question)}</p>
+        ${a.answerable ? a.sentences.map((s) => `<p style="margin:6px 0 2px">${esc(s.text)}</p><div class="row" style="gap:4px">${s.facts.map((f) => `<span class="chip" title="${esc(f.field)}">${esc(String(f.value).slice(0, 80))}</span>`).join('')}</div>`).join('')
+          : `<p style="margin:0">${esc(a.text)}</p>${a.not_covered ? `<p class="dim" style="font-size:.85rem;margin:6px 0 0">Not in the record: ${esc(a.not_covered)}</p>` : ''}`}</div>`;
+    } catch (e) { out.innerHTML = `<p class="notice">${esc(e.message)}</p>`; }
+  };
+  $('#askForm').onsubmit = (e) => { e.preventDefault(); const q = $('#askQ').value.trim(); if (q) run(q); };
+  box.querySelectorAll('[data-q]').forEach((b) => (b.onclick = () => { $('#askQ').value = b.dataset.q; run(b.dataset.q); }));
+}
+
 const row = (k, v, cls = '') => (v == null || v === '' ? '' : `<dt>${esc(k)}</dt><dd${cls ? ` class="${cls}"` : ''}>${esc(v)}</dd>`);
 
 async function earthObject(norad) {
@@ -51,13 +78,14 @@ async function earthObject(norad) {
         <h1>${esc(o.name)}</h1>
         <p class="mute">NORAD ${o.norad}${o.intl ? ' · COSPAR ' + esc(o.intl) : ''}${o.type ? ' · ' + esc(TYPES[o.type] || o.type) : ''}</p>
         <div class="row" style="margin:14px 0 20px">
-          <a class="btn primary" href="/?norad=${norad}">Show on globe</a>
+          <a class="btn primary" href="/globe/?norad=${norad}">Show on globe</a>
           <a class="btn" href="/passes/?norad=${norad}">When can I see it?</a>
           <a class="btn" href="/api/v1/objects/${norad}">JSON</a>
           <button class="btn" id="fav" hidden type="button">☆ Favorite</button>
         </div>
         <h2>Summary</h2>
         ${summaryBlock('norad-' + norad, desc, earthOverview(o))}
+        <div id="ask" hidden></div>
         <h2>Key facts</h2>
         <dl class="facts left" style="max-width:560px">
           ${row('Operator', o.operatorName)}${row('Country', o.countryName)}${row('Purpose', PURPOSES[o.purpose].label)}
@@ -90,6 +118,7 @@ async function earthObject(norad) {
   session().then(({ server }) => { if (!server) main.querySelector('a[href^="/api/v1"]')?.remove(); });
   drawTrack(rec);
   favButton(norad);
+  askBox(`norad-${norad}`, o.name, ['How high is it right now?', 'Who operates it, and what is it for?', 'How long does one orbit take?']);
 }
 
 async function favButton(norad) {
@@ -148,6 +177,7 @@ async function curated(kind, slug) {
       <h1>${esc(r.name)}</h1>
       <p style="margin:10px 0 18px">${reviewChip(r)}</p>
       <h2>Summary</h2>${summaryBlock(`${kind}-${slug}`, desc, kind === 'probe' ? probeOverview(r) : siteOverview(r.isOrbiter ? { ...r, kind: undefined } : r, kind))}
+      <div id="ask" hidden></div>
       <h2>Key facts</h2>
       <dl class="facts left" style="max-width:560px">
         ${row('Mission', r.mission)}${row('Operator', r.operator)}${row('Country', r.country)}${row('Launched', r.launch_date && fmtDate(r.launch_date))}
@@ -161,11 +191,14 @@ async function curated(kind, slug) {
     </div><div class="media">${photoFigure(r.photo, r.name)}${modelBlock(r.model)}${!r.photo && !r.model ? '<p class="dim">No freely licensed photo or 3D model is on record.</p>' : ''}</div></div>
     <h2>Sources</h2>${sourcesList([...(r.sources || []), ...(r.wikidata ? [{ title: `Wikidata ${r.wikidata}`, url: `https://www.wikidata.org/wiki/${r.wikidata}`, license: 'CC0' }] : [])])}
     <p class="dim" style="font-size:.82rem">${r.review?.status === 'approved' ? `Reviewed by ${esc(r.review.by)} on ${esc(r.review.on)}.` : 'This record was compiled from the sources above and is awaiting review by a second person. If you spot an error, please tell us.'}</p>`;
+  askBox(`${kind}-${slug}`, r.name, kind === 'probe'
+    ? ['How far away is it right now?', 'How long does its signal take to reach Earth?', 'What has it done?']
+    : r.isOrbiter ? ['When did it reach orbit?', 'Who operates it?'] : ['When did it land?', 'Did the mission succeed?', 'What was special about it?']);
 }
 
 try {
   const n = +params.get('norad'), id = params.get('id');
   if (n) await earthObject(n);
   else if (id && /^(moon|mars|probe):[\w-]+$/.test(id)) await curated(...id.split(':'));
-  else main.innerHTML = '<h1>Find an object</h1><p class="lede">Search on the <a href="/">globe</a>, or browse the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>';
+  else main.innerHTML = '<h1>Find an object</h1><p class="lede">Search on the <a href="/globe/">globe</a>, or browse the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>';
 } catch (e) { main.innerHTML = `<p class="notice">This page could not be loaded (${esc(e.message)}).</p>`; }

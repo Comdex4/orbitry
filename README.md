@@ -2,11 +2,12 @@
 
 Orbitry shows every publicly tracked human-made object in space, from the satellite crossing your sky to the rovers on Mars.
 
-- **Earth globe** (`/`): every active object, colored by orbit, purpose, country or operator. You can search, rewind or fast-forward time, and click an object to trace its orbit. Every view shows how old the data is and how accurate it is.
+- **Landing page** (`/`): live hero globe and live numbers, with a tour of every feature.
+- **Earth globe** (`/globe/`): every active object, colored by orbit, purpose, country or operator. You can search, rewind or fast-forward time, and click an object to trace its orbit. Every view shows how old the data is and how accurate it is.
 - **Moon and Mars** (`/moon/`, `/mars/`): landers, rovers, impact sites and orbiters at their real coordinates, with dates and outcomes.
 - **Deep space** (`/solar-system/`): planets and probes from JPL Horizons, with each probe's distance, speed and signal travel time.
 - **Launches and re-entries** (`/launches/`).
-- **Object pages** (`/object/?norad=25544`, `/object/?id=moon:apollo-11`): photo, 3D model, key facts, a reviewed summary and sources. Each image and model shows its licence.
+- **Object pages** (`/object/?norad=25544`, `/object/?id=moon:apollo-11`): photo, 3D model, key facts, a reviewed summary and sources. Each image and model shows its licence. With an Anthropic API key set, visitors can **ask about the object**: Claude answers only from its record and each sentence shows the facts it used.
 - **Pass predictor** (`/passes/`): ISS, Tiangong, Starlink trains or any object, with times, direction and brightness. A free account adds saved locations, favorites and email alerts.
 - **API and embeds** (`/developers/`): a documented JSON API (a free tier with attribution, and API Pro) and an iframe globe.
 - **Astro planner** (`/planner/`, paid): darkness, Moon, weather and target ranking for your sky and gear, satellite-streak prediction for your exposures, and a nightly email.
@@ -77,6 +78,7 @@ To try the static pages without the Worker, serve `public/` with any static serv
 2. Set secrets with `npx wrangler secret put …`:
    - `RESEND_API_KEY` (verify the sending domain in Resend; `EMAIL_FROM` is in `wrangler.toml`)
    - `IP_SALT`
+   - `ANTHROPIC_API_KEY` turns on **Ask about this object** (optional; set `ASK_MODEL` in `[vars]` to pick the model)
    - `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_API_PRO`, `STRIPE_PRICE_PLANNER`
 3. Point a Stripe webhook at `https://orbitry.net/api/billing/webhook` for `checkout.session.completed` and `customer.subscription.*`, and turn on the customer portal.
 4. Uncomment the `routes` line in `wrangler.toml` once orbitry.net is a Cloudflare zone.

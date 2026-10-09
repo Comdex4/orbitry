@@ -19,12 +19,13 @@
     "review": "node scripts/review.js",
     "vendor": "node scripts/vendor.js"
   },
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "@anthropic-ai/sdk": "0.128.0",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
     "three": "0.185.1",
     "wrangler": "4.137.0",
-    "zod": "4.6.5",
     "satellite.js": "7.1.0"
   }
 }

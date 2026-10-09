@@ -91,7 +91,7 @@ function bindLocationAdd() {
 }
 async function loadFavs() {
   const { favorites } = await getJSON('/api/favorites', {});
-  $('#favList').innerHTML = favorites.map((f) => `<li><span class="grow"><a href="/object/?norad=${f.norad}">${esc(f.name || 'NORAD ' + f.norad)}</a> ${f.in_orbit ? '' : '<span class="chip">no longer in the active catalog</span>'}</span><a class="btn small" href="/?norad=${f.norad}">Globe</a><button class="btn small ghost" data-del="${f.norad}" type="button">Remove</button></li>`).join('') || '<li class="mute">No favorites yet. Use ☆ on the globe or an object page.</li>';
+  $('#favList').innerHTML = favorites.map((f) => `<li><span class="grow"><a href="/object/?norad=${f.norad}">${esc(f.name || 'NORAD ' + f.norad)}</a> ${f.in_orbit ? '' : '<span class="chip">no longer in the active catalog</span>'}</span><a class="btn small" href="/globe/?norad=${f.norad}">Globe</a><button class="btn small ghost" data-del="${f.norad}" type="button">Remove</button></li>`).join('') || '<li class="mute">No favorites yet. Use ☆ on the globe or an object page.</li>';
   del('#favList', '/api/favorites', loadFavs);
 }
 async function loadAlerts() {
@@ -106,5 +106,5 @@ async function loadKeys() {
 }
 
 const { server, user: u } = await session();
-if (!server) main.innerHTML = `<h1>Accounts</h1><p class="lede">${esc(STATIC_NOTE)}</p><p>Everything else works without an account: the <a href="/">globe</a>, <a href="/passes/">pass predictions</a>, the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>`;
+if (!server) main.innerHTML = `<h1>Accounts</h1><p class="lede">${esc(STATIC_NOTE)}</p><p>Everything else works without an account: the <a href="/globe/">globe</a>, <a href="/passes/">pass predictions</a>, the <a href="/moon/">Moon</a>, <a href="/mars/">Mars</a> and <a href="/solar-system/">deep space</a>.</p>`;
 else u ? accountView(u) : signInView();
